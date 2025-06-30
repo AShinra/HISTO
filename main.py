@@ -83,8 +83,7 @@ def archive():
             
             if filtered_df.shape[0] > 0:
                 selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                st.write(cl)
-                st.write(formatted_date_1)
+                st.header(cl)
                 st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
     return
