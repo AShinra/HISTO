@@ -31,17 +31,12 @@ def archive():
     st.title("Archive Data")
 
     with st.container(border=True):
-        col1, col2, col3 = st.columns(3, border=True)
+        col1, col2 = st.columns(2, border=True)
         with col1:
             _date = st.date_input('Date', key='i_date').isoformat()
         with col2:
             client = st.text_input('Client', key='i_client')
-            _brand = st.text_input('Brand', key='i_brand')
-            _desc = st.text_input('Description', key='i_desc')
-        with col3:
-            _qty = st.number_input('Quantity', step=1, key='i_qty')
-            _unit = st.selectbox('Unit', options=['pouch', 'sack', 'box', 'pcs', 'can'], key='i_unit')
-        st.button('Add' , key='add_item', use_container_width=True)
+        st.button('Search' , key='search_archive', use_container_width=True)
     
     try:
         client = get_gsheet_client()
