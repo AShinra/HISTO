@@ -102,3 +102,9 @@ if __name__ == "__main__":
             menu_icon='',
             options=['Input', 'Archive']
         )
+
+    if selected == 'Input':
+        st.write('Input')
+    
+    if selected == 'Archive':
+        st.write('Archive')
