@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
+from datetime import datetime
 
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
@@ -78,7 +79,7 @@ def archive():
 
             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
             st.write(cl)
-            formatted_date_1 = _date.strftime("%y-%b-%d")
+            formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
             st.write(formatted_date_1)
             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
