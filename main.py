@@ -4,6 +4,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
 from datetime import datetime
+import time
 
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
@@ -73,6 +74,7 @@ def archive():
     if b_search:
 
         with st.spinner(text="Reading Archives", show_time=False, width="content"):
+            time.sleep(5)
             if client != []:
                 for cl in _client:
 
