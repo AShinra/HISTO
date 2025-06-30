@@ -31,11 +31,15 @@ def archive():
     st.title("Archive Data")
 
     with st.container(border=True):
+        
         col1, col2 = st.columns(2, border=True)
+        
         with col1:
             _date = st.date_input('Date', key='i_date').isoformat()
+        
         with col2:
-            client = st.text_input('Client', key='i_client')
+            _client = st.text_input('Client', key='i_client')
+    
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
     
     try:
@@ -52,8 +56,13 @@ def archive():
     # if st.session_state['add_item']:
         # sheet.sheet1.append_row([_date, _item, _brand, _desc, _qty, _unit])
         # sheet.sheet1.insert_row([_date, _item, _brand, _desc, _qty, _unit, _edate])
+    
      
     if b_search:
+
+        st.write(_date)
+        st.write(_client)
+
         data = sheet.sheet1.get_all_values()
 
         df = pd.DataFrame(data)
