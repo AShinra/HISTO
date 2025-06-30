@@ -78,7 +78,8 @@ def archive():
 
             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
             st.write(cl)
-            st.write(_date)
+            formatted_date_1 = _date.strftime("%y-%b-%d")
+            st.write(formatted_date_1)
             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
     return
