@@ -51,17 +51,17 @@ def input():
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
 
-    if st.session_state['add_item']:
+    # if st.session_state['add_item']:
         # sheet.sheet1.append_row([_date, _item, _brand, _desc, _qty, _unit])
-        sheet.sheet1.insert_row([_date, _item, _brand, _desc, _qty, _unit, _edate])
-        
+        # sheet.sheet1.insert_row([_date, _item, _brand, _desc, _qty, _unit, _edate])
+     
 
     data = sheet.sheet1.get_all_values()
 
     df = pd.DataFrame(data)
     # df.columns = df.iloc[0]
     # df = df[1:]
-    df.columns = ['Date', 'Item', 'Brand', 'Description', 'Quantity', 'Unit', 'Expiration']
+    # df.columns = ['Date', 'Item', 'Brand', 'Description', 'Quantity', 'Unit', 'Expiration']
     st.dataframe(df, use_container_width=True, hide_index=True)
 
     return
