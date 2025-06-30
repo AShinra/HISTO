@@ -96,4 +96,7 @@ def onhand():
 
 if __name__ == "__main__":
 
-    st.write('Test')
+    selected = option_menu(
+        menu_title='Histo Data :tada:',
+        options=['Input', 'Archive']
+    )
