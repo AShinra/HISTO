@@ -78,7 +78,7 @@ def archive():
                 filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
 
             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-            st.write(cl)
+            # st.write(cl)
             formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
             st.write(formatted_date_1)
             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
