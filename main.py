@@ -72,15 +72,17 @@ def archive():
     if b_search:
 
         for cl in _client:
+
+            formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
+            formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
+
             if _date_all:
                 filtered_df = df[(df['CLIENT NAME'] == cl)]   
             else:
-                filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
+                filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
 
             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
             # st.write(cl)
-            formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-            formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
             st.write(formatted_date_1)
             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
