@@ -71,13 +71,13 @@ def archive():
         st.write(_client)
 
         data = sheet.sheet1.get_all_values()
-        client_list = df['CLIENT NAME'].tolist()
-        st.write(client_list)
 
         df = pd.DataFrame(data)
         df.columns = df.iloc[0]
         df = df[1:]
         # df.columns = ['Date', 'Item', 'Brand', 'Description', 'Quantity', 'Unit', 'Expiration']
+        client_list = df['CLIENT NAME'].tolist()
+        st.write(client_list)
         st.dataframe(df, use_container_width=True, hide_index=True)
 
     return
