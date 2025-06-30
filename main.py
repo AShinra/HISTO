@@ -99,5 +99,6 @@ if __name__ == "__main__":
     with st.sidebar:
         selected = option_menu(
             menu_title='Histo Data',
+            menu_icon='',
             options=['Input', 'Archive']
         )
