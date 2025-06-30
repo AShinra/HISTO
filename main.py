@@ -51,7 +51,7 @@ def archive():
         df = df[1:]
 
         client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list.sort)
+        client_list = sorted(client_list)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
