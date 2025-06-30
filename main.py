@@ -81,7 +81,7 @@ def archive():
             else:
                 filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
             
-            if filtered_df != df.empty:
+            if filtered_df.shape > 0:
                 selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
                 st.write(cl)
                 st.write(formatted_date_1)
