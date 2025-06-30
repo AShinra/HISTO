@@ -59,7 +59,7 @@ def archive():
         col1, col2 = st.columns(2, border=True)
         
         with col1:
-            _date = st.date_input('Date', key='i_date').isoformat()
+            _date = st.date_input('Date', key='i_date')
             _date_all = st.checkbox('All')
         
         with col2:
