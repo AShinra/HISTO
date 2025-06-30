@@ -70,10 +70,9 @@ def archive():
         st.write(_date)
         st.write(_client)
 
-        client_list = sheet.sheet1.get_values(range_name='CLIENT NAME')
-        st.write(client_list)
-
         data = sheet.sheet1.get_all_values()
+        client_list = df['CLIENT NAME'].tolist()
+        st.write(client_list)
 
         df = pd.DataFrame(data)
         df.columns = df.iloc[0]
