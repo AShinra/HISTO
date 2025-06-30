@@ -78,7 +78,7 @@ def archive():
             formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
 
             if _date_all:
-                filtered_df = df[(df['CLIENT NAME'] == cl)]   
+                filtered_df = df[(df['CLIENT NAME'] == cl)]
             else:
                 filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
             
