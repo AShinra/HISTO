@@ -62,7 +62,7 @@ def archive():
             _date = st.date_input('Date', key='i_date').isoformat()
         
         with col2:
-            _client = st.text_input('Client', key='i_client')
+            # _client = st.text_input('Client', key='i_client')
             _client = st.multiselect('Client', options=client_list)
     
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
