@@ -80,11 +80,12 @@ def archive():
                 filtered_df = df[(df['CLIENT NAME'] == cl)]   
             else:
                 filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
-
-            selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-            st.write(cl)
-            st.write(formatted_date_1)
-            st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+            
+            if filtered_df != df.empty():
+                selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                st.write(cl)
+                st.write(formatted_date_1)
+                st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
     return
 
