@@ -37,6 +37,23 @@ def input():
 def archive():
     st.title("Archive Data")
 
+    
+    try:
+        client = get_gsheet_client()
+        sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
+        sheet = client.open_by_key(sheet_id)
+
+        data = sheet.sheet1.get_all_values()
+
+        df = pd.DataFrame(data)
+        df.columns = df.iloc[0]
+        df = df[1:]
+
+        client_list = df['CLIENT NAME'].unique()
+
+    except Exception as e:
+        st.error(f"Error accessing Google Sheet: {e}")
+
     with st.container(border=True):
         
         col1, col2 = st.columns(2, border=True)
@@ -46,38 +63,17 @@ def archive():
         
         with col2:
             _client = st.text_input('Client', key='i_client')
+            _client = st.multiselect('Client', options=client_list)
     
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
-    
-    try:
-        client = get_gsheet_client()
-        # sheet = client.open("Your Google Sheet Name").sheet1  # Update with your sheet name
-        sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
-        sheet = client.open_by_key(sheet_id)
-        # values_list = sheet.sheet1.row_values(1)
-        # st.write(values_list)
-
-    except Exception as e:
-        st.error(f"Error accessing Google Sheet: {e}")
-
-    # if st.session_state['add_item']:
-        # sheet.sheet1.append_row([_date, _item, _brand, _desc, _qty, _unit])
-        # sheet.sheet1.insert_row([_date, _item, _brand, _desc, _qty, _unit, _edate])
-    
+        
      
     if b_search:
 
         st.write(_date)
         st.write(_client)
 
-        data = sheet.sheet1.get_all_values()
 
-        df = pd.DataFrame(data)
-        df.columns = df.iloc[0]
-        df = df[1:]
-        # df.columns = ['Date', 'Item', 'Brand', 'Description', 'Quantity', 'Unit', 'Expiration']
-        client_list = df['CLIENT NAME'].unique()
-        st.write(client_list)
         st.dataframe(df, use_container_width=True, hide_index=True)
 
     return
