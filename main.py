@@ -28,15 +28,14 @@ def input():
     return
 
 def archive():
-    st.title("Delivery Tracker")
+    st.title("Archive Data")
 
     with st.container(border=True):
         col1, col2, col3 = st.columns(3, border=True)
         with col1:
-            _date = st.date_input('Delivery Date', key='i_date').isoformat()
-            _edate = st.date_input('Expiration Date', key='i_edate').isoformat()
+            _date = st.date_input('Date', key='i_date').isoformat()
         with col2:
-            _item = st.text_input('Item', key='i_item')
+            client = st.text_input('Client', key='i_client')
             _brand = st.text_input('Brand', key='i_brand')
             _desc = st.text_input('Description', key='i_desc')
         with col3:
