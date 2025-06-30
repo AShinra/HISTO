@@ -72,21 +72,22 @@ def archive():
      
     if b_search:
 
-        if client != []:
-            for cl in _client:
+        with st.spinner(text="Reading Archives", show_time=False, width="content"):
+            if client != []:
+                for cl in _client:
 
-                formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-                formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
+                    formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
+                    formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
 
-                if _date_all:
-                    filtered_df = df[(df['CLIENT NAME'] == cl)]
-                else:
-                    filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
-                
-                if filtered_df.shape[0] > 0:
-                    selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                    st.header(cl)
-                    st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+                    if _date_all:
+                        filtered_df = df[(df['CLIENT NAME'] == cl)]
+                    else:
+                        filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
+                    
+                    if filtered_df.shape[0] > 0:
+                        selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                        st.header(cl)
+                        st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
     return
 
