@@ -70,11 +70,13 @@ def archive():
      
     if b_search:
 
-        st.write(_date)
-        st.write(_client)
+        for cl in client_list:
+            filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
+            st.dataframe(filtered_df, use_container_width=True, hide_index=True)
 
+        
 
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        # st.dataframe(df, use_container_width=True, hide_index=True)
 
     return
 
