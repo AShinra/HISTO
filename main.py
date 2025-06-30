@@ -23,7 +23,7 @@ def get_gsheet_client():
     client = gspread.authorize(credentials)
     return client
 
-def input():
+def archive():
     st.title("Delivery Tracker")
 
     with st.container(border=True):
@@ -107,4 +107,4 @@ if __name__ == "__main__":
         input()
     
     if selected == 'Archive':
-        st.write('Archive')
+        archive()
