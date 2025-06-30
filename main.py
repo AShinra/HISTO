@@ -72,7 +72,9 @@ def archive():
 
         for cl in _client:
             filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
-            st.dataframe(filtered_df, use_container_width=True, hide_index=True)
+            selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+            st.write(cl)
+            st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
         
 
