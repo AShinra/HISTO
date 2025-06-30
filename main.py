@@ -23,6 +23,13 @@ def get_gsheet_client():
     client = gspread.authorize(credentials)
     return client
 
+
+def get_client_names(df):
+
+
+    return
+
+
 def input():
 
     return
@@ -62,6 +69,9 @@ def archive():
 
         st.write(_date)
         st.write(_client)
+
+        client_list = sheet.sheet1.get_values(1)
+        st.write(client_list)
 
         data = sheet.sheet1.get_all_values()
 
