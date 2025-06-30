@@ -60,10 +60,10 @@ def archive():
         
         with col1:
             _date = st.date_input('Date', key='i_date').isoformat()
+            _date_all = st.checkbox('All')
         
         with col2:
-            # _client = st.text_input('Client', key='i_client')
-            _client = st.multiselect('Client', options=client_list)
+            _client = st.multiselect('Client', key='i_client', options=client_list)
     
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
         
@@ -71,14 +71,14 @@ def archive():
     if b_search:
 
         for cl in _client:
-            filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
+            if _date_all:
+                filtered_df = df[(df['CLIENT NAME'] == cl)]   
+            else:
+                filtered_df = df[(df['DATE'] == _date) & (df['CLIENT NAME'] == cl)]
+
             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
             st.write(cl)
             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
-
-        
-
-        # st.dataframe(df, use_container_width=True, hide_index=True)
 
     return
 
