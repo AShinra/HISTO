@@ -70,7 +70,7 @@ def archive():
         st.write(_date)
         st.write(_client)
 
-        client_list = sheet.sheet1.get_values(1)
+        client_list = sheet.sheet1.get_values(range(1))
         st.write(client_list)
 
         data = sheet.sheet1.get_all_values()
