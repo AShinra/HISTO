@@ -23,6 +23,10 @@ def get_gsheet_client():
     client = gspread.authorize(credentials)
     return client
 
+def input():
+
+    return
+
 def archive():
     st.title("Delivery Tracker")
 
