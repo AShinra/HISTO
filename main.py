@@ -96,7 +96,8 @@ def onhand():
 
 if __name__ == "__main__":
 
-    selected = option_menu(
-        menu_title='Histo Data :tada:',
-        options=['Input', 'Archive']
-    )
+    with st.sidebar:
+        selected = option_menu(
+            menu_title='Histo Data :tada:',
+            options=['Input', 'Archive']
+        )
