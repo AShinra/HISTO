@@ -85,6 +85,7 @@ def archive():
                     if _date_all:
                         filtered_df = df[(df['CLIENT NAME'] == cl)]
                     else:
+                        st.write(type(df['DATE']))
                         filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
                     
                     if filtered_df.shape[0] > 0:
