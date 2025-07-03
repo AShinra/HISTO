@@ -79,7 +79,7 @@ def archive():
                 for cl in _client:
 
                     formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-                    # formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
+                    formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%y')
                     st.write(formatted_date_1)
 
                     if _date_all:
