@@ -63,7 +63,7 @@ def archive():
         
         with col1:
             _date = st.date_input('Date', key='i_date').isoformat()
-            _date_all = st.checkbox('All', help='Selects all Dates containing Selected Client/s')
+            _date_all = st.checkbox('All', help='Selects all Dates for selected Client/s')
         
         with col2:
             _client = st.multiselect('Client', key='i_client', options=client_list)
