@@ -80,6 +80,7 @@ def archive():
 
                     formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                     formatted_date_1 = formatted_date_1.strftime('%d-%b-%y')
+                    st.write(formatted_date_1)
 
                     if _date_all:
                         filtered_df = df[(df['CLIENT NAME'] == cl)]
