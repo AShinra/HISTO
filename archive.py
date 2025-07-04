@@ -1,7 +1,5 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import gspread
-from google.oauth2.service_account import Credentials
 import pandas as pd
 from datetime import datetime
 import time
@@ -33,11 +31,11 @@ def archive(client):
         col1, col2 = st.columns(2, border=True)
         
         with col1:
-            _date = st.date_input('Date', key='i_date').isoformat()
+            _date = st.date_input('Date', key='a_date').isoformat()
             _date_all = st.checkbox('All', help='Selects all Dates for selected Client/s')
         
         with col2:
-            _client = st.multiselect('Client', key='i_client', options=client_list)
+            _client = st.multiselect('Client', key='a_client', options=client_list)
     
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
         
