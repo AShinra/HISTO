@@ -17,10 +17,11 @@ def input(client, client_list):
         
         with col1:
             input_date = st.date_input('Date', key='i_date').isoformat()
-            input_date_all = st.checkbox('All', help='Selects all Dates for selected Client/s')
         
         with col2:
             input_client = st.multiselect('Client', key='i_client', options=client_list)
+        
+        input_hyperlink = st.text_input('Hyperlink')
     
         b_search = st.button('Search' , key='search_archive', use_container_width=True)
 
