@@ -5,6 +5,15 @@ from datetime import datetime
 import time
 
 
+@st.cache_data
+def load_data(_date, client, link):
+
+    data = {'DATE':[], 'CLIENT':[], 'LINK':[]}
+
+    data['DATE'].append(_date)
+
+
+    return data
 
 
 def input(client, client_list):
@@ -30,11 +39,7 @@ def input(client, client_list):
 
     if b_add:
 
-        data = {
-            'DATE':[input_date],
-            'CLIENT':[input_client],
-            'LINK':[input_hyperlink]
-        }
+        data = load_data(input_date, input_client, input_hyperlink)
 
         df = pd.DataFrame(data)
 
