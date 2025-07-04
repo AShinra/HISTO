@@ -30,7 +30,7 @@ def input(client, client_list):
 
     if b_add:
 
-        datd = {
+        data = {
             'DATE':[input_date],
             'CLIENT':[input_client],
             'LINK':[input_hyperlink]
