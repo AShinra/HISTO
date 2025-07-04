@@ -23,7 +23,7 @@ def input(client, client_list):
         
         input_hyperlink = st.text_input('Hyperlink')
     
-        b_search = st.button('Search' , key='search_archive', use_container_width=True)
+        b_add = st.button('Add to List' , key='search_archive', use_container_width=True)
 
 
 
