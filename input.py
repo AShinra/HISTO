@@ -9,6 +9,8 @@ import time
 
 def input(client, client_list):
 
+    data = {}
+
     st.title("Data Entry")
 
     with st.container(border=True):
@@ -23,7 +25,20 @@ def input(client, client_list):
         
         input_hyperlink = st.text_input('Hyperlink')
     
-        b_add = st.button('Add to List' , key='search_archive', use_container_width=True)
+        b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
+
+
+    if b_add:
+
+        datd = {
+            'DATE':[input_date],
+            'CLIENT':[input_client],
+            'LINK':[input_hyperlink]
+        }
+
+        df = pd.DataFrame(data)
+
+        st.dataframe(df)
 
 
 
