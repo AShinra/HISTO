@@ -48,9 +48,10 @@ if __name__ == "__main__":
             options=['Input', 'Archive']
         )
 
+    client = get_gsheet_client()
+    client_list = []
     if selected == 'Input':
-        input()
+        input(client, client_list)
     
     if selected == 'Archive':
-        client = get_gsheet_client()
         archive(client)
