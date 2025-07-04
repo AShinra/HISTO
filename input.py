@@ -7,7 +7,7 @@ import time
 
 
 
-def input(client):
+def input(client, client_list):
 
     st.title("Data Entry")
 
