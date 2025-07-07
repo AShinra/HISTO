@@ -52,7 +52,7 @@ def input(client, client_list):
         with col21:
             b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
         with col22:
-            b_submit = st.button('Submit Data')
+            b_submit = st.button('Submit Data', use_container_width=True)
 
     if b_add:
 
