@@ -54,7 +54,7 @@ def input(client, client_list):
 
         st.dataframe(df1)
 
-        df2 = pd.DataFrame({"DATE":input_date, "CLIENT NAME":input_client, "TIER":input_tier, "LINK":input_hyperlink})
+        df2 = pd.DataFrame({"DATE":[input_date], "CLIENT NAME":[input_client], "TIER":[input_tier], "LINK":[input_hyperlink]})
 
         st.dataframe(df2)
 
