@@ -24,8 +24,10 @@ def input(client, client_list):
 
 
     try:
-        sheet = client.spreadsheet.get_worksheet_by_id(1159763270)
-        data = sheet.get_all_values()
+        sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
+        sheet = client.open_by_key(sheet_id)
+        worksheet = sheet.worksheet(id=1159763270)
+        data = worksheet.get_all_values()
         st.write(data)
 
     except Exception as e:
