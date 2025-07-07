@@ -65,7 +65,7 @@ def input(client, client_list):
         b_submit = st.button('Submit Data')
 
         if b_submit:
-            sheet.worksheet('TEMP').batch_clear(["A2:D2"])
+            sheet.worksheet('TEMP').update_cell(2,2, "")
 
 	
 
