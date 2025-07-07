@@ -30,10 +30,8 @@ def input(client, client_list):
 
         df = pd.DataFrame(data)
         df.columns = df.iloc[0]
-        df = df[1:]
+        df = df[1:]               
         
-        
-        st.dataframe(df)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
@@ -52,13 +50,9 @@ def input(client, client_list):
     
         b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
 
-    # if b_add:
+    if b_add:
 
-    #     data = load_data(input_date, input_client, input_hyperlink)
-
-    #     df = pd.DataFrame(data)
-
-    #     st.dataframe(df)
+        st.dataframe(df)
 
 
 
