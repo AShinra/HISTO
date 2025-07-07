@@ -42,11 +42,10 @@ def input(client, client_list):
         
         with col1:
             input_date = st.date_input('Date', key='i_date').isoformat()
-        
-        with col2:
             input_client = st.multiselect('Client', key='i_client', options=client_list)
-        
-        input_hyperlink = st.text_input('Hyperlink')
+        with col2:
+            input_tier = st.text_input('Tier')
+            input_hyperlink = st.text_input('Hyperlink')
     
         b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
 
