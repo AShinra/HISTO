@@ -28,9 +28,9 @@ def input(client, client_list):
         sheet = client.open_by_key(sheet_id)
         data = sheet.worksheet('TEMP').get_all_values()
 
-        df = pd.DataFrame(data)
-        df.columns = df.iloc[0]
-        df = df[1:]               
+        df1 = pd.DataFrame(data)
+        df1.columns = df1.iloc[0]
+        df1 = df1[1:]               
         
 
     except Exception as e:
@@ -51,8 +51,8 @@ def input(client, client_list):
 
     if b_add:
 
-        df_new = pd.DataFrame({"DATE":input_date, "CLIENT NAME":input_client, "TIER":input_tier, "LINK":input_hyperlink})
-        df = df.append(df_new)
+        df2 = pd.DataFrame({"DATE":input_date, "CLIENT NAME":input_client, "TIER":input_tier, "LINK":input_hyperlink})
+        df = df1.append(df2)
         st.dataframe(df)
 	
 
