@@ -22,6 +22,15 @@ def input(client, client_list):
 
     st.title("Data Entry")
 
+
+    try:
+        sheet_name = client.open("TEMP").sheet1  # Update with your sheet name
+        values_list = sheet_name.sheet1.row_values(1)
+        st.write(values_list)
+        
+    except Exception as e:
+        st.error(f"Error accessing Google Sheet: {e}")
+        
     with st.container(border=True):
         
         col1, col2 = st.columns(2, border=True)
@@ -36,14 +45,13 @@ def input(client, client_list):
     
         b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
 
+    # if b_add:
 
-    if b_add:
+    #     data = load_data(input_date, input_client, input_hyperlink)
 
-        data = load_data(input_date, input_client, input_hyperlink)
+    #     df = pd.DataFrame(data)
 
-        df = pd.DataFrame(data)
-
-        st.dataframe(df)
+    #     st.dataframe(df)
 
 
 
