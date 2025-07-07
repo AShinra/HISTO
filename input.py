@@ -26,11 +26,11 @@ def input(client, client_list):
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
-        data = sheet.worksheet('TEMP').get_all_values()
+        # data = sheet.worksheet('TEMP').get_all_values()
 
-        df1 = pd.DataFrame(data)
-        df1.columns = df1.iloc[0]
-        df1 = df1[1:]               
+        # df1 = pd.DataFrame(data)
+        # df1.columns = df1.iloc[0]
+        # df1 = df1[1:]               
         
 
     except Exception as e:
