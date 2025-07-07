@@ -32,7 +32,7 @@ def input(client, client_list):
 
         data = sheet.sheet1.get_all_values()
         
-        # st.write(data)
+        st.write(data)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
