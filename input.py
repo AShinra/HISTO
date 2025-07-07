@@ -24,10 +24,10 @@ def input(client, client_list):
 
 
     try:
-        sheet_name = client.open("TEMP").sheet1  # Update with your sheet name
-        values_list = sheet_name.sheet1.row_values(1)
-        st.write(values_list)
-        
+        sheet = client.spreadsheet.get_worksheet_by_id(1159763270)
+        data = sheet.get_all_values()
+        st.write(data)
+
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
         
