@@ -49,6 +49,7 @@ def input(client, client_list):
             input_hyperlink = st.text_input('Hyperlink')
     
         b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
+        b_submit = st.button('Submit Data')
 
     if b_add:
 
@@ -62,10 +63,9 @@ def input(client, client_list):
 
         st.dataframe(df1)
 
-        b_submit = st.button('Submit Data')
 
-        if b_submit:
-            sheet.worksheet('TEMP').update_cell(2,2, "")
+    if b_submit:
+        sheet.worksheet('TEMP').update_cell(2,2, "")
 
 	
 
