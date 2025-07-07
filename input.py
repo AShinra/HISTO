@@ -58,8 +58,8 @@ def input(client, client_list):
 
         st.dataframe(df2)
 
-        df = df1.append(df2, ignore_index=True)
-        st.dataframe(df)
+        # df = df1.append(df2, ignore_index=True)
+        # st.dataframe(df)
 
         sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
 	
