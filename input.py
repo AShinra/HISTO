@@ -52,16 +52,16 @@ def input(client, client_list):
 
     if b_add:
 
+        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
+
+        data = sheet.worksheet('TEMP').get_all_values()
+
+        df1 = pd.DataFrame(data)
+        df1.columns = df1.iloc[0]
+        df1 = df1[1:]
+
         st.dataframe(df1)
 
-        df2 = pd.DataFrame({"DATE":[input_date], "CLIENT NAME":[input_client], "TIER":[input_tier], "LINK":[input_hyperlink]})
-
-        st.dataframe(df2)
-
-        # df = df1.append(df2, ignore_index=True)
-        # st.dataframe(df)
-
-        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
 	
 
     return
