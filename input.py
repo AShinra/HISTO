@@ -68,7 +68,12 @@ def input(client, client_list):
 
 
     if b_submit:
-        sheet.worksheet('TEMP').batch_clear(["A2:D100"])
+
+        data = sheet.worksheet('TEMP').get_all_values()
+        for i in data:
+            st.write(i)
+
+        # sheet.worksheet('TEMP').batch_clear(["A2:D100"])
 
 	
 
