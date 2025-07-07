@@ -26,13 +26,14 @@ def input(client, client_list):
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
-        for i in sheet:
-            st.write(i)
         data = sheet.worksheet('TEMP').get_all_values()
 
-        # data = sheet.sheet1.get_all_values()
+        df = pd.DataFrame(data)
+        df.columns = df.iloc[0]
+        df = df[1:]
         
-        st.write(data)
+        
+        st.dataframe(df)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
