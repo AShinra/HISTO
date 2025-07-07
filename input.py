@@ -70,7 +70,7 @@ def input(client, client_list):
     if b_submit:
 
         data = sheet.worksheet('TEMP').get_all_values()
-        for idx, i in data:
+        for idx, i in enumerate(data):
             st.write(idx)
             
 
