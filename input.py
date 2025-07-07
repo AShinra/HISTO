@@ -54,6 +54,9 @@ def input(client, client_list):
         st.dataframe(df1)
 
         df2 = pd.DataFrame({"DATE":input_date, "CLIENT NAME":input_client, "TIER":input_tier, "LINK":input_hyperlink})
+
+        st.dataframe(df2)
+
         df = df1.append(df2)
         st.dataframe(df)
 	
