@@ -27,7 +27,7 @@ def input(client, client_list):
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
         for i in sheet:
-            st.write(i.name)
+            st.write(i)
         data = sheet.worksheet('TEMP')
 
         # data = sheet.sheet1.get_all_values()
