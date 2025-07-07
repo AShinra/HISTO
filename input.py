@@ -47,9 +47,12 @@ def input(client, client_list):
         with col2:
             input_tier = st.text_input('Tier')
             input_hyperlink = st.text_input('Hyperlink')
-    
-        b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
-        b_submit = st.button('Submit Data')
+
+        col21, col22 = st.columns(2, border=True)
+        with col21:
+            b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
+        with col22:
+            b_submit = st.button('Submit Data')
 
     if b_add:
 
