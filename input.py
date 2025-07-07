@@ -62,6 +62,11 @@ def input(client, client_list):
 
         st.dataframe(df1)
 
+        b_submit = st.button('Submit Data')
+
+        if b_submit:
+            sheet.worksheet('TEMP').values().clear()
+
 	
 
     return
