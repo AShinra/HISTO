@@ -51,8 +51,9 @@ def input(client, client_list):
 
     if b_add:
 
+        df_new = pd.DataFrame({"DATE":input_date, "CLIENT NAME":input_client, "TIER":input_tier, "LINK":input_hyperlink})
+        df = df.append(df_new)
         st.dataframe(df)
-
-
+	
 
     return
