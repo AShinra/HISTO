@@ -65,7 +65,7 @@ def input(client, client_list):
         b_submit = st.button('Submit Data')
 
         if b_submit:
-            sheet.values_clear('TEMP!A2:Z')
+            sheet.worksheet('TEMP').values_clear("A1:Z100")
 
 	
 
