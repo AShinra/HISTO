@@ -33,6 +33,8 @@ def input(client, client_list):
         col1, col2 = st.columns(2, border=True)
         with col1:
             input_date = st.date_input('Date', key='i_date').isoformat()
+            input_date = datetime.strptime(input_date, '%Y-%m-%d')
+            input_date_1 = input_date.strftime('%-m/%-d/%Y')
             # input_client = st.multiselect('Client', key='i_client', options=client_list)
             input_client = st.text_input('Client')
         with col2:
