@@ -79,6 +79,10 @@ def input(client, client_list):
             st.dataframe(df1)
         
         st.success('Added to Archives!!!')
+    
+    if b_clear:
+        sheet.worksheet('TEMP').batch_clear(["A2:D100"])
+        st.warning('Deleted all Entry!!!')
 
 	
 
