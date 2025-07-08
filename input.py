@@ -75,6 +75,13 @@ def input(client, client_list):
 
         sheet.worksheet('TEMP').batch_clear(["A2:D100"])
 
+        with col21:
+            data = sheet.worksheet('TEMP').get_all_values()
+            df1 = pd.DataFrame(data)
+            df1.columns = df1.iloc[0]
+            df1 = df1[1:]
+            st.dataframe(df1)
+
 	
 
     return
