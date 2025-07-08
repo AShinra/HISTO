@@ -73,7 +73,7 @@ def input(client, client_list):
                 sheet.worksheet('ARCHIVE').append_row(i)
             
 
-        # sheet.worksheet('TEMP').batch_clear(["A2:D100"])
+        sheet.worksheet('TEMP').batch_clear(["A2:D100"])
 
 	
 
