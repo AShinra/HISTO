@@ -26,20 +26,11 @@ def input(client, client_list):
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
-        # data = sheet.worksheet('TEMP').get_all_values()
-
-        # df1 = pd.DataFrame(data)
-        # df1.columns = df1.iloc[0]
-        # df1 = df1[1:]               
-        
-
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
         
     with st.container(border=True):
-        
         col1, col2 = st.columns(2, border=True)
-        
         with col1:
             input_date = st.date_input('Date', key='i_date').isoformat()
             # input_client = st.multiselect('Client', key='i_client', options=client_list)
@@ -48,10 +39,15 @@ def input(client, client_list):
             input_tier = st.text_input('Tier')
             input_hyperlink = st.text_input('Hyperlink')
 
-        col21, col22 = st.columns(2, border=True)
+        col21, col22 = st.columns([0.7, 0.3], border=True)
         with col21:
-            b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
+            data = sheet.worksheet('TEMP').get_all_values()
+            df1 = pd.DataFrame(data)
+            df1.columns = df1.iloc[0]
+            df1 = df1[1:]
+            st.dataframe()
         with col22:
+            b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
             b_submit = st.button('Submit Data', use_container_width=True)
 
     if b_add:
@@ -71,7 +67,10 @@ def input(client, client_list):
 
         data = sheet.worksheet('TEMP').get_all_values()
         for idx, i in enumerate(data):
-            st.write(idx)
+            if idx == 0:
+                continue
+            else:
+                sheet.worksheet('ARCHIVE').append_row(i)
             
 
         # sheet.worksheet('TEMP').batch_clear(["A2:D100"])
