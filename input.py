@@ -43,8 +43,10 @@ def input(client, client_list):
 
         data_area, col22 = st.columns([0.7, 0.3], border=True)
         with col22:
-            b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
-            b_submit = st.button('Submit Data', use_container_width=True)
+            b_add = st.button('Add' , key='input_archive', use_container_width=True)
+            b_clear = st.button('Clear', use_container_width=True)
+            b_delete = st.button('Delete', use_container_width=True)
+            b_submit = st.button('Submit', use_container_width=True)
 
     if b_add:
 
