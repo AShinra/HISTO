@@ -45,7 +45,7 @@ def input(client, client_list):
             df1 = pd.DataFrame(data)
             df1.columns = df1.iloc[0]
             df1 = df1[1:]
-            st.dataframe()
+            st.dataframe(df1)
         with col22:
             b_add = st.button('Add to List' , key='input_archive', use_container_width=True)
             b_submit = st.button('Submit Data', use_container_width=True)
@@ -54,13 +54,13 @@ def input(client, client_list):
 
         sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
 
-        data = sheet.worksheet('TEMP').get_all_values()
+        # data = sheet.worksheet('TEMP').get_all_values()
 
-        df1 = pd.DataFrame(data)
-        df1.columns = df1.iloc[0]
-        df1 = df1[1:]
+        # df1 = pd.DataFrame(data)
+        # df1.columns = df1.iloc[0]
+        # df1 = df1[1:]
 
-        st.dataframe(df1)
+        # st.dataframe(df1)
 
 
     if b_submit:
