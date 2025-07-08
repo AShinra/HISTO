@@ -45,12 +45,12 @@ if __name__ == "__main__":
         selected = option_menu(
             menu_title='Histo Data',
             menu_icon='',
-            options=['Input', 'Archive']
+            options=['Entry', 'Archive', 'Summary']
         )
 
     client = get_gsheet_client()
     client_list = []
-    if selected == 'Input':
+    if selected == 'Entry':
         input(client, client_list)
     
     if selected == 'Archive':
