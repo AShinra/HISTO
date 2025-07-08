@@ -41,7 +41,7 @@ def input(client, client_list):
             input_tier = st.text_input('Tier')
             input_hyperlink = st.text_input('Hyperlink')
 
-        data_area, col22 = st.columns([0.7, 0.3], border=True)
+        data_area, col22 = st.columns([0.8, 0.2], border=True)
         with col22:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
             b_clear = st.button('Clear', use_container_width=True)
