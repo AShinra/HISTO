@@ -46,7 +46,7 @@ def input(client, client_list):
 
     if b_add:
 
-        sheet.worksheet('TEMP').append_row([input_date.isoformat(), input_client, input_tier, input_hyperlink])
+        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
         with data_area:
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
