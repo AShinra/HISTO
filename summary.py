@@ -30,7 +30,7 @@ def summary(client):
 
     for cl in client_list:
         st.write(cl)
-        cl_count = (df['CLIENT NAME'] == cl).count()
+        cl_count = (df['CLIENT NAME'] == cl).value_counts()
         st.write(f'{cl} - {cl_count}')
 
     
