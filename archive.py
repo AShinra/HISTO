@@ -83,7 +83,9 @@ def archive(client):
                 for cl in new_cl:
                     st.header(cl)
                     new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
-                    st.dataframe(new_df)
+                    selected_columns = new_df[['DATE', 'TIER', 'LINK']]
+                    st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+                    
             
             elif radio_options == 'All Dates':
                 if _client == []:
