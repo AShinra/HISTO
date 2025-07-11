@@ -30,16 +30,14 @@ def archive(client):
         col1, col2, col3 = st.columns([0.3, 0.4, 0.3], border=True)
         
         with col1:
-            _date = st.date_input('Date', key='a_date').isoformat()
+            _date = st.date_input('DATE', key='a_date').isoformat()
     
-        
         with col2:
-            _client = st.multiselect('Client', key='a_client', options=client_list)
-            # _date_all = st.checkbox('All Dates', help='Selects all Dates for selected Client/s')
-
+            _client = st.multiselect('CLIENT', key='a_client', options=client_list)
+        
         with col3:
             radio_options = st.radio(
-                label='Options',
+                label='OPTIONS',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
     
@@ -104,25 +102,5 @@ def archive(client):
             
 
 
-            # if _client != []:
-            #     for cl in _client:
-
-            #         formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-            #         formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
-
-            #         if _date_all:
-            #             filtered_df = df[(df['CLIENT NAME'] == cl)]
-            #         else:
-            #             filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
-                    
-            #         if filtered_df.shape[0] > 0:
-            #             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-            #             st.header(cl)
-            #             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
-            #         elif filtered_df.shape[0] == 0:
-            #             st.error('No Data Found')
-
-            # elif _client == []:
-            #     st.error('Select a client from the list')
-
+            
     return

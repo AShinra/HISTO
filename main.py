@@ -8,6 +8,7 @@ import time
 
 from archive import archive
 from input import input
+from summary import summary
 
 
 def get_gsheet_client():
@@ -55,3 +56,6 @@ if __name__ == "__main__":
     
     if selected == 'Archive':
         archive(client)
+    
+    if selected == 'Summary':
+        summary(client)
