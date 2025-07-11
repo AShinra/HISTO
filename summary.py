@@ -32,7 +32,8 @@ def summary(client):
 
     with col1:
         st.header('Client Misses')
-        st.dataframe(df['CLIENT NAME'].value_counts().sort_values(by='CLIENT NAME', ascending=True))
+        i = df['CLIENT NAME'].value_counts()
+        st.dataframe(i.sort_values(by='CLIENT NAME', ascending=True))
     
     with col2:
         st.header('Missed per Date')
