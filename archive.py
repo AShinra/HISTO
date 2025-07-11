@@ -90,7 +90,10 @@ def archive(client):
                     st.error('No Client/s Selected')
                 else:
                     for cl in _client:
-                        filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
+                        st.header(cl)
+                        filtered_df = df[df['CLIENT NAME'] == cl]
+                        st.dataframe(filtered_df)
+
                     
 
 
