@@ -33,6 +33,10 @@ def summary(client):
     with col1:
         st.header('Client Misses')
         st.dataframe(df['CLIENT NAME'].value_counts())
+    
+    with col2:
+        st.header('Missed per Date')
+        st.dataframe(df['DATE'].value_counts())
 
 
 
