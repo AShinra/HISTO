@@ -27,43 +27,51 @@ def archive(client):
         st.error(f"Error accessing Google Sheet: {e}")
 
     with st.container(border=True):
-        
         col1, col2 = st.columns(2, border=True)
         
         with col1:
             _date = st.date_input('Date', key='a_date').isoformat()
-            _date_all = st.checkbox('All', help='Selects all Dates for selected Client/s')
+    
         
         with col2:
             _client = st.multiselect('Client', key='a_client', options=client_list)
+            # _date_all = st.checkbox('All Dates', help='Selects all Dates for selected Client/s')
     
-        b_search = st.button('Search' , key='search_archive', use_container_width=True)
+    with st.container(border=True):
+        st.radio(
+            label='Options',
+            options=['Off', 'All Dates', 'All Clients'],
+            horizontal=True)
+    
+    b_search = st.button('Search' , key='search_archive', use_container_width=True)
         
      
     if b_search:
 
         with st.spinner(text="Reading Archives", show_time=False, width="content"):
             time.sleep(5)
-            if _client != []:
-                for cl in _client:
 
-                    formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-                    formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
-                    st.write(formatted_date_1)
 
-                    if _date_all:
-                        filtered_df = df[(df['CLIENT NAME'] == cl)]
-                    else:
-                        filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
+
+            # if _client != []:
+            #     for cl in _client:
+
+            #         formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
+            #         formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
+
+            #         if _date_all:
+            #             filtered_df = df[(df['CLIENT NAME'] == cl)]
+            #         else:
+            #             filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
                     
-                    if filtered_df.shape[0] > 0:
-                        selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                        st.header(cl)
-                        st.dataframe(selected_columns, use_container_width=True, hide_index=True)
-                    elif filtered_df.shape[0] == 0:
-                        st.error('No Data Found')
+            #         if filtered_df.shape[0] > 0:
+            #             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+            #             st.header(cl)
+            #             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+            #         elif filtered_df.shape[0] == 0:
+            #             st.error('No Data Found')
 
-            elif _client == []:
-                st.error('Select a client from the list')
+            # elif _client == []:
+            #     st.error('Select a client from the list')
 
     return
