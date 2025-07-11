@@ -38,7 +38,7 @@ def archive(client):
             # _date_all = st.checkbox('All Dates', help='Selects all Dates for selected Client/s')
 
         with col3:
-            st.radio(
+            radio_options = st.radio(
                 label='Options',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
@@ -51,6 +51,10 @@ def archive(client):
 
         with st.spinner(text="Reading Archives", show_time=False, width="content"):
             time.sleep(5)
+
+            if radio_options == 'Off':
+                if _client == []:
+                    st.error('No Client/s Selected')
 
 
 
