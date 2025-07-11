@@ -78,6 +78,7 @@ def archive(client):
                 formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
 
                 filtered_df = df[(df['DATE'] == formatted_date_1)]
+                st.dataframe(filtered_df)
 
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
