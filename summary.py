@@ -31,6 +31,7 @@ def summary(client):
     col1, col2 = st.columns(2, border=True)
 
     with col1:
+        st.header('Client Misses')
         st.dataframe(df['CLIENT NAME'].value_counts())
 
 
