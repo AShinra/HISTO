@@ -64,9 +64,9 @@ def archive(client):
                      
                         filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
                         
+                        st.header(cl)
                         if filtered_df.shape[0] > 0:
                             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                            st.header(cl)
                             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                         elif filtered_df.shape[0] == 0:
                             st.error('No Data Found')
