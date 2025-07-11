@@ -55,8 +55,7 @@ def archive(client):
             if radio_options == 'Off':
                 if _client == []:
                     st.error('No Client/s Selected')
-
-                if _client != []:
+                else:
                     for cl in _client:
 
                         formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
@@ -83,8 +82,17 @@ def archive(client):
 
                 for cl in new_cl:
                     st.header(cl)
-                    new_df = filtered_df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
+                    new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
                     st.dataframe(new_df)
+            
+            elif radio_options == 'All Dates':
+                if _client == []:
+                    st.error('No Client/s Selected')
+                else:
+                    for cl in _client:
+                        filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
+                    
+
 
 
             
