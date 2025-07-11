@@ -28,12 +28,10 @@ def summary(client):
         st.error(f"Error accessing Google Sheet: {e}")
     
 
-    # for cl in client_list:
-    #     st.write(cl)
-    #     cl_count = (df['CLIENT NAME'] == cl).value_counts()
-    #     st.write(f'{cl} - {cl_count}')
+    col1, col2 = st.columns(2, border=True)
 
-    st.dataframe(df['CLIENT NAME'].value_counts())
+    with col1:
+        st.dataframe(df['CLIENT NAME'].value_counts())
 
 
 
