@@ -27,7 +27,7 @@ def archive(client):
         st.error(f"Error accessing Google Sheet: {e}")
 
     with st.container(border=True):
-        col1, col2, col3 = st.columns([0.4, 0.4, 0.2], border=True)
+        col1, col2, col3 = st.columns([0.3, 0.4, 0.3], border=True)
         
         with col1:
             _date = st.date_input('Date', key='a_date').isoformat()
