@@ -42,6 +42,8 @@ def get_client_names(df):
 
 if __name__ == "__main__":
 
+    st.set_page_config(layout="wide")
+
     with st.sidebar:
         selected = option_menu(
             menu_title='Histo Data',
