@@ -72,6 +72,19 @@ def archive(client):
                         elif filtered_df.shape[0] == 0:
                             st.error('No Data Found')
 
+            elif radio_options == 'All Clients':
+
+                formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
+                formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
+
+                filtered_df = df[(df['DATE'] == formatted_date_1)]
+
+                new_cl = filtered_df['CLIENT NAME'].unique()
+
+                for cl in new_cl:
+                    st.header(cl)
+
+
             
 
 
