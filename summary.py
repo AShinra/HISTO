@@ -30,9 +30,9 @@ def summary(client):
 
     col1, col2 = st.columns(2, border=True)
 
-    with col1:
+    with col1:  
         st.header('Client Misses')
-        c_list = st.multiselect('Select Client', options=client_list)
+        c_list = st.multiselect('Select Client', options=client_list, help='Leave Blank to see all clients')
         button_select = st.button('Select')
 
         if button_select:
