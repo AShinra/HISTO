@@ -48,8 +48,7 @@ def summary(client):
                     st.dataframe(count_df)
                     with st.expander(f'Click to view breakdown for {cl}'):
                         st.dataframe(date_df)
-                    
-                    st.divider
+                    st.write('')
 
     
     with col2:
