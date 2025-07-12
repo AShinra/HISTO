@@ -37,10 +37,10 @@ def summary(client):
 
         if button_select:
             with st.spinner(text="Preparing Data", show_time=True, width="content"):
+                time.sleep(5)
 
                 if c_list == []:
                     count_df = df['CLIENT NAME'].value_counts()                
-                    # time.sleep(5)
                     st.dataframe(count_df)           
                 else:
                     # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
@@ -48,7 +48,6 @@ def summary(client):
                         filtered_df = df[df['CLIENT NAME'] == cl]
                         count_df = filtered_df['CLIENT NAME'].value_counts()
                         date_df = filtered_df['DATE'].value_counts(sort=False)
-                        # time.sleep(5)
                         st.dataframe(count_df)
                         with st.expander(f'Click to view breakdown for {cl}'):
                             st.dataframe(date_df)
