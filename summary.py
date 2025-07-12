@@ -51,6 +51,7 @@ def summary(client):
                         with st.expander(f'Click to view breakdown for {cl}'):
                             st.dataframe(count_df)
                             st.dataframe(date_df)
+                            st.bar_chart(date_df)
                         st.write('')
 
     
