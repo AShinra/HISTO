@@ -31,10 +31,13 @@ def summary(client):
     col1, col2 = st.columns(2, border=True)
 
     with col1:
+        col_a, col_b = st.columns(2)
         st.header('Client Misses')
-        # client_df = df['CLIENT NAME'].value_counts()
-        c_list = st.multiselect('Select Client', options=client_list)
-        button_select = st.button('Select')
+        with col_a:
+            c_list = st.multiselect('Select Client', options=client_list)
+        with col_b:
+            button_select = st.button('Select')
+            
         if button_select:
             filtered_df = df[df['CLIENT NAME'].isin(c_list)]
             count_df = filtered_df['CLIENT NAME'].value_counts()
