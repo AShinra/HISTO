@@ -36,7 +36,7 @@ def summary(client):
         button_select = st.button('Select')
 
         if button_select:
-            with st.spinner(text="Preparing Data", show_time=False, width="content"):
+            with st.spinner(text="Preparing Data", show_time=True, width="content"):
                 time.sleep(5)
 
                 if c_list == []:
