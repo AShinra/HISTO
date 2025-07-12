@@ -55,7 +55,7 @@ if __name__ == "__main__":
     f'''
         <style>
             .sidebar .sidebar-content {{
-                width: 375px;
+                width: 500px;
             }}
         </style>
     ''',
