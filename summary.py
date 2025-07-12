@@ -32,11 +32,8 @@ def summary(client):
 
     with col1:
         st.header('Client Misses')
-        col_a, col_b = st.columns(2)
-        with col_a:
-            c_list = st.multiselect('Select Client', options=client_list, label_visibility='hidden')
-        with col_b:
-            button_select = st.button('Select')
+        c_list = st.multiselect('Select Client', options=client_list)
+        button_select = st.button('Select')
 
         if button_select:
             filtered_df = df[df['CLIENT NAME'].isin(c_list)]
