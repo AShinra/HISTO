@@ -38,7 +38,7 @@ def summary(client):
         if button_select:
             # filtered_df = df[(df['CLIENT NAME'] in c_list)]
             filtered_df = df['CLIENT NAME'].isin(c_list)
-            st.dataframe(filtered_df)
+            st.write(filtered_df)
             st.write(c_list)
     
     with col2:
