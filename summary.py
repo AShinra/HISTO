@@ -36,19 +36,22 @@ def summary(client):
         button_select = st.button('Select')
 
         if button_select:
-            if c_list == []:
-                count_df = df['CLIENT NAME'].value_counts()                
-                st.dataframe(count_df)           
-            else:
-                # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
-                for cl in c_list:
-                    filtered_df = df[df['CLIENT NAME'] == cl]
-                    count_df = filtered_df['CLIENT NAME'].value_counts()
-                    date_df = filtered_df['DATE'].value_counts(sort=False)
-                    st.dataframe(count_df)
-                    with st.expander(f'Click to view breakdown for {cl}'):
-                        st.dataframe(date_df)
-                    st.write('')
+            with st.spinner(text="Preparing Data", show_time=False, width="content"):
+                time.sleep(5)
+
+                if c_list == []:
+                    count_df = df['CLIENT NAME'].value_counts()                
+                    st.dataframe(count_df)           
+                else:
+                    # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
+                    for cl in c_list:
+                        filtered_df = df[df['CLIENT NAME'] == cl]
+                        count_df = filtered_df['CLIENT NAME'].value_counts()
+                        date_df = filtered_df['DATE'].value_counts(sort=False)
+                        st.dataframe(count_df)
+                        with st.expander(f'Click to view breakdown for {cl}'):
+                            st.dataframe(date_df)
+                        st.write('')
 
     
     with col2:
