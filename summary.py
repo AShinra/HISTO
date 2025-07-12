@@ -36,7 +36,7 @@ def summary(client):
         c_list = st.multiselect('Select Client', options=client_list)
         button_select = st.button('Select')
         if button_select:
-            filtered_df = client_df[(client_df['DATE'] in c_list)]
+            filtered_df = client_df[(client_df['CLIENT NAME'] in c_list)]
             st.dataframe(filtered_df)
     
     with col2:
