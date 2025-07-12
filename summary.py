@@ -40,11 +40,13 @@ def summary(client):
                 count_df = df['CLIENT NAME'].value_counts()                
                 st.dataframe(count_df)           
             else:
-                filtered_df = df[df['CLIENT NAME'].isin(c_list)]
-                count_df = filtered_df['CLIENT NAME'].value_counts()
-                date_df = filtered_df['DATE'].value_counts(sort=False)
-                st.dataframe(count_df)
-                st.dataframe(date_df)
+                # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
+                for cl in c_list:
+                    filtered_df = df[df['CLIENT NAME'] == cl]
+                    count_df = filtered_df['CLIENT NAME'].value_counts()
+                    date_df = filtered_df['DATE'].value_counts(sort=False)
+                    st.dataframe(count_df)
+                    st.dataframe(date_df)
 
     
     with col2:
