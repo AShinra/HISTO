@@ -33,7 +33,11 @@ def summary(client):
     with col1:
         st.header('Client Misses')
         client_df = df['CLIENT NAME'].value_counts()
-        st.multiselect('Select Client', options=client_list)
+        c_list = st.multiselect('Select Client', options=client_list)
+        button_select = st.button('Select')
+        if button_select:
+            filtered_df = client_df[(client_df['DATE'] in c_list)]
+            st.dataframe(filtered_df)
     
     with col2:
         st.header('Missed per Date')
