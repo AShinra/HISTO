@@ -50,17 +50,6 @@ if __name__ == "__main__":
             menu_icon='',
             options=['Entry', 'Archive', 'Summary']
         )
-    
-    st.markdown(
-    f'''
-        <style>
-            .sidebar .sidebar-content {{
-                width: 500px;
-            }}
-        </style>
-    ''',
-    unsafe_allow_html=True
-)
 
     client = get_gsheet_client()
     client_list = []
