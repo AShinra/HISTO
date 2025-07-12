@@ -42,7 +42,7 @@ def summary(client):
                 filtered_df = df[df['CLIENT NAME'].isin(c_list)]
                 count_df = filtered_df['CLIENT NAME'].value_counts()
 
-            count_df = count_df.rename({'count':'COUNT'})
+            count_df.rename({'count':'COUNT'}, axis=1, inplace=True)
             st.dataframe(count_df)           
     
     with col2:
