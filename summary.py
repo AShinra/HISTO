@@ -36,8 +36,9 @@ def summary(client):
         c_list = st.multiselect('Select Client', options=client_list)
         button_select = st.button('Select')
         if button_select:
-            filtered_df = client_df[(client_df['CLIENT NAME'] in c_list)]
-            st.dataframe(filtered_df)
+            # filtered_df = client_df[(client_df['CLIENT NAME'] in c_list)]
+            # st.dataframe(filtered_df)
+            st.write(c_list)
     
     with col2:
         st.header('Missed per Date')
