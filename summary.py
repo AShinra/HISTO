@@ -48,8 +48,8 @@ def summary(client):
                         filtered_df = df[df['CLIENT NAME'] == cl]
                         count_df = filtered_df['CLIENT NAME'].value_counts()
                         date_df = filtered_df['DATE'].value_counts(sort=False)
-                        st.dataframe(count_df)
                         with st.expander(f'Click to view breakdown for {cl}'):
+                            st.dataframe(count_df)
                             st.dataframe(date_df)
                         st.write('')
 
