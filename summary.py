@@ -56,7 +56,9 @@ def summary(client):
     
     with col2:
         st.header('Missed per Date')
-        st.dataframe(df['DATE'].value_counts(sort=False))
+        count_date = df['DATE'].value_counts(sort=False)
+        st.dataframe(count_date)
+        st.bar_chart(count_date)
 
 
 
