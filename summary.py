@@ -36,9 +36,13 @@ def summary(client):
         button_select = st.button('Select')
 
         if button_select:
-            filtered_df = df[df['CLIENT NAME'].isin(c_list)]
-            count_df = filtered_df['CLIENT NAME'].value_counts()
-            st.dataframe(count_df)           
+            if c_list == []:
+                count_df = filtered_df['CLIENT NAME'].value_counts()                
+            else:
+                filtered_df = df[df['CLIENT NAME'].isin(c_list)]
+                count_df = filtered_df['CLIENT NAME'].value_counts()
+        
+        st.dataframe(count_df)           
     
     with col2:
         st.header('Missed per Date')
