@@ -36,7 +36,7 @@ def summary(client):
     
     with col2:
         st.header('Missed per Date')
-        st.dataframe(df['DATE'].value_counts())
+        st.dataframe(df['DATE'].value_counts(sort=False))
 
 
 
