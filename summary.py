@@ -59,7 +59,7 @@ def summary(client):
         st.header('Missed per Date')
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
-        st.bar_chart(count_date)
+        st.bar_chart(count_date, use_container_width=True)
 
 
 
