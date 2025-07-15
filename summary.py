@@ -40,9 +40,13 @@ def summary(client):
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
         alt.Chart(count_month).mark_bar().encode(
-            x='MONTH_NAME:Q',
-            y='count:N',
-            order=alt.Order('MONTH_NAME',sort='ascending'))
+            x=alt.X('MONTH_NAME', sort=["February", "March", "April", "May", "June", "July"], title='Month'),
+            y=alt.Y('count', title='Count'),
+            tooltip=['MONTH_NAME', 'count'],
+            color=alt.Color('MONTH_NAME', legend=None)).properties(
+                title='Monthly Counts',
+                width=600,
+                height=400)
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
