@@ -38,11 +38,8 @@ def summary(client):
         st.dataframe(count_month)
     with colb:
         st.header('')
-        # st.bar_chart(count_month, use_container_width=True)
-        bar_chart = alt.Chart(count_month).mark_bar().encode(
-            x=alt.X('MONTH_NAME'),
-            y=alt.Y('count'))
-        st.altair_chart(bar_chart, use_container_width=True)
+        st.bar_chart(count_month, use_container_width=True)
+        
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
