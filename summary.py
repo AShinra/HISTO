@@ -48,7 +48,7 @@ def summary(client):
         st.dataframe(count_date)
     with colb1:
         st.header('')
-        st.bar_chart(count_date, use_container_width=True, x_label='Date', y_label='Count', color=['#ffaa00', '#aadd60'])
+        st.bar_chart(count_date, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
     
     st.header('Client Breakdown')
 
