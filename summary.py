@@ -23,7 +23,7 @@ def summary(client):
         client_list = sorted(client_list)
 
         df['DATE'] = pd.to_datetime(df['DATE'])
-        df['Month_Name'] = df['DATE'].dt.month_name
+        df['Month_Name'] = df['DATE'].dt.month_name()
         st.dataframe(df)
 
         date_list = df['DATE'].unique()
