@@ -72,9 +72,12 @@ def summary(client):
                             count_df = filtered_df['CLIENT NAME'].value_counts()
                             date_df = filtered_df['DATE'].value_counts(sort=False)
                             with st.expander(f'Click to view breakdown for {cl}'):
-                                st.dataframe(count_df)
-                                st.dataframe(date_df)
-                                st.bar_chart(date_df)
+                                with st.container(border=True):
+                                    st.dataframe(count_df)
+                                with st.container(border=True):
+                                    st.dataframe(date_df)
+                                with st.container(border=True):
+                                    st.bar_chart(date_df)
                             st.write('')
 
     
