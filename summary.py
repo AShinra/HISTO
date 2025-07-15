@@ -23,11 +23,11 @@ def summary(client):
         client_list = sorted(client_list)
 
         df['DATE'] = pd.to_datetime(df['DATE'])
-        df['Month_Name'] = df['DATE'].dt.month_name()
+        df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
-        month_list = df['Month_Name'].unique()
-        count_month = df['Month_Name'].value_counts(sort=False)
-        st.dataframe(count_month)
+        month_list = df['MONTH_NAME'].unique()
+        count_month = df['MONTH_NAME'].value_counts(sort=False)
+        
         
         date_list = df['DATE'].unique()
 
@@ -36,6 +36,11 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
+    cola, colb = st.columns(2, border=True)
+    with cola:
+        st.dataframe(count_month)
+    with st.colb:
+        st.line_chart(count_month)
 
     col1, col2 = st.columns(2, border=True)
 
