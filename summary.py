@@ -16,8 +16,7 @@ def summary(client):
 
         df = pd.DataFrame(data)
         df.columns = df.iloc[0]
-        df = df[1:]
-        df.sort_values(by=['DATE'], ascending=False)
+        df = df[1:]        
 
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)
