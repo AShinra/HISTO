@@ -41,7 +41,7 @@ def summary(client):
         # st.bar_chart(count_month, use_container_width=True)
         alt.Chart(count_month).mark_bar().encode(
             x='MONTH_NAME',
-            y=sum('count'),
+            y='count',
             order=alt.Order('MONTH_NAME',sort='ascending'))
     
     st.header('Daily Breakdown')
