@@ -44,6 +44,7 @@ def summary(client):
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
+        st.selectbox('Select Month', options=month_list)
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
