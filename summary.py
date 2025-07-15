@@ -24,8 +24,10 @@ def summary(client):
 
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['Month_Name'] = df['DATE'].dt.month_name()
-        st.dataframe(df)
 
+        month_list = df['Month_Name'].unique()
+        st.write(month_list)
+        
         date_list = df['DATE'].unique()
 
         
