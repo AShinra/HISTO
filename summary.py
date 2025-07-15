@@ -40,7 +40,7 @@ def summary(client):
     with cola:
         st.dataframe(count_month)
     with colb:
-        st.bar_chart(count_month, use_container_width=True, y=count_date['MONTH_NAME'])
+        st.bar_chart(count_month, use_container_width=True, y=count_month['MONTH_NAME'])
 
     col1, col2 = st.columns(2, border=True)
 
