@@ -27,13 +27,9 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         month_list = df['MONTH_NAME'].unique()
-        count_month = df['MONTH_NAME'].value_counts(sort=False)
-        st.write(type(count_month))
+        count_month = df['MONTH_NAME'].value_counts(sort=False)               
         
-        
-        date_list = df['DATE'].unique()
-
-        
+        date_list = df['DATE'].unique()        
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
