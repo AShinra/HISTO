@@ -62,8 +62,9 @@ def summary(client):
                 time.sleep(5)
 
                 if c_list == []:
-                    count_df = df['CLIENT NAME'].value_counts()                
-                    st.dataframe(count_df)           
+                    with col2:
+                        count_df = df['CLIENT NAME'].value_counts()                
+                        st.dataframe(count_df)           
                 else:
                     # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
                     with col2:
