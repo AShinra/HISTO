@@ -42,10 +42,7 @@ def summary(client):
         st.dataframe(count_month)
     with colb:
         # st.bar_chart(count_month, use_container_width=True)
-        alt.Chart(count_month).mark_bar().encode(
-            x='a',
-            y='b'
-            )
+        alt.Chart(count_month).mark_bar()
 
     col1, col2 = st.columns(2, border=True)
 
