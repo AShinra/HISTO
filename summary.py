@@ -38,7 +38,7 @@ def summary(client):
         st.dataframe(count_month)
     with colb:
         st.header('')        
-        st.bar_chart(count_month, use_container_width=True)
+        st.bar_chart(count_month, use_container_width=True, x_label='Month', y_label='Count')
         
     
     st.header('Daily Breakdown')
