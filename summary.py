@@ -67,15 +67,16 @@ def summary(client):
                     st.dataframe(count_df)           
                 else:
                     # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
-                    for cl in c_list:
-                        filtered_df = df[df['CLIENT NAME'] == cl]
-                        count_df = filtered_df['CLIENT NAME'].value_counts()
-                        date_df = filtered_df['DATE'].value_counts(sort=False)
-                        with st.expander(f'Click to view breakdown for {cl}'):
-                            st.dataframe(count_df)
-                            st.dataframe(date_df)
-                            st.bar_chart(date_df)
-                        st.write('')
+                    with col2:
+                        for cl in c_list:
+                            filtered_df = df[df['CLIENT NAME'] == cl]
+                            count_df = filtered_df['CLIENT NAME'].value_counts()
+                            date_df = filtered_df['DATE'].value_counts(sort=False)
+                            with st.expander(f'Click to view breakdown for {cl}'):
+                                st.dataframe(count_df)
+                                st.dataframe(date_df)
+                                st.bar_chart(date_df)
+                            st.write('')
 
     
     # with col2:
