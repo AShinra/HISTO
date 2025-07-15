@@ -43,8 +43,8 @@ def summary(client):
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
-        count_date = df['DATE'].value_counts(sort='descending')
-        st.dataframe(count_date)
+        count_date = df['DATE'].value_counts()
+        st.dataframe(count_date.sort_values(ascending=False))
     with colb1:
         st.header('')
         st.bar_chart(count_date, use_container_width=True)
