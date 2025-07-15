@@ -36,11 +36,11 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    cola, colb = st.columns(2, border=True)
+    cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
         st.dataframe(count_month)
     with colb:
-        st.line_chart(count_month)
+        st.bar_chart(count_month)
 
     col1, col2 = st.columns(2, border=True)
 
