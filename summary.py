@@ -50,7 +50,7 @@ def summary(client):
         st.dataframe(count_date)
     with colb1:
         st.header('')
-        st.bar_chart(count_date, use_container_width=True, horizontal=False)
+        st.bar_chart(count_date, use_container_width=True, horizontal=True)
     
     st.header('Client Breakdown')
 
