@@ -28,6 +28,7 @@ def summary(client):
 
         month_list = df['MONTH_NAME'].unique()
         count_month = df['MONTH_NAME'].value_counts(sort=False)
+        count_month['MONTH_NAME'] = count_month['MONTH_NAME'].astype(datetime)
         
         
         date_list = df['DATE'].unique()
@@ -41,11 +42,8 @@ def summary(client):
     with cola:
         st.dataframe(count_month)
     with colb:
-        # st.bar_chart(count_month, use_container_width=True)
-        alt.Chart(count_month).mark_bar().encode(
-            x='MONTH_NAME', sort=None
-        )
-
+        st.bar_chart(count_month, use_container_width=True)
+        
     col1, col2 = st.columns(2, border=True)
 
     with col1:  
