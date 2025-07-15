@@ -34,17 +34,17 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
+    st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
-        st.header('Monthly Breakdown')
         st.dataframe(count_month)
     with colb:
         st.header('')
         st.bar_chart(count_month, use_container_width=True)
     
+    st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
-        st.header('Daily Breakdown')
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
