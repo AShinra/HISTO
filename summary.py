@@ -77,7 +77,7 @@ def summary(client):
                                 with st.container(border=True):
                                     st.dataframe(date_df)
                                 with st.container(border=True):
-                                    st.bar_chart(date_df)
+                                    st.bar_chart(date_df, x_label='Date', y_label='Count')
                             st.write('')
 
     
