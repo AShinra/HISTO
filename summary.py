@@ -39,15 +39,9 @@ def summary(client):
     with colb:
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
-        _df = pd.DataFrame(count_month)
-        bar_chart = alt.Chart(_df).mark_bar().encode(
-            x=alt.X('MONTH_NAME:N', sort=["February", "March", "April", "May", "June", "July"]),
-            y=alt.Y('count:Q'),
-            tooltip=['MONTH_NAME', 'count'],
-            color=alt.Color('MONTH_NAME:N', legend=None)).properties(
-                title='Monthly Counts',
-                width=600,
-                height=400)
+        bar_chart = alt.Chart(count_month).mark_bar().encode(
+            x=alt.X('MONTH_NAME'),
+            y=alt.Y('count'))
         st.altair_chart(bar_chart, use_container_width=True)
     
     st.header('Daily Breakdown')
