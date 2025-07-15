@@ -46,7 +46,7 @@ def summary(client):
     with cola1:
         selected_month = st.selectbox('Select Month', options=month_list)
         df = df[df['MONTH_NAME']==selected_month]
-        count_date = df[df['DATE'].value_counts(sort=False)]
+        count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
         st.header('')
