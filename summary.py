@@ -8,8 +8,6 @@ def summary(client):
 
     st.title("SUMMARY")
 
-    st.write('June')
-    
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
@@ -24,7 +22,13 @@ def summary(client):
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)
 
+        df['DATE'] = pd.to_datetime(df['DATE'])
+        df['Month_Name'] = df['DATE'].dt.month_name
+        st.dataframe(df)
+
         date_list = df['DATE'].unique()
+
+        
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
