@@ -51,9 +51,9 @@ def summary(client):
         st.header('')
         st.bar_chart(count_date, use_container_width=True)
     
-    col1, col2 = st.columns(2, border=True)
-
     st.header('Client Breakdown')
+
+    col1, col2 = st.columns(2, border=True)
     with col1:  
         c_list = st.multiselect('Select Client', options=client_list, help='Leave Blank to see all clients')
         button_select = st.button('Select')
