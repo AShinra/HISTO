@@ -40,8 +40,9 @@ def summary(client):
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
         alt.Chart(count_month).mark_bar().encode(
-            order=alt.Order('MONTH_NAME',sort='ascending')
-)
+            x='count',
+            y='MONTH_NAME',
+            order=alt.Order('MONTH_NAME',sort='ascending'))
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
