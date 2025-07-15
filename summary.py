@@ -39,7 +39,8 @@ def summary(client):
     with colb:
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
-        alt.Chart(count_month).mark_bar().encode(
+        _df = pd.DataFrame(count_month)
+        alt.Chart(_df).mark_bar().encode(
             x=alt.X('MONTH_NAME', sort=["February", "March", "April", "May", "June", "July"], title='Month'),
             y=alt.Y('count', title='Count'),
             tooltip=['MONTH_NAME', 'count'],
