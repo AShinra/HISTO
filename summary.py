@@ -48,6 +48,7 @@ def summary(client):
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
+        st.header()
         st.bar_chart(count_date, use_container_width=True)
     
     col1, col2 = st.columns(2, border=True)
