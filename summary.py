@@ -25,16 +25,7 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         month_list = df['MONTH_NAME'].unique()
-        count_month = df['MONTH_NAME'].value_counts(sort=False)
-
-        # Define proper month order
-        month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-        # Convert MONTH_NAME to categorical with defined order
-        count_month['MONTH_NAME'] = pd.Categorical(df['MONTH_NAME'], categories=month_order, ordered=True)
-
-        # Sort by the categorical order
-        count_month = count_month.sort_values('MONTH_NAME')
-        count_month = count_month.set_index['MONTH_NAME']
+        count_month = df['MONTH_NAME'].value_counts(sort=False)               
         
         date_list = df['DATE'].unique()        
 
