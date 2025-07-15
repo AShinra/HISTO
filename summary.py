@@ -40,7 +40,7 @@ def summary(client):
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
         _df = pd.DataFrame(count_month)
-        alt.Chart(_df).mark_bar().encode(
+        bar_chart = alt.Chart(_df).mark_bar().encode(
             x=alt.X('MONTH_NAME', sort=["February", "March", "April", "May", "June", "July"], title='Month'),
             y=alt.Y('count', title='Count'),
             tooltip=['MONTH_NAME', 'count'],
@@ -48,6 +48,7 @@ def summary(client):
                 title='Monthly Counts',
                 width=600,
                 height=400)
+        st.altair_chart(bar_chart, use_container_width=True)
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
