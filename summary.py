@@ -23,13 +23,11 @@ def summary(client):
 
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
-        df['MONTH_DAY'] = df['DATE'].dt.date()
 
         month_list = df['MONTH_NAME'].unique()
         count_month = df['MONTH_NAME'].value_counts(sort=False)               
         
-        
-        date_list = df['MONTH_DAY'].unique()        
+        date_list = df['DATE'].unique()        
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
@@ -52,7 +50,7 @@ def summary(client):
         st.dataframe(count_date)
     with colb1:
         st.header('')
-        st.bar_chart(count_date, use_container_width=True, horizontal=True)
+        st.bar_chart(count_date, use_container_width=True)
     
     st.header('Client Breakdown')
 
