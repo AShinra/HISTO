@@ -36,11 +36,16 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    cola, colb = st.columns([0.3, 0.7], border=True)
+    cola, colb, colc = st.columns([0.25, 0.5, 0.25], border=True)
     with cola:
         st.dataframe(count_month)
     with colb:
         st.bar_chart(count_month, use_container_width=True)
+    with colc:
+        st.header('Missed per Date')
+        count_date = df['DATE'].value_counts(sort=False)
+        st.dataframe(count_date)
+        st.bar_chart(count_date, use_container_width=True)
         
     col1, col2 = st.columns(2, border=True)
 
@@ -69,11 +74,11 @@ def summary(client):
                         st.write('')
 
     
-    with col2:
-        st.header('Missed per Date')
-        count_date = df['DATE'].value_counts(sort=False)
-        st.dataframe(count_date)
-        st.bar_chart(count_date, use_container_width=True)
+    # with col2:
+    #     st.header('Missed per Date')
+    #     count_date = df['DATE'].value_counts(sort=False)
+    #     st.dataframe(count_date)
+    #     st.bar_chart(count_date, use_container_width=True)
 
 
 
