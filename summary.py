@@ -43,7 +43,7 @@ def summary(client):
     with colb:
         # st.bar_chart(count_month, use_container_width=True)
         alt.Chart(count_month).mark_bar().encode(
-            x=alt.X(sort=None)
+            x=alt.X('MONTH_NAME', sort=None)
         )
 
     col1, col2 = st.columns(2, border=True)
