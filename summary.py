@@ -26,6 +26,11 @@ def summary(client):
 
         month_list = df['MONTH_NAME'].unique()
         count_month = df[df['MONTH_NAME'].value_counts(sort=False)]
+        # Convert MONTH_NAME to categorical with defined order
+        count_month['MONTH_NAME'] = pd.Categorical(df['MONTH_NAME'], categories='month_order', ordered=True)
+
+        # Sort by the categorical order
+        df = df.sort_values('MONTH_NAME')
         count_month = count_month.set_index['MONTH_NAME']
         
         date_list = df['DATE'].unique()        
