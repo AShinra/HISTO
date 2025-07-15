@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 from datetime import datetime
 import time
+import altair as alt
 
 def summary(client):
 
@@ -40,7 +41,11 @@ def summary(client):
     with cola:
         st.dataframe(count_month)
     with colb:
-        st.bar_chart(count_month, use_container_width=True)
+        # st.bar_chart(count_month, use_container_width=True)
+        alt.Chart(count_month).mark_bar().encode(
+            x='a',
+            y='b'
+            )
 
     col1, col2 = st.columns(2, border=True)
 
