@@ -39,7 +39,7 @@ def summary(client):
     cola, colb = st.columns(2, border=True)
     with cola:
         st.dataframe(count_month)
-    with st.colb:
+    with colb:
         st.line_chart(count_month)
 
     col1, col2 = st.columns(2, border=True)
