@@ -27,7 +27,8 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         month_list = df['MONTH_NAME'].unique()
-        count_month = df['MONTH_NAME'].value_counts(sort=False)              
+        count_month = df[df['MONTH_NAME'].value_counts(sort=False)]
+        
         
         date_list = df['DATE'].unique()
 
