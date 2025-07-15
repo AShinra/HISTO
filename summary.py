@@ -25,7 +25,7 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         month_list = df['MONTH_NAME'].unique()
-        count_month = df[df['MONTH_NAME'].value_counts(sort=False)]
+        count_month = df['MONTH_NAME'].value_counts(sort=False)
 
         # Define proper month order
         month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
