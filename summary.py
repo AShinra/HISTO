@@ -43,7 +43,7 @@ def summary(client):
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
-        count_date = df['DATE'].value_counts(sorted=True)
+        count_date = df['DATE'].value_counts(sort='descending')
         st.dataframe(count_date)
     with colb1:
         st.header('')
