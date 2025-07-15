@@ -25,7 +25,8 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         month_list = df['MONTH_NAME'].unique()
-        count_month = df['MONTH_NAME'].value_counts(sort=False)               
+        count_month = df[df['MONTH_NAME'].value_counts(sort=False)]
+        count_month = count_month.set_index['MONTH_NAME']
         
         date_list = df['DATE'].unique()        
 
@@ -37,7 +38,7 @@ def summary(client):
     with cola:
         st.dataframe(count_month)
     with colb:
-        st.header('')
+        st.header('')        
         st.bar_chart(count_month, use_container_width=True)
         
     
