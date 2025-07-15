@@ -40,10 +40,10 @@ def summary(client):
         st.header('')
         # st.bar_chart(count_month, use_container_width=True)
         bar_chart = alt.Chart(count_month).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=["February", "March", "April", "May", "June", "July"], title='Month'),
-            y=alt.Y('count', title='Count'),
+            x=alt.X('MONTH_NAME:N', sort=["February", "March", "April", "May", "June", "July"]),
+            y=alt.Y('count:Q'),
             tooltip=['MONTH_NAME', 'count'],
-            color=alt.Color('MONTH_NAME', legend=None)).properties(
+            color=alt.Color('MONTH_NAME:N', legend=None)).properties(
                 title='Monthly Counts',
                 width=600,
                 height=400)
