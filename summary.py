@@ -42,10 +42,13 @@ def summary(client):
     with colb:
         st.bar_chart(count_month, use_container_width=True)
     
-    st.header('Missed per Date')
-    count_date = df['DATE'].value_counts(sort=False)
-    st.dataframe(count_date)
-    st.bar_chart(count_date, use_container_width=True)
+    cola1, colb1 = st.columns([0.3, 0.7], border=True)
+    with cola1:
+        st.header('Missed per Date')
+        count_date = df['DATE'].value_counts(sort=False)
+        st.dataframe(count_date)
+    with colb1:
+        st.bar_chart(count_date, use_container_width=True)
     
     col1, col2 = st.columns(2, border=True)
 
