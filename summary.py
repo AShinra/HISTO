@@ -37,9 +37,7 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
         client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list)
-       
-        date_list = df['DATE'].unique()        
+        client_list = sorted(client_list)        
         
         if cap_option == 'Captured':
             df_captured = df[df['CAPTURED'] == 'Y']
