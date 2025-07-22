@@ -32,7 +32,7 @@ def input(client, client_list):
     with st.container(border=True):
         col1, col2 = st.columns(2, border=True)
         with col1:
-            input_date = st.date_input('Date', key='i_date').isoformat()
+            input_date = st.date_input('Date', key='i_date', format='YYYY-MM-DD').isoformat()
             input_date = datetime.strptime(input_date, '%Y-%m-%d')
             input_date = input_date.strftime('%-m/%-d/%Y')
             # input_client = st.multiselect('Client', key='i_client', options=client_list)
