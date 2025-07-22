@@ -36,7 +36,7 @@ def summary(client):
         if cap_option == 'Missed':
             df_captured = df[df['CAPTURED'] == 'N']
 
-        st.dataframe(df_captured)
+        # st.dataframe(df_captured)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
@@ -69,7 +69,7 @@ def summary(client):
         st.bar_chart(countdate, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
     
     exit()
-    
+
     st.header('Client Breakdown')
 
     col1, col2 = st.columns(2, border=True)
