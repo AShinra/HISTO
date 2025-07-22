@@ -37,13 +37,7 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
         df['YEAR'] = df['DATE'].dt.year
 
-        st.dataframe(df)
-
-        # year_list = df['YEAR'].unique()
-
-        # st.write(year_list)
-        
-        exit()
+        year_list = df['YEAR'].unique()
 
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)        
