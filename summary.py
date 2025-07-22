@@ -70,11 +70,13 @@ def summary(client):
     with colb:
         st.header('')        
         st.bar_chart(
-            data=monthcount,
+            data=df_monthcount,
             use_container_width=True,
             x_label='Month',
             y_label='Count',
             color=["#034635"],)
+
+        st.write(alt.Chart(df_monthcount))
         
     
     st.header('Daily Breakdown')
