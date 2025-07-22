@@ -93,9 +93,9 @@ def archive(client):
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
                 for cl in new_cl:
-                    st.header(f'{cl} {captured_options}')
                     new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
                     selected_columns = new_df[['DATE', 'TIER', 'LINK']]
+                    st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
                     st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                     
             
@@ -104,7 +104,6 @@ def archive(client):
                     st.error('No Client/s Selected')
                 else:
                     for cl in _client:
-                        st.header(f'{cl} {captured_options}')
 
                         if captured_options == 'Captured':
                             filtered_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
@@ -112,6 +111,7 @@ def archive(client):
                             filtered_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
                             
                         selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                        st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
                         st.dataframe(selected_columns, use_container_width=True, hide_index=True)
 
                     
