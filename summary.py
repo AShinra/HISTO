@@ -68,7 +68,7 @@ def summary(client):
         df_monthcount = df_monthcount.reset_index()
         df_monthcount.columns = ['MONTH_NAME', 'COUNT']
         st.write(df_monthcount.columns)
-        st.dataframe(df_monthcount)
+        st.dataframe(df_monthcount, hide_index=True)
 
     with colb:
         st.header('')        
@@ -80,7 +80,7 @@ def summary(client):
             color=["#034635"],)
 
         st.write(alt.Chart(df_monthcount).mark_bar().encode(
-            x=alt.X('0', sort=None),
+            x=alt.X('MONTH_NAME', sort=None),
             y='count'
         ))
         
