@@ -58,8 +58,11 @@ def input(client, client_list):
             captured = 'Y'
         elif input_captured == 'No':
             captured = 'N'
-        
-        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink, captured])
+
+        _hyperlinks = input_hyperlink.splitlines()
+        for _hyperlink in _hyperlinks:
+            sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
+
         with st.container(border=True):
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
