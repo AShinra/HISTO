@@ -24,8 +24,6 @@ def summary(client):
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
-        month_list = df['MONTH_NAME'].unique()
-        count_month = df['MONTH_NAME'].value_counts(sort=False)               
         
         date_list = df['DATE'].unique()        
 
@@ -40,6 +38,16 @@ def summary(client):
             options=['Captured', 'Missed'],
             horizontal=True
         )
+
+        if cap_option == 'Captured':
+            df = df[df['CAPTURED'] == 'Y']
+            month_list = df['MONTH_NAME'].unique()
+            count_month = df['MONTH_NAME'].value_counts(sort=False)               
+        elif cap_option == 'Missed':
+            df = df[df['CAPTURED'] == 'N']
+            month_list = df['MONTH_NAME'].unique()
+            count_month = df['MONTH_NAME'].value_counts(sort=False)               
+
         st.dataframe(count_month)
     with colb:
         st.header('')        
