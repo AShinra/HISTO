@@ -65,9 +65,8 @@ def summary(client):
 
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
-        df_monthcount = df_monthcount.reset_index()
-        st.write(df_monthcount.columns)
-        st.dataframe(df_monthcount)
+        df_monthcount = df_monthcount.reset_index()        
+        st.dataframe(df_monthcount, hide_index=True)
 
     with colb:
 
@@ -84,6 +83,7 @@ def summary(client):
         st.write(alt.Chart(df_monthcount).mark_bar().encode(
             x=alt.X('MONTH_NAME', sort=None, ),
             y='count',
+            title='TEST'
         ))
         
     
