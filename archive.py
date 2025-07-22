@@ -27,7 +27,7 @@ def archive(client):
         st.error(f"Error accessing Google Sheet: {e}")
 
     with st.container(border=True):
-        col1, col2, col3, col4 = st.columns([0.15, 0.15, 0.2, 0.5], border=True)
+        col1, col2, col3, col4 = st.columns([0.15, 0.15, 0.15, 0.55], border=True)
         
         with col1:
             radio_options = st.radio(
@@ -113,13 +113,5 @@ def archive(client):
                         selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
                         st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
                         st.dataframe(selected_columns, use_container_width=True, hide_index=True)
-
-                    
-
-
-
-            
-
-
             
     return
