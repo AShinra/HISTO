@@ -64,7 +64,7 @@ def summary(client):
             options=year_list)
 
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
-        st.dataframe(monthcount)        
+        st.write(monthcount)
 
     with colb:
         st.header('')        
