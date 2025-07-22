@@ -82,7 +82,7 @@ def input(client, client_list):
                 for k, v in fqdn_dict.items():
                     if k in _hyperlink:
                         st.write('Found')
-                        input_tier = v
+                        st.write(k)
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
