@@ -37,6 +37,8 @@ def summary(client):
             df_captured = df[df['CAPTURED'] == 'N']
 
         st.dataframe(df_captured)
+        monthlist = df_captured['MONTH_NAME'].unique()
+        st.dataframe(monthlist)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
