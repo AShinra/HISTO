@@ -78,7 +78,7 @@ def summary(client):
             color=["#034635"],)
 
         st.write(alt.Chart(df_monthcount).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=None),
+            x=alt.X('0', sort=None),
             y='count'
         ))
         
