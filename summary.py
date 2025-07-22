@@ -72,7 +72,7 @@ def summary(client):
     with colb:
         st.header('')        
         st.bar_chart(
-            data=df_monthcount[['MONTH_NAME', 'COUNT']],
+            data=df_monthcount[['MONTH_NAME', 'count']],
             use_container_width=True,
             x_label='Month',
             y_label='Count',
