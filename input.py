@@ -39,7 +39,8 @@ def input(client, client_list):
             input_tier = st.text_input('Tier')
             input_captured = st.selectbox(
                 label='Captured',
-                options=['Y', 'N']
+                options=['Y', 'N'],
+                accept_new_options=False
             )
         with col2:
             input_client = st.text_input('Client')
