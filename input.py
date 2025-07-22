@@ -81,9 +81,7 @@ def input(client, client_list):
                 # get the tiering of the website
                 for k, v in fqdn_dict.items():
                     if k in _hyperlink:
-                        st.write('Found')
-                        st.write(_hyperlink)
-                        st.write(k)
+                        input_tier = v
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
