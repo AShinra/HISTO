@@ -66,14 +66,13 @@ def summary(client):
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
         df_monthcount = df_monthcount.reset_index()
-        df_monthcount.columns = ['MONTH_NAME', 'COUNT']
         st.write(df_monthcount.columns)
         st.dataframe(df_monthcount, hide_index=True)
 
     with colb:
         st.header('')        
         st.bar_chart(
-            data=df_monthcount['MONTH_NAME', 'COUNT'],
+            data=df_monthcount[['MONTH_NAME', 'COUNT']],
             use_container_width=True,
             x_label='Month',
             y_label='Count',
