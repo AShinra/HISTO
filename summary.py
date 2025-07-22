@@ -38,7 +38,10 @@ def summary(client):
         df['YEAR'] = df['YEAR'].dt.year
 
         year_list = df['YEAR'].unique()
+
+        st.write(year_list)
         
+        exit()
 
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)        
