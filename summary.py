@@ -36,10 +36,12 @@ def summary(client):
         if cap_option == 'Missed':
             df_captured = df[df['CAPTURED'] == 'N']
 
+        st.dataframe(df_captured)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
+    exit()
 
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
