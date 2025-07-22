@@ -35,6 +35,10 @@ def summary(client):
 
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
+        df['YEAR'] = df['YEAR'].dt.year
+
+        year_list = df['YEAR'].unique()
+        
 
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)        
@@ -55,6 +59,10 @@ def summary(client):
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
+
+        year_selected = st.selectbox(
+            label='YEAR',
+            options=year_list)
 
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         st.dataframe(monthcount)        
