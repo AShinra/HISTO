@@ -26,13 +26,16 @@ def input(client, client_list):
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
+
+        # get fqdn tiering data
         fqdn_temp = sheet.worksheet('TIER').get_all_values()
         df_fqdn = pd.DataFrame(fqdn_temp)
         df_fqdn.columns = df_fqdn.iloc[0]
         df_fqdn = df_fqdn[1:]
-        st.dataframe(df_fqdn, hide_index=True)
-        result_dict = df_fqdn.to_dict(orient='dict')
-        st.write(result_dict)
+
+        # convert to list
+        fqdn_list = df_fqdn['FQDN'].to_list()
+        st.write(fqdn_list)
         
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
@@ -71,7 +74,7 @@ def input(client, client_list):
         for _hyperlink in _hyperlinks:
             if _hyperlink not in ['', None]:
                 # get the tiering of the website
-                sheet.worksheet('TIER').get_all_values()
+                
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
