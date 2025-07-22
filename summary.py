@@ -64,7 +64,7 @@ def summary(client):
 
         _chart = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
             x=alt.X('MONTH_NAME', sort=None, title='Month'),
-            y='count', title='Count')
+            y=alt.Y('count', title='Count'))
 
         st.write(_chart)
         
