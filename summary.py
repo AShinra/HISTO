@@ -12,6 +12,11 @@ def summary(client):
         options=['Captured', 'Missed'],
         horizontal=True
     )
+
+    cb_client = st.checkbox(
+        label='All Clients',        
+    )
+    
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
