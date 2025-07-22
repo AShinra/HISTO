@@ -48,7 +48,8 @@ if __name__ == "__main__":
         selected = option_menu(
             menu_title='Histo Data',
             menu_icon='clock-history',
-            options=['Entry', 'Archive', 'Summary']
+            options=['Entry', 'Archive', 'Summary'],
+            icons=['pencil-square']
         )
 
     client = get_gsheet_client()
