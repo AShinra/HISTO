@@ -40,9 +40,7 @@ def input(client, client_list):
             input_captured = st.selectbox(
                 label='Captured',
                 options=['Yes', 'No'],
-                accept_new_options=False,
-                on_change=st.stop(),
-                placeholder='Yes'
+                accept_new_options=False
             )
         with col2:
             input_client = st.text_input('Client')
