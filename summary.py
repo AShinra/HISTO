@@ -53,7 +53,7 @@ def summary(client):
     with colb:
         st.header('')        
         st.bar_chart(
-            Data=count_month,
+            count_month,
             use_container_width=True,
             x_label='Month',
             y_label='Count',
