@@ -40,10 +40,7 @@ def input(client, client_list):
         fqdn_dict = {}
         # convert to dict
         for i, val in enumerate(fqdn_list):
-            fqdn_dict[val] = tier_list[i]
-        
-        st.write(fqdn_dict)
-        
+            fqdn_dict[val] = tier_list[i]      
         
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
@@ -53,9 +50,8 @@ def input(client, client_list):
         with col1:
             input_date = st.date_input('Date', key='i_date', format='YYYY-MM-DD').isoformat()
             input_date = datetime.strptime(input_date, '%Y-%m-%d')
-            input_date = input_date.strftime('%-m/%-d/%Y')
-            # input_client = st.multiselect('Client', key='i_client', options=client_list)
-            input_tier = st.text_input('Tier')
+            input_date = input_date.strftime('%-m/%-d/%Y')            
+            # input_tier = st.text_input('Tier')
             input_captured = st.selectbox(
                 label='Captured',
                 options=['Yes', 'No'],
@@ -82,7 +78,9 @@ def input(client, client_list):
         for _hyperlink in _hyperlinks:
             if _hyperlink not in ['', None]:
                 # get the tiering of the website
-                
+                for k, v in fqdn_dict.keys():
+                    if k in _hyperlink:
+                        input_tier = v
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
