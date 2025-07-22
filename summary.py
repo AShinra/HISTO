@@ -84,7 +84,7 @@ def summary(client):
             x=alt.X('MONTH_NAME', sort=None, ),
             y='count',
             title='TEST'
-        ))
+        ).properties(title='TEST'))
         
     
     st.header('Daily Breakdown')
