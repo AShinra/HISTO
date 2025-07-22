@@ -71,15 +71,7 @@ def summary(client):
 
     with colb:
 
-        data = pd.DataFrame({
-            'city': ['Cincinnati', 'San Francisco', 'Pittsburgh'],
-            'sports_teams': [6, 8, 9],})
-
-        st.write(data)
-        st.write(alt.Chart(data).mark_bar().encode(
-            x=alt.X('city', sort=None),
-            y='sports_teams',
-        ))
+        
         # st.header('')        
         # st.bar_chart(
         #     data=df_monthcount,
@@ -91,7 +83,9 @@ def summary(client):
 
         st.write(alt.Chart(df_monthcount).mark_bar().encode(
             x=alt.X('MONTH_NAME', sort=None),
-            y='count'
+            y='count',
+            x_label='Month',
+            y_label='Count'
         ))
         
     
