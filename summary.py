@@ -37,41 +37,28 @@ def summary(client):
             df_captured = df[df['CAPTURED'] == 'N']
 
         st.dataframe(df_captured)
-        monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
-        st.dataframe(monthcount)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    exit()
 
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
 
-        month_list = df_captured['MONTH NAME'].unique()
-
-        df_captured
-        # if cap_option == 'Captured':
-        #     df = df[df['CAPTURED'] == 'Y']
-        #     month_list = df['MONTH_NAME'].unique()
-        #     count_month = df['MONTH_NAME'].value_counts(sort=False)               
-        # elif cap_option == 'Missed':
-        #     df = df[df['CAPTURED'] == 'N']
-        #     month_list = df['MONTH_NAME'].unique()
-        #     count_month = df['MONTH_NAME'].value_counts(sort=False)               
-
-        st.dataframe(month_list)
+        monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
+        st.dataframe(monthcount)        
 
     with colb:
         st.header('')        
         st.bar_chart(
-            data=count_month,
+            data=monthcount,
             use_container_width=True,
             x_label='Month',
             y_label='Count',
             color=["#034635"],)
         
+    exit()
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
