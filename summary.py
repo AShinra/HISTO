@@ -89,10 +89,10 @@ def summary(client):
         #     # color=["#034635"],
         #     )
 
-        # st.write(alt.Chart(df_monthcount).mark_bar().encode(
-        #     x=alt.X('MONTH_NAME', sort=None),
-        #     y='count'
-        # ))
+        st.write(alt.Chart(df_monthcount).mark_bar().encode(
+            x=alt.X('MONTH_NAME', sort=None),
+            y='count'
+        ))
         
     
     st.header('Daily Breakdown')
