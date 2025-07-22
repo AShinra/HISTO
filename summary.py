@@ -58,25 +58,17 @@ def summary(client):
             y_label='Count',
             color=["#034635"],)
         
-    exit()
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
-        if cap_option == 'Captured':
-            df = df[df['CAPTURED'] == 'Y']
-            date_list = df['DATE'].unique()
-            count_date = date_list['DATE'].value_counts(sort=False)               
-        elif cap_option == 'Missed':
-            df = df[df['CAPTURED'] == 'N']
-            date_list = df['MONTH_NAME'].unique()
-            count_month = df['MONTH_NAME'].value_counts(sort=False)
-
-        count_date = df['DATE'].value_counts(sort=False)
-        st.dataframe(count_date)
+        countdate = df_captured['DATE'].value_counts(sort=False)
+        st.dataframe(countdate)
     with colb1:
         st.header('')
-        st.bar_chart(count_date, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
+        st.bar_chart(countdate, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
+    
+    exit()
     
     st.header('Client Breakdown')
 
