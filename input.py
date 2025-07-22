@@ -12,7 +12,6 @@ def load_data(_date, client, link):
 
     data['DATE'].append(_date)
 
-
     return data
 
 
@@ -21,6 +20,10 @@ def input(client, client_list):
     data = {}
 
     st.title("Data Entry")
+
+    temp = sheet.worksheet('TIER').get_all_values()
+    temp1 = pd.Dataframe(temp)
+    st.dataframe(temp1)
 
 
     try:
@@ -62,6 +65,9 @@ def input(client, client_list):
         _hyperlinks = input_hyperlink.splitlines()
         for _hyperlink in _hyperlinks:
             if _hyperlink not in ['', None]:
+                # get the tiering of the website
+                sheet.worksheet('TIER').get_all_values()
+
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
         with st.container(border=True):
