@@ -37,6 +37,10 @@ def input(client, client_list):
             input_date = input_date.strftime('%-m/%-d/%Y')
             # input_client = st.multiselect('Client', key='i_client', options=client_list)
             input_tier = st.text_input('Tier')
+            input_captured = st.selectbox(
+                label='Captured',
+                options=['Y', 'N']
+            )
         with col2:
             input_client = st.text_input('Client')
             input_hyperlink = st.text_input('Hyperlink')
