@@ -36,10 +36,13 @@ def input(client, client_list):
         # convert to list
         fqdn_list = df_fqdn['FQDN'].to_list()
         tier_list = df_fqdn['TIER'].to_list()
-
+        
+        fqdn_dict = {}
         # convert to dict
         for i, val in enumerate(fqdn_list):
-            st.write(f'{i} - {val}')
+            fqdn_dict[val] = tier_list[i]
+        
+        st.write(fqdn_dict)
         
         
     except Exception as e:
