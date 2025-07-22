@@ -66,9 +66,12 @@ def archive(client):
 
                         formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                         formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
-                     
-                        filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl)]
-                        
+
+                        if captured_options == 'Captured':
+                            filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
+                        elif captured_options == 'Missed':
+                            filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
+
                         st.header(cl)
                         st.write(formatted_date_1)
                         if filtered_df.shape[0] > 0:
