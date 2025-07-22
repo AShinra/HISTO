@@ -39,7 +39,7 @@ def input(client, client_list):
             input_tier = st.text_input('Tier')
             input_captured = st.selectbox(
                 label='Captured',
-                options=['Y', 'N'],
+                options=['Yes', 'No'],
                 accept_new_options=False
             )
         with col2:
@@ -54,8 +54,13 @@ def input(client, client_list):
             b_submit = st.button('Submit', use_container_width=True)
 
     if b_add:
-
-        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink])
+        
+        if input_captured == 'Yes':
+            captured = 'Y'
+        elif input_captured == 'No':
+            captured = 'N'
+        
+        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink, captured])
         with data_area:
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
