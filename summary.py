@@ -66,7 +66,6 @@ def summary(client):
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
         df_monthcount = df_monthcount.reset_index()
-        df_monthcount = df_monthcount.set_index('MONTH_NAME')
         st.write(df_monthcount.columns)
         st.dataframe(df_monthcount)
 
@@ -80,10 +79,10 @@ def summary(client):
             # color=["#034635"],
             )
 
-        # st.write(alt.Chart(df_monthcount).mark_bar().encode(
-        #     x=alt.X('MONTH_NAME', sort=None),
-        #     y='count'
-        # ))
+        st.write(alt.Chart(df_monthcount).mark_bar().encode(
+            x=alt.X('MONTH_NAME', sort=None),
+            y='count'
+        ))
         
     
     st.header('Daily Breakdown')
