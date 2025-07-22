@@ -70,19 +70,29 @@ def summary(client):
         st.dataframe(df_monthcount)
 
     with colb:
-        st.header('')        
-        st.bar_chart(
-            data=df_monthcount,
-            use_container_width=True,
-            x_label='Month',
-            y_label='Count',
-            # color=["#034635"],
-            )
 
-        st.write(alt.Chart(df_monthcount).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=None),
-            y='count'
+        data = pd.DataFrame({
+            'city': ['Cincinnati', 'San Francisco', 'Pittsburgh'],
+            'sports_teams': [6, 8, 9],})
+
+        st.write(data)
+        st.write(alt.Chart(data).mark_bar().encode(
+            x=alt.X('city', sort=None),
+            y='sports_teams',
         ))
+        # st.header('')        
+        # st.bar_chart(
+        #     data=df_monthcount,
+        #     use_container_width=True,
+        #     x_label='Month',
+        #     y_label='Count',
+        #     # color=["#034635"],
+        #     )
+
+        # st.write(alt.Chart(df_monthcount).mark_bar().encode(
+        #     x=alt.X('MONTH_NAME', sort=None),
+        #     y='count'
+        # ))
         
     
     st.header('Daily Breakdown')
