@@ -31,6 +31,8 @@ def input(client, client_list):
         df_fqdn.columns = df_fqdn.iloc[0]
         df_fqdn = df_fqdn[1:]
         st.dataframe(df_fqdn, hide_index=True)
+        result_dict = df_fqdn.to_dict(orient='dict')
+        st.write(result_dict)
         
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
