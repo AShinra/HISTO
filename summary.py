@@ -54,7 +54,7 @@ def summary(client):
             df_captured = df[df['CAPTURED'] == 'Y']
         if cap_option == 'Missed':
             df_captured = df[df['CAPTURED'] == 'N']
-            
+
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
         df_monthcount = df_monthcount.reset_index()        
@@ -62,19 +62,9 @@ def summary(client):
 
     with colb:
 
-        
-        # st.header('')        
-        # st.bar_chart(
-        #     data=df_monthcount,
-        #     use_container_width=True,
-        #     x_label='Month',
-        #     y_label='Count',
-        #     # color=["#034635"],
-        #     )
-
         _chart = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=None, ),
-            y='count')
+            x=alt.X('MONTH_NAME', sort=None, title='Month'),
+            y='count', title='Count')
 
         st.write(_chart)
         
