@@ -75,7 +75,7 @@ def archive(client):
                         st.header(cl)
                         st.write(formatted_date_1)
                         if filtered_df.shape[0] > 0:
-                            selected_columns = filtered_df[['DATE', 'TIER', 'LINK', 'CAPTURED']]
+                            selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
                             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                         elif filtered_df.shape[0] == 0:
                             st.error('No Data Found')
@@ -85,12 +85,15 @@ def archive(client):
                 formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                 formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
 
-                filtered_df = df[(df['DATE'] == formatted_date_1)]
+                if captured_options == 'Captured':
+                    filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
+                elif captured_options == 'Missed':
+                    filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'N')]
                 
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
                 for cl in new_cl:
-                    st.header(cl)
+                    st.header(f'{cl} {captured_options}')
                     new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
                     selected_columns = new_df[['DATE', 'TIER', 'LINK']]
                     st.dataframe(selected_columns, use_container_width=True, hide_index=True)
