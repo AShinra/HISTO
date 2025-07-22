@@ -30,7 +30,7 @@ def input(client, client_list):
         st.error(f"Error accessing Google Sheet: {e}")
         
     with st.container(border=True):
-        col1, col2 = st.columns([0.15, 0.85], border=True)
+        col1, col2, col3 = st.columns([0.15, 0.7, 0.15], border=True)
         with col1:
             input_date = st.date_input('Date', key='i_date', format='YYYY-MM-DD').isoformat()
             input_date = datetime.strptime(input_date, '%Y-%m-%d')
@@ -45,9 +45,8 @@ def input(client, client_list):
         with col2:
             input_client = st.text_input('Client')
             input_hyperlink = st.text_input('Hyperlink')
-
-        data_area, col22 = st.columns([0.8, 0.2], border=True)
-        with col22:
+        
+        with col3:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
             b_clear = st.button('Clear', use_container_width=True)
             b_delete = st.button('Delete', use_container_width=True)
@@ -61,7 +60,7 @@ def input(client, client_list):
             captured = 'N'
         
         sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, input_hyperlink, captured])
-        with data_area:
+        with st.container(border=True):
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
             df1.columns = df1.iloc[0]
