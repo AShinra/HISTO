@@ -27,7 +27,7 @@ def input(client, client_list):
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
         temp = sheet.worksheet('TIER').get_all_values()
-        temp1 = pd.Dataframe(temp)
+        temp1 = pd.DataFrame(temp)
         st.dataframe(temp1)
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
