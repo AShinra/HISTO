@@ -41,14 +41,20 @@ def summary(client):
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
-        cap_option = st.radio(
-            label='Options',
-            options=['Captured', 'Missed'],
-            horizontal=True
-        )
-        year_selected = st.selectbox(
-            label='YEAR',
-            options=year_list)
+
+        cola1, cola2 = st.columns(2)
+
+        with cola1:
+            cap_option = st.radio(
+                label='Options',
+                options=['Captured', 'Missed'],
+                horizontal=True
+            )
+        
+        with cola2:
+            year_selected = st.selectbox(
+                label='YEAR',
+                options=year_list)
 
         if cap_option == 'Captured':
             df_captured = df[df['CAPTURED'] == 'Y']
