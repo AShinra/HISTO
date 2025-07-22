@@ -1,11 +1,11 @@
-import streamlit as st
+xxx = ['thisssisdkajlkdfalsk', 'dhehg']
 
+if 'this' in xxx:
+    print('found')
+else:
+    print('Not')
 
-
-ccc = st.text_area('Sample')
-
-if st.button('Write') and ccc is not None:
-    t = ccc.splitlines()
-
-
-st.write(t)
+for i in xxx:
+    if 'this' in i:
+        print('Yes')
+    
