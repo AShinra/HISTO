@@ -45,7 +45,7 @@ def input(client, client_list):
         with col2:
             input_client = st.text_input('Client')
             # input_hyperlink = st.text_input('Hyperlink')
-            input_hyperlink = st.text_area('Hyperlnk')
+            input_hyperlink = st.text_area('Hyperlink')
         with col3:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
             b_clear = st.button('Clear', use_container_width=True)
