@@ -61,7 +61,8 @@ def input(client, client_list):
 
         _hyperlinks = input_hyperlink.splitlines()
         for _hyperlink in _hyperlinks:
-            sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
+            if _hyperlink not in ['', None]:
+                sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
         with st.container(border=True):
             data = sheet.worksheet('TEMP').get_all_values()
