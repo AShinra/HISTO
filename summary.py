@@ -7,15 +7,18 @@ import altair as alt
 
 def summary(client):
 
-    cap_option = st.radio(
-        label='Options',
-        options=['Captured', 'Missed'],
-        horizontal=True
-    )
+    col11, col12, col13 = st.columns([0.15, 0.15, 0.7])
 
-    cb_client = st.checkbox(
-        label='All Clients',        
-    )
+    with col11:
+        cap_option = st.radio(
+            label='Options',
+            options=['Captured', 'Missed'],
+            horizontal=True
+        )
+    with col12:
+        cb_client = st.checkbox(
+            label='All Clients',        
+        )
 
     try:
         # client = get_gsheet_client()
