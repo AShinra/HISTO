@@ -30,7 +30,7 @@ def input(client, client_list):
         df_fqdn = pd.DataFrame(fqdn_temp)
         df_fqdn.columns = df_fqdn.iloc[0]
         df_fqdn = df_fqdn[1:]
-        st.dataframe(df_fqdn)
+        st.dataframe(df_fqdn, hide_index=True)
         
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
