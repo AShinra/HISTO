@@ -58,7 +58,11 @@ def summary(client):
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
-
+        cap_option = st.radio(
+            label='Options',
+            options=['Captured', 'Missed'],
+            horizontal=True
+        )
         year_selected = st.selectbox(
             label='YEAR',
             options=year_list)
