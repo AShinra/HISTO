@@ -7,6 +7,11 @@ import altair as alt
 
 def summary(client):
 
+    cap_option = st.radio(
+        label='Options',
+        options=['Captured', 'Missed'],
+        horizontal=True
+    )
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
@@ -18,38 +23,41 @@ def summary(client):
         df.columns = df.iloc[0]
         df = df[1:]
 
-        client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list)
-
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
 
-        
+        client_list = df['CLIENT NAME'].unique()
+        client_list = sorted(client_list)
+       
         date_list = df['DATE'].unique()        
+        
+        if cap_option == 'Captured':
+            df_captured = df[df['CAPTURED'] == 'Y']
+        if cap_option == 'Missed':
+            df_captured = df[df['CAPTURED'] == 'N']
+
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    cap_option = st.radio(
-        label='Options',
-        options=['Captured', 'Missed'],
-        horizontal=True
-    )
 
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
 
-        if cap_option == 'Captured':
-            df = df[df['CAPTURED'] == 'Y']
-            month_list = df['MONTH_NAME'].unique()
-            count_month = df['MONTH_NAME'].value_counts(sort=False)               
-        elif cap_option == 'Missed':
-            df = df[df['CAPTURED'] == 'N']
-            month_list = df['MONTH_NAME'].unique()
-            count_month = df['MONTH_NAME'].value_counts(sort=False)               
+        month_list = df_captured['MONTH NAME'].unique()
 
-        st.dataframe(count_month)
+        df_captured
+        # if cap_option == 'Captured':
+        #     df = df[df['CAPTURED'] == 'Y']
+        #     month_list = df['MONTH_NAME'].unique()
+        #     count_month = df['MONTH_NAME'].value_counts(sort=False)               
+        # elif cap_option == 'Missed':
+        #     df = df[df['CAPTURED'] == 'N']
+        #     month_list = df['MONTH_NAME'].unique()
+        #     count_month = df['MONTH_NAME'].value_counts(sort=False)               
+
+        st.dataframe(month_list)
 
     with colb:
         st.header('')        
@@ -64,6 +72,15 @@ def summary(client):
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
+        if cap_option == 'Captured':
+            df = df[df['CAPTURED'] == 'Y']
+            date_list = df['DATE'].unique()
+            count_date = date_list['DATE'].value_counts(sort=False)               
+        elif cap_option == 'Missed':
+            df = df[df['CAPTURED'] == 'N']
+            date_list = df['MONTH_NAME'].unique()
+            count_month = df['MONTH_NAME'].value_counts(sort=False)
+
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
