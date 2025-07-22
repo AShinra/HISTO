@@ -41,7 +41,8 @@ def input(client, client_list):
                 label='Captured',
                 options=['Yes', 'No'],
                 accept_new_options=False,
-                on_change=st.stop()
+                on_change=st.stop(),
+                placeholder='Yes'
             )
         with col2:
             input_client = st.text_input('Client')
