@@ -49,7 +49,7 @@ if __name__ == "__main__":
             menu_title='Histo Data',
             menu_icon='clock-history',
             options=['Entry', 'Archive', 'Summary'],
-            icons=['pencil-square']
+            icons=['pencil-square', 'archive', 'journals']
         )
 
     client = get_gsheet_client()
