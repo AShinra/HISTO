@@ -72,10 +72,10 @@ def archive(client):
                         elif captured_options == 'Missed':
                             filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
 
-                        st.header(cl)
-                        st.write(formatted_date_1)
+                        # st.write(formatted_date_1)
                         if filtered_df.shape[0] > 0:
                             selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                            st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
                             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                         elif filtered_df.shape[0] == 0:
                             st.error('No Data Found')
