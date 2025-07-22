@@ -93,7 +93,7 @@ def summary(client):
 
                     if c_list == []:
                         with col2:
-                            count_df = df['CLIENT NAME'].value_counts()                
+                            count_df = df_captured['CLIENT NAME'].value_counts()                
                             st.dataframe(count_df)           
                     else:
                         # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
