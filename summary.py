@@ -32,19 +32,12 @@ def summary(client):
         client_list = df['CLIENT NAME'].unique()
         client_list = sorted(client_list)        
         
-        if cap_option == 'Captured':
-            df_captured = df[df['CAPTURED'] == 'Y']
-        if cap_option == 'Missed':
-            df_captured = df[df['CAPTURED'] == 'N']
 
         # st.dataframe(df_captured)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-
-    
-
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
@@ -57,6 +50,11 @@ def summary(client):
             label='YEAR',
             options=year_list)
 
+        if cap_option == 'Captured':
+            df_captured = df[df['CAPTURED'] == 'Y']
+        if cap_option == 'Missed':
+            df_captured = df[df['CAPTURED'] == 'N']
+            
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
         df_monthcount = df_monthcount.reset_index()        
