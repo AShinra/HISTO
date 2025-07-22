@@ -30,14 +30,15 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
+    cap_option = st.radio(
+        label='Options',
+        options=['Captured', 'Missed'],
+        horizontal=True
+    )
+
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
-        cap_option = st.radio(
-            label='Options',
-            options=['Captured', 'Missed'],
-            horizontal=True
-        )
 
         if cap_option == 'Captured':
             df = df[df['CAPTURED'] == 'Y']
@@ -53,7 +54,7 @@ def summary(client):
     with colb:
         st.header('')        
         st.bar_chart(
-            count_month,
+            data=count_month,
             use_container_width=True,
             x_label='Month',
             y_label='Count',
@@ -63,11 +64,6 @@ def summary(client):
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
-        dcap_option = st.radio(
-            label='Options',
-            options=['Captured', 'Missed'],
-            horizontal=True
-        )
         count_date = df['DATE'].value_counts(sort=False)
         st.dataframe(count_date)
     with colb1:
