@@ -35,13 +35,13 @@ def summary(client):
 
         df['DATE'] = pd.to_datetime(df['DATE'])
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
-        df['YEAR'] = df['YEAR'].dt.year
+        df['YEAR'] = df['DATE'].dt.year
 
         st.dataframe(df)
 
         # year_list = df['YEAR'].unique()
 
-        st.write(year_list)
+        # st.write(year_list)
         
         exit()
 
