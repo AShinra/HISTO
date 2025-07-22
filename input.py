@@ -36,6 +36,9 @@ def input(client, client_list):
         # convert to list
         fqdn_list = df_fqdn['FQDN'].to_list()
         st.write(fqdn_list)
+
+        tier_list = df_fqdn['TIER'].to_list()
+        st.write(tier_list)
         
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
