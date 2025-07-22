@@ -26,9 +26,12 @@ def input(client, client_list):
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
-        temp = sheet.worksheet('TIER').get_all_values()
-        temp1 = pd.DataFrame(temp)
-        st.dataframe(temp1)
+        fqdn_temp = sheet.worksheet('TIER').get_all_values()
+        df_fqdn = pd.DataFrame(fqdn_temp)
+        df_fqdn.columns = df_fqdn.iloc[0]
+        df_fqdn = df_fqdn[1:]
+        st.dataframe(df_fqdn)
+        
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
         
