@@ -30,7 +30,7 @@ def input(client, client_list):
         st.error(f"Error accessing Google Sheet: {e}")
         
     with st.container(border=True):
-        col1, col2 = st.columns(2, border=True)
+        col1, col2 = st.columns([0.15, 0.85], border=True)
         with col1:
             input_date = st.date_input('Date', key='i_date', format='YYYY-MM-DD').isoformat()
             input_date = datetime.strptime(input_date, '%Y-%m-%d')
