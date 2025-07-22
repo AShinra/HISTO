@@ -77,6 +77,7 @@ def input(client, client_list):
         _hyperlinks = input_hyperlink.splitlines()
         for _hyperlink in _hyperlinks:
             if _hyperlink not in ['', None]:
+                input_tier = 'Unlisted'
                 # get the tiering of the website
                 for k, v in fqdn_dict.keys():
                     if k in _hyperlink:
