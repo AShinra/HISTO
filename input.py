@@ -81,11 +81,12 @@ def input(client, client_list):
                 input_tier = 'Unlisted'
                 for k, v in fqdn_dict.items():
                     if k in _hyperlink:
+                        input_fqdn = k
                         input_tier = v
                         break
                     
 
-                sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
+                sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
 
         with st.container(border=True):
             data = sheet.worksheet('TEMP').get_all_values()
