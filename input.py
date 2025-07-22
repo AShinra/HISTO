@@ -80,6 +80,7 @@ def input(client, client_list):
                 input_tier = 'Unlisted'
                 # get the tiering of the website
                 for k, v in fqdn_dict.items():
+                    st.write(k)
                     if k in _hyperlink:
                         input_tier = v
 
