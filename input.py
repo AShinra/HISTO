@@ -77,12 +77,13 @@ def input(client, client_list):
         _hyperlinks = input_hyperlink.splitlines()
         for _hyperlink in _hyperlinks:
             if _hyperlink not in ['', None]:
-                input_tier = 'Unlisted'
                 # get the tiering of the website
                 for k, v in fqdn_dict.items():
                     if k in _hyperlink:
                         input_tier = v
                         break
+                    else:
+                        input_tier = 'Unlisted'
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured])
 
