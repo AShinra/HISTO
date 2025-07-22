@@ -27,7 +27,7 @@ def archive(client):
         st.error(f"Error accessing Google Sheet: {e}")
 
     with st.container(border=True):
-        col1, col2, col3 = st.columns([0.15, 0.25, 0.6], border=True)
+        col1, col2, col3, col4 = st.columns([0.15, 0.15, 0.2, 0.5], border=True)
         
         with col1:
             radio_options = st.radio(
@@ -35,10 +35,10 @@ def archive(client):
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
             
-        with col2:
+        with col3:
             _date = st.date_input('DATE', key='a_date').isoformat()
     
-        with col3:
+        with col4:
             _client = st.multiselect('CLIENT', key='a_client', options=client_list)
         
     
