@@ -65,7 +65,7 @@ def summary(client):
 
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
-        st.write(df_monthcount)
+        st.dataframe(df_monthcount)
 
     with colb:
         st.header('')        
