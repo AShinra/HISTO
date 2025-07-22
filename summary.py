@@ -77,12 +77,13 @@ def summary(client):
             use_container_width=True,
             x_label='Month',
             y_label='Count',
-            color=["#034635"],)
+            # color=["#034635"],
+            )
 
-        st.write(alt.Chart(df_monthcount).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=None),
-            y='count'
-        ))
+        # st.write(alt.Chart(df_monthcount).mark_bar().encode(
+        #     x=alt.X('MONTH_NAME', sort=None),
+        #     y='count'
+        # ))
         
     
     st.header('Daily Breakdown')
