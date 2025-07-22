@@ -16,6 +16,7 @@ def summary(client):
             horizontal=True
         )
     with col12:
+        st.write('')
         cb_client = st.checkbox(
             label='All Clients',        
         )
