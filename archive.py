@@ -75,7 +75,7 @@ def archive(client):
                         st.header(cl)
                         st.write(formatted_date_1)
                         if filtered_df.shape[0] > 0:
-                            selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                            selected_columns = filtered_df[['DATE', 'TIER', 'LINK', 'CAPTURED']]
                             st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                         elif filtered_df.shape[0] == 0:
                             st.error('No Data Found')
