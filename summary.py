@@ -35,7 +35,6 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    st.header('')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
         
