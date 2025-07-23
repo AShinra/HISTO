@@ -26,10 +26,16 @@ def summary(client):
 
         # data for statistics
         total_request = df.shape[0]
+
         months = df['MONTH_NAME'].unique()
         number_of_months = months.shape[0]
+
         _days = df['DATE'].unique()
         number_of_days = _days.shape[0]
+
+        _misses = df[df['CAPTURED']=='N']
+        total_misses = _misses.shape[0]
+
 
         request_per_month = total_request/number_of_months
         request_per_day = total_request/number_of_days
@@ -84,6 +90,8 @@ def summary(client):
         st.write(f'Requests: {int(total_request):,}')
         st.write(f'Requests per Month: {int(request_per_month):,}')
         st.write(f'Requests per Day: {int(request_per_day):,}')
+        st.write('')
+        st.write(f'Total Misses: {total_misses}')
 
         
 
