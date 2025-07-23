@@ -27,21 +27,21 @@ def summary(client):
         # data for statistics
         total_request = df.shape[0]
 
-        months = df['MONTH_NAME'].unique()
-        number_of_months = months.shape[0]
+        # months = df['MONTH_NAME'].unique()
+        # number_of_months = months.shape[0]
 
-        _days = df['DATE'].unique()
-        number_of_days = _days.shape[0]
+        # _days = df['DATE'].unique()
+        # number_of_days = _days.shape[0]
 
-        _misses = df[df['CAPTURED']=='N']
-        total_misses = _misses.shape[0]
+        # _misses = df[df['CAPTURED']=='N']
+        # total_misses = _misses.shape[0]
 
 
-        request_per_month = total_request/number_of_months
-        request_per_day = total_request/number_of_days
-        misses_per_month = total_misses/number_of_months
-        misses_per_day = total_misses/number_of_days
-        misses_percent = total_misses/total_request
+        # request_per_month = total_request/number_of_months
+        # request_per_day = total_request/number_of_days
+        # misses_per_month = total_misses/number_of_months
+        # misses_per_day = total_misses/number_of_days
+        # misses_percent = total_misses/total_request
 
         monthly_data = df['MONTH_NAME'].value_counts(sort=False)
         
@@ -72,6 +72,22 @@ def summary(client):
             df_clientfiltered = df[df['CLIENT NAME'] == client_selection]
         else:
             df_clientfiltered = df
+
+        months = df_clientfiltered['MONTH_NAME'].unique()
+        number_of_months = months.shape[0]
+
+        _days = df_clientfiltered['DATE'].unique()
+        number_of_days = _days.shape[0]
+
+        _misses = df_clientfiltered[df['CAPTURED']=='N']
+        total_misses = _misses.shape[0]
+
+        request_per_month = total_request/number_of_months
+        request_per_day = total_request/number_of_days
+        misses_per_month = total_misses/number_of_months
+        misses_per_day = total_misses/number_of_days
+        misses_percent = total_misses/total_request
+
 
         cola1, cola2 = st.columns(2)
 
