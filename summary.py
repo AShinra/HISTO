@@ -108,6 +108,11 @@ def summary(client):
             # st.dataframe(df_fqdn, hide_index=True)
             top10_fqdn = df_fqdn[:10]
             st.dataframe(top10_fqdn, hide_index=True)
+        with colb22:
+            _chart3 = alt.Chart(top10_fqdn, title=alt.TitleParams(f'Top 10 {cap_option}', anchor='middle')).mark_bar().encode(
+                    x=alt.X('FQDN', sort=None, title='FQDN'),
+                    y=alt.Y('count', title='Count'))
+            st.write(_chart3)
     
 
         
