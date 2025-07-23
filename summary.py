@@ -41,8 +41,8 @@ def summary(client):
     st.header('Monthly Breakdown')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
-
-        client_selection_mb = st.checkbox(
+        
+        client_selection_mb = st.selectbox(
             label='Client',
             options=[client_list]
         )
