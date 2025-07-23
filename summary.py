@@ -35,8 +35,8 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    cola, colb = st.columns([0.3, 0.7], border=True)
-    with cola:
+    selection_col, chart_col = st.columns([0.3, 0.7], border=True)
+    with selection_col:
         
         # client selection
         client_selection = st.selectbox(
@@ -71,14 +71,14 @@ def summary(client):
             df_captured = df_clientfiltered
 
 
-    with colb:
-        colb1, colb2 = st.columns([0.3, 0.7])
-        with colb1:
+    with chart_col:
+        chart_cola1, chart_cola2 = st.columns([0.3, 0.7])
+        with chart_cola1:
             monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
             df_monthcount = monthcount.to_frame()
             df_monthcount = df_monthcount.reset_index()
             st.dataframe(df_monthcount, hide_index=True)
-        with colb2:
+        with chart_cola2:
             _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
                 x=alt.X('MONTH_NAME', sort=None, title='Month'),
                 y=alt.Y('count', title='Count'))
@@ -86,13 +86,13 @@ def summary(client):
         
         st.divider()
         
-        colb11, colb21 = st.columns([0.3, 0.7])
-        with colb11:
+        chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
+        with chart_colb1:
             countdate = df_captured['DATE'].value_counts(sort=False)
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
             st.dataframe(df_countdate, hide_index=True)
-        with colb21:
+        with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('DATE', sort=None, title='Date'),
                     y=alt.Y('count', title='Count'))
@@ -100,15 +100,15 @@ def summary(client):
         
         st.divider()
 
-        colb12, colb22 = st.columns([0.3, 0.7])
-        with colb12:
+        chart_colc1, chart_colc2 = st.columns([0.3, 0.7])
+        with chart_colc1:
             countfqdn = df_captured['FQDN'].value_counts(sort=True)
             df_fqdn = countfqdn.to_frame()
             df_fqdn = df_fqdn.reset_index()
             # st.dataframe(df_fqdn, hide_index=True)
             top10_fqdn = df_fqdn[:10]
             st.dataframe(top10_fqdn, hide_index=True)
-        with colb22:
+        with chart_colc2:
             _chart3 = alt.Chart(top10_fqdn, title=alt.TitleParams(f'Top 10 {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('FQDN', sort=None, title='FQDN'),
                     y=alt.Y('count', title='Count'))
