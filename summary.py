@@ -148,13 +148,13 @@ def summary(client):
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
 
-            # Filter out null or zero values
-            df_countdate = df_countdate[df_countdate['count'].notnull() & (df_countdate['count'] != 0)]
+            # # Filter out null or zero values
+            # df_countdate = df_countdate[df_countdate['count'].notnull() & (df_countdate['count'] != 0)]
 
             st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('DATE', sort=None, title='Date'),
+                    x=alt.X('DATE:O', sort=None, title='Date'),
                     y=alt.Y('count', title='Count'))
             st.write(_chart2)
         
