@@ -25,7 +25,7 @@ def summary(client):
         df['YEAR'] = df['DATE'].dt.year
 
         # data for statistics
-        monthly_data = df['MONTH_NAME'].value_counts()
+        monthly_data = df['MONTH_NAME'].value_counts(sort=False)
         st.write(monthly_data)
 
 
