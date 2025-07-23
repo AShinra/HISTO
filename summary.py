@@ -81,6 +81,7 @@ def summary(client):
         st.divider()
         # compute statistics
         st.header('Statistics')
+        st.write(f'Requests: {total_request}:,')
         st.write(f'Requests per Month: {int(request_per_month):,}')
         st.write(f'Requests per Day: {int(request_per_day):,}')
 
