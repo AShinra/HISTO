@@ -37,6 +37,7 @@ def summary(client):
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
         
+        # client selection
         client_selection = st.selectbox(
             label='Client',
             options=client_list
@@ -52,7 +53,7 @@ def summary(client):
         with cola1:
             cap_option = st.radio(
                 label='Options',
-                options=['Captured', 'Missed'],
+                options=['Captured', 'Missed', 'Request'],
                 horizontal=True
             )
         
@@ -61,10 +62,12 @@ def summary(client):
                 label='YEAR',
                 options=year_list)
 
-        if cap_option == 'Captured':
+        if cap_option=='Captured':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'Y']
-        if cap_option == 'Missed':
+        elif cap_option=='Missed':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'N']
+        elif cap_option=='Request':
+            df_captured = df_clientfiltered
 
 
     with colb:
@@ -94,53 +97,7 @@ def summary(client):
                     y=alt.Y('count', title='Count'))
             st.write(_chart2)
     
-    st.header('Daily Breakdown')
-    cola1, colb1 = st.columns([0.3, 0.7], border=True)
-    with colb1:
-        st.header('')
-        # st.bar_chart(countdate, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
-
-
     
-    
-
-    st.header('Client Breakdown')
-
-    col1, col2 = st.columns(2, border=True)
-    with col1:  
-        c_list = st.multiselect('Select Client', options=client_list, help='Leave Blank to see all clients')
-        button_select = st.button('Select')
-
-        if button_select:
-            with st.spinner(text="Preparing Data", show_time=True, width="content"):
-                time.sleep(5)
-
-                if c_list == []:
-                    with col2:
-                        count_df = df_captured['CLIENT NAME'].value_counts()                
-                        st.dataframe(count_df)           
-                else:
-                    # filtered_df = df[df['CLIENT NAME'].isin(c_list)]
-                    with col2:
-                        for cl in c_list:
-                            filtered_df = df[df['CLIENT NAME'] == cl]
-                            count_df = filtered_df['CLIENT NAME'].value_counts()
-                            date_df = filtered_df['DATE'].value_counts(sort=False)
-                            with st.expander(f'Click to view breakdown for {cl}'):
-                                with st.container(border=True):
-                                    st.dataframe(count_df)
-                                with st.container(border=True):
-                                    st.dataframe(date_df)
-                                with st.container(border=True):
-                                    st.bar_chart(date_df, x_label='Date', y_label='Count')
-                            st.write('')
-
-        
-        # with col2:
-        #     st.header('Missed per Date')
-        #     count_date = df['DATE'].value_counts(sort=False)
-        #     st.dataframe(count_date)
-        #     st.bar_chart(count_date, use_container_width=True)
 
         
 
