@@ -132,7 +132,7 @@ def summary(client):
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('DATE', sort=None, title='Date'),
-                    y=alt.Y('count', title='Count'))
+                    y=alt.Y('count', title='Count')).configure_mark(invalid='filter')
             st.write(_chart2)
         
         st.divider()
