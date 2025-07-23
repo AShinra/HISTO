@@ -86,6 +86,7 @@ def summary(client):
     with cola1:
         countdate = df_captured['DATE'].value_counts(sort=False)
         df_countdate = countdate.to_frame()
+        df_countdate = df_countdate.reset_index()
         st.dataframe(df_countdate, hide_index=True)
     with colb1:
         st.header('')
