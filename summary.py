@@ -94,7 +94,7 @@ def summary(client):
         st.write(f'Average Requests per Month: {int(request_per_month):,}')
         st.write(f'Average Requests per Day: {int(request_per_day):,}')
         st.write('')
-        st.write(f'Total Misses: {int(total_misses):,} ({misses_percent})')
+        st.write(f'Total Misses: {int(total_misses):,} ({misses_percent:.2%})')
         st.write(f'Average Misses per Month: {int(misses_per_month):,}')
         st.write(f'Average Misses per Day: {int(misses_per_day):,}')
 
