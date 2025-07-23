@@ -147,7 +147,6 @@ def summary(client):
             df_modified = df_captured
             df_modified['DATE'].astype(str)
             countdate = df_modified['DATE'].value_counts(sort=False)
-            st.write(countdate)
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
             st.dataframe(df_countdate, hide_index=True)
