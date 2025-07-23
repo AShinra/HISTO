@@ -106,6 +106,8 @@ def summary(client):
             df_fqdn = countfqdn.to_frame()
             df_fqdn = df_fqdn.reset_index()
             st.dataframe(df_fqdn, hide_index=True)
+            top10_fqdn = df_fqdn[:9]
+            st.dataframe(top10_fqdn)
     
 
         
