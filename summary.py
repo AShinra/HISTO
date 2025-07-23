@@ -145,7 +145,7 @@ def summary(client):
         chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
         with chart_colb1:
             df_modified = df_captured
-            st.dataframe(df_modified)
+            df_modified['DATE'].astype(str)
             countdate = df_modified['DATE'].value_counts(sort=False)
             st.write(countdate)
             df_countdate = countdate.to_frame()
