@@ -105,7 +105,7 @@ def summary(client):
             countfqdn = df_captured['FQDN'].value_counts(sort=True)
             df_fqdn = countfqdn.to_frame()
             df_fqdn = df_fqdn.reset_index()
-            st.dataframe(df_fqdn, hide_index=True)
+            # st.dataframe(df_fqdn, hide_index=True)
             top10_fqdn = df_fqdn[:10]
             st.dataframe(top10_fqdn, hide_index=True)
     
