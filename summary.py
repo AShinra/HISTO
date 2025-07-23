@@ -24,6 +24,11 @@ def summary(client):
         df['MONTH_NAME'] = df['DATE'].dt.month_name()
         df['YEAR'] = df['DATE'].dt.year
 
+        # data for statistics
+        monthly_data = df['MONTH_NAME'].value_counts()
+        st.write(monthly_data)
+
+
         year_list = df['YEAR'].unique()
 
         client_list = df['CLIENT NAME'].unique()
@@ -62,6 +67,11 @@ def summary(client):
             year_selected = st.selectbox(
                 label='YEAR',
                 options=year_list)
+        
+        # compute statistics
+        # -----Average Requests-----
+        
+
 
         if cap_option=='Captured':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'Y']
