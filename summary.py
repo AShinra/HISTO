@@ -144,11 +144,13 @@ def summary(client):
         
         chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
         with chart_colb1:
-            df_modified = df_captured
-            df_modified['DATE'].astype(str)
-            countdate = df_modified['DATE'].value_counts(sort=False)
+            countdate = df_captured['DATE'].value_counts(sort=False)
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
+
+            # Filter out null or zero values
+            df_countdate = df_countdate[df_countdate['count'].notnull() & (df_countdate['count'] != 0)]
+
             st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
