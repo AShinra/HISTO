@@ -28,10 +28,11 @@ def summary(client):
         total_request = df.shape[0]
         months = df['MONTH_NAME'].unique()
         number_of_months = months.shape[0]
-        
+        request_per_month = total_request/number_of_months
         monthly_data = df['MONTH_NAME'].value_counts(sort=False)
         st.write(monthly_data)
 
+        # --------------------
 
         year_list = df['YEAR'].unique()
 
@@ -75,6 +76,8 @@ def summary(client):
         st.divider()
         # compute statistics
         st.header('Statistics')
+        st.write(f'Requests per Month: {request_per_month}')
+
         
 
 
