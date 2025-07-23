@@ -75,20 +75,27 @@ def summary(client):
             df_monthcount = df_monthcount.reset_index()        
             st.dataframe(df_monthcount, hide_index=True)
         with colb2:
-            _chart = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
+            _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
                 x=alt.X('MONTH_NAME', sort=None, title='Month'),
                 y=alt.Y('count', title='Count'))
-            st.write(_chart)
+            st.write(_chart1)
         
     
     st.header('Daily Breakdown')
     cola1, colb1 = st.columns([0.3, 0.7], border=True)
     with cola1:
         countdate = df_captured['DATE'].value_counts(sort=False)
-        st.dataframe(countdate)
+        df_countdate = countdate.to_frame()
+        st.dataframe(df_countdate, hide_index=True)
     with colb1:
         st.header('')
-        st.bar_chart(countdate, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
+        # st.bar_chart(countdate, use_container_width=True, x_label='Date', y_label='Count', color=["#f35b09"])
+
+        _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
+                x=alt.X('DATE', sort=None, title='Date'),
+                y=alt.Y('count', title='Count'))
+        st.write(_chart2)
+
     
     
 
