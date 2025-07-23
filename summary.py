@@ -7,7 +7,7 @@ import altair as alt
 
 def summary(client):
 
-    st.header('Summary')
+    st.title('Summary')
 
     try:
         # client = get_gsheet_client()
