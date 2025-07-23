@@ -25,7 +25,7 @@ def summary(client):
         df['YEAR'] = df['DATE'].dt.year
 
         # data for statistics
-        total_request = df.shape[0]
+        # total_request = df.shape[0]
 
         # months = df['MONTH_NAME'].unique()
         # number_of_months = months.shape[0]
@@ -72,6 +72,8 @@ def summary(client):
             df_clientfiltered = df[df['CLIENT NAME'] == client_selection]
         else:
             df_clientfiltered = df
+        
+        total_request = df_clientfiltered.shape[0]
 
         months = df_clientfiltered['MONTH_NAME'].unique()
         number_of_months = months.shape[0]
