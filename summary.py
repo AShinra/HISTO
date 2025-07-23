@@ -86,18 +86,26 @@ def summary(client):
         
         st.divider()
         
-        colb11, colb22 = st.columns([0.3, 0.7])
+        colb11, colb21 = st.columns([0.3, 0.7])
         with colb11:
             countdate = df_captured['DATE'].value_counts(sort=False)
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
             st.dataframe(df_countdate, hide_index=True)
-        with colb22:
+        with colb21:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('DATE', sort=None, title='Date'),
                     y=alt.Y('count', title='Count'))
             st.write(_chart2)
-    
+        
+        st.divider()
+
+        colb12, colb22 = st.columns([0.3, 0.7])
+        with colb12:
+            countfqdn = df_captured['FQDN'].value_counts(sort=False)
+            df_fqdn = countfqdn.to_frame()
+            df_fqdn = df_fqdn.reset_index()
+            st.dataframe(df_fqdn, hide_index=True)
     
 
         
