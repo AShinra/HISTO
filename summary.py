@@ -71,18 +71,19 @@ def summary(client):
         if cap_option == 'Missed':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'N']
 
-        monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
-        df_monthcount = monthcount.to_frame()
-        df_monthcount = df_monthcount.reset_index()        
-        st.dataframe(df_monthcount, hide_index=True)
 
     with colb:
-
-        _chart = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
-            x=alt.X('MONTH_NAME', sort=None, title='Month'),
-            y=alt.Y('count', title='Count'))
-
-        st.write(_chart)
+        colb1, colb2 = st.columns(2)
+        with colb1:
+            monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
+            df_monthcount = monthcount.to_frame()
+            df_monthcount = df_monthcount.reset_index()        
+            st.dataframe(df_monthcount, hide_index=True)
+        with colb2:
+            _chart = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
+                x=alt.X('MONTH_NAME', sort=None, title='Month'),
+                y=alt.Y('count', title='Count'))
+            st.write(_chart)
         
     
     st.header('Daily Breakdown')
