@@ -102,7 +102,7 @@ def summary(client):
 
         colb12, colb22 = st.columns([0.3, 0.7])
         with colb12:
-            countfqdn = df_captured['FQDN'].value_counts(sort=False)
+            countfqdn = df_captured['FQDN'].value_counts(sort=True)
             df_fqdn = countfqdn.to_frame()
             df_fqdn = df_fqdn.reset_index()
             st.dataframe(df_fqdn, hide_index=True)
