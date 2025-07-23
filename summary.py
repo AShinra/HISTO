@@ -41,6 +41,7 @@ def summary(client):
         request_per_day = total_request/number_of_days
         misses_per_month = total_misses/number_of_months
         misses_per_day = total_misses/number_of_days
+        misses_percent = total_misses/total_request
 
         monthly_data = df['MONTH_NAME'].value_counts(sort=False)
         
@@ -93,7 +94,7 @@ def summary(client):
         st.write(f'Average Requests per Month: {int(request_per_month):,}')
         st.write(f'Average Requests per Day: {int(request_per_day):,}')
         st.write('')
-        st.write(f'Total Misses: {int(total_misses):,}')
+        st.write(f'Total Misses: {int(total_misses):,} ({misses_percent})')
         st.write(f'Average Misses per Month: {int(misses_per_month):,}')
         st.write(f'Average Misses per Day: {int(misses_per_day):,}')
 
