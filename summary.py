@@ -73,7 +73,7 @@ def summary(client):
 
 
     with colb:
-        colb1, colb2 = st.columns(2)
+        colb1, colb2 = st.columns([0.3, 0.7])
         with colb1:
             monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
             df_monthcount = monthcount.to_frame()
