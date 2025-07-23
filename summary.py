@@ -90,12 +90,12 @@ def summary(client):
         # compute statistics
         st.header('Statistics')
         st.write(f'Total Requests: {int(total_request):,}')
-        st.write(f'Requests per Month: {int(request_per_month):,}')
-        st.write(f'Requests per Day: {int(request_per_day):,}')
+        st.write(f'Average Requests per Month: {int(request_per_month):,}')
+        st.write(f'Average Requests per Day: {int(request_per_day):,}')
         st.write('')
         st.write(f'Total Misses: {int(total_misses):,}')
-        st.write(f'Misses per Month: {int(misses_per_month):,}')
-        st.write(f'Misses per Day: {int(misses_per_day):,}')
+        st.write(f'Average Misses per Month: {int(misses_per_month):,}')
+        st.write(f'Average Misses per Day: {int(misses_per_day):,}')
 
         
 
