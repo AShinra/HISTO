@@ -108,6 +108,12 @@ def summary(client):
         st.divider()
         # compute statistics
         st.header(f'{client_selection} Statistics')
+        st.markdown("""
+                    <style>
+                    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{gap: 0rem;}
+                    </style>""",
+                    unsafe_allow_html=True
+                    )
         st.write(f'Total Requests: {int(total_request):,}')
         st.write(f'Average Requests per Month: {int(request_per_month):,}')
         st.write(f'Average Requests per Day: {int(request_per_day):,}')
