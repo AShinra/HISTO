@@ -76,7 +76,7 @@ def summary(client):
             monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
             df_monthcount = monthcount.to_frame()
             df_monthcount = df_monthcount.reset_index()
-            df_monthcount = df_monthcount[['INDEX', 'MONTH', 'COUNT']]
+            st.write(df_monthcount.columns)
             st.dataframe(df_monthcount, hide_index=True)
         with colb2:
             _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
