@@ -107,7 +107,7 @@ def summary(client):
         
         st.divider()
         # compute statistics
-        st.header(f'{client_selection} Statistics')
+        st.header(f'Statistics ({client_selection})')
         st.write(f'Total Requests: {int(total_request):,}')
         st.write(f'Average Requests per Month: {int(request_per_month):,}')
         st.write(f'Average Requests per Day: {int(request_per_day):,}')
