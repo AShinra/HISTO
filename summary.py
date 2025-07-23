@@ -108,12 +108,6 @@ def summary(client):
         st.divider()
         # compute statistics
         st.header(f'{client_selection} Statistics')
-        st.markdown("""
-                    <style>
-                    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{gap: 0rem;}
-                    </style>""",
-                    unsafe_allow_html=True
-                    )
         st.write(f'Total Requests: {int(total_request):,}')
         st.write(f'Average Requests per Month: {int(request_per_month):,}')
         st.write(f'Average Requests per Day: {int(request_per_day):,}')
@@ -153,6 +147,7 @@ def summary(client):
             countdate = df_captured['DATE'].value_counts(sort=False)
             df_countdate = countdate.to_frame()
             df_countdate = df_countdate.reset_index()
+            df_countdate = df_countdate['DATE'].astype(str)
             st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate.dropna(), title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
