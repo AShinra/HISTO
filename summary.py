@@ -28,9 +28,14 @@ def summary(client):
         total_request = df.shape[0]
         months = df['MONTH_NAME'].unique()
         number_of_months = months.shape[0]
+        _days = df['DATE'].unique()
+        number_of_days = _days.shape[0]
+
         request_per_month = total_request/number_of_months
+        request_per_day = total_request/number_of_days
+
         monthly_data = df['MONTH_NAME'].value_counts(sort=False)
-        st.write(monthly_data)
+        
 
         # --------------------
 
@@ -77,6 +82,7 @@ def summary(client):
         # compute statistics
         st.header('Statistics')
         st.write(f'Requests per Month: {int(request_per_month):,}')
+        st.write(f'Requests per Day: {int(request_per_day):,}')
 
         
 
