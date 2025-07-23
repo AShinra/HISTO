@@ -154,7 +154,7 @@ def summary(client):
             st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('DATE:N', sort=None, title='Date'),
+                    x=alt.X('DATE:O', sort=None, title='Date', axis=alt.Axis(format='%b %d')),
                     y=alt.Y('count', title='Count'))
             st.write(_chart2)
         
