@@ -44,7 +44,7 @@ def summary(client):
         
         client_selection_mb = st.selectbox(
             label='Client',
-            options=[client_list]
+            options=client_list
         )
 
         cola1, cola2 = st.columns(2)
