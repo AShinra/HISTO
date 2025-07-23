@@ -33,17 +33,17 @@ def summary(client):
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
     
-    st.header('Monthly Breakdown')
+    st.header('')
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
         
-        client_selection_mb = st.selectbox(
+        client_selection = st.selectbox(
             label='Client',
             options=client_list
         )
 
-        if client_selection_mb != 'ALL':
-            df_clientfiltered = df[df['CLIENT NAME'] == client_selection_mb]
+        if client_selection != 'ALL':
+            df_clientfiltered = df[df['CLIENT NAME'] == client_selection]
         else:
             df_clientfiltered = df
 
@@ -79,6 +79,8 @@ def summary(client):
                 x=alt.X('MONTH_NAME', sort=None, title='Month'),
                 y=alt.Y('count', title='Count'))
             st.write(_chart1)
+        
+        st.divider()
         
         colb11, colb22 = st.columns([0.3, 0.7])
         with colb11:
