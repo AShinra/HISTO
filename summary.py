@@ -146,8 +146,8 @@ def summary(client):
         with chart_colb1:
             countdate = df_captured['DATE'].value_counts(sort=False)
             df_countdate = countdate.to_frame()
-            df_countdate = df_countdate.reset_index()
             df_countdate = df_countdate['DATE'].astype(str)
+            df_countdate = df_countdate.reset_index()
             st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
             _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
