@@ -47,6 +47,8 @@ def summary(client):
             options=client_list
         )
 
+        df_clientfiltered = df[df['CLIENT NAME'] == client_selection_mb]
+
         cola1, cola2 = st.columns(2)
 
         with cola1:
@@ -62,9 +64,9 @@ def summary(client):
                 options=year_list)
 
         if cap_option == 'Captured':
-            df_captured = df[df['CAPTURED'] == 'Y']
+            df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'Y']
         if cap_option == 'Missed':
-            df_captured = df[df['CAPTURED'] == 'N']
+            df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'N']
 
         monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
         df_monthcount = monthcount.to_frame()
