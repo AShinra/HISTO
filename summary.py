@@ -75,10 +75,11 @@ def summary(client):
         with colb1:
             monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
             df_monthcount = monthcount.to_frame()
-            df_monthcount = df_monthcount.reset_index()        
+            df_monthcount = df_monthcount.reset_index()
+            df_monthcount = df_monthcount[['MONTH', 'COUNT']]
             st.dataframe(df_monthcount, hide_index=True)
         with colb2:
-            _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
+            _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
                 x=alt.X('MONTH_NAME', sort=None, title='Month'),
                 y=alt.Y('count', title='Count'))
             st.write(_chart1)
@@ -92,7 +93,7 @@ def summary(client):
             df_countdate = df_countdate.reset_index()
             st.dataframe(df_countdate, hide_index=True)
         with colb22:
-            _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option} Breakdown', anchor='middle')).mark_bar().encode(
+            _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('DATE', sort=None, title='Date'),
                     y=alt.Y('count', title='Count'))
             st.write(_chart2)
