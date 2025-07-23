@@ -7,6 +7,8 @@ import altair as alt
 
 def summary(client):
 
+    st.header('Summary')
+
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
