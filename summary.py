@@ -26,10 +26,9 @@ def summary(client):
 
         # data for statistics
         total_request = df.shape[0]
-        st.write(total_request)
-        total_months = df['MONTH_NAME'].unique()
-        number_of_months = total_months.shape[0]
-        st.write(number_of_months)
+        months = df['MONTH_NAME'].unique()
+        number_of_months = months.shape[0]
+        
         monthly_data = df['MONTH_NAME'].value_counts(sort=False)
         st.write(monthly_data)
 
@@ -73,8 +72,9 @@ def summary(client):
                 label='YEAR',
                 options=year_list)
         
+        st.divider()
         # compute statistics
-        # -----Average Requests-----
+        st.header('Statistics')
         
 
 
