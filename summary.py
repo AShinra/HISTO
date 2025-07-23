@@ -42,6 +42,11 @@ def summary(client):
     cola, colb = st.columns([0.3, 0.7], border=True)
     with cola:
 
+        client_selection_mb = st.checkbox(
+            label='Client',
+            options=[client_list]
+        )
+
         cola1, cola2 = st.columns(2)
 
         with cola1:
