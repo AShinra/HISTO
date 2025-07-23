@@ -30,8 +30,8 @@ def summary(client):
         year_list = df['YEAR'].unique()
 
         client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list)        
-        
+        client_list = sorted(client_list)
+        client_list.insert(0, 'ALL')
 
         # st.dataframe(df_captured)
 
@@ -47,7 +47,10 @@ def summary(client):
             options=client_list
         )
 
-        df_clientfiltered = df[df['CLIENT NAME'] == client_selection_mb]
+        if client_selection_mb != 'ALL':
+            df_clientfiltered = df[df['CLIENT NAME'] == client_selection_mb]
+        else:
+            df_clientfiltered = df
 
         cola1, cola2 = st.columns(2)
 
