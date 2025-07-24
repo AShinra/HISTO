@@ -101,10 +101,19 @@ def archive(client):
 
                 for cl in new_cl:
                     with st.container(border=True):
-                        new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
-                        selected_columns = new_df[['DATE', 'TIER', 'LINK']]
+                        # new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
+                        # selected_columns = new_df[['DATE', 'TIER', 'LINK']]
                         st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
-                        st.dataframe(selected_columns, use_container_width=True, hide_index=True)   
+
+                        col_cap, col_mis = st.columns(2)
+
+                        with col_cap:
+                            captured_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
+                            cl_captured = captured_df[captured_df['CLIENT NAME']==cl]
+                            sel_cl_captured = cl_captured[['DATE', 'TIER', 'LINK']]
+                            st.dataframe(sel_cl_captured, use_container_width=True, hide_index=True)
+
+                        # st.dataframe(selected_columns, use_container_width=True, hide_index=True)   
                     
             
             elif radio_options == 'All Dates':
