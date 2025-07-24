@@ -10,7 +10,7 @@ from archive import archive
 from input import input
 from summary import summary
 
-
+@st.cache_data
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
     credentials_dict = {
@@ -29,15 +29,6 @@ def get_gsheet_client():
     credentials = Credentials.from_service_account_info(credentials_dict, scopes=["https://www.googleapis.com/auth/spreadsheets"])
     client = gspread.authorize(credentials)
     return client
-
-
-
-def get_client_names(df):
-
-
-    return
-
-
 
 
 if __name__ == "__main__":
