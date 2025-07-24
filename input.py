@@ -105,7 +105,7 @@ def input(client, client_list):
                 sheet.worksheet('ARCHIVE').append_row(i)
             
 
-        sheet.worksheet('TEMP').batch_clear(["A2:E100"])
+        sheet.worksheet('TEMP').batch_clear(["A2:F100"])
         
         data = sheet.worksheet('TEMP').get_all_values()
         df1 = pd.DataFrame(data)
@@ -116,7 +116,7 @@ def input(client, client_list):
         st.success('Added to Archives!!!')
     
     if b_clear:
-        sheet.worksheet('TEMP').batch_clear(["A2:E100"])
+        sheet.worksheet('TEMP').batch_clear(["A2:F100"])
         st.warning('Deleted all Entry!!!')
 
 	
