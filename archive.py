@@ -143,7 +143,7 @@ def archive(client):
                                 sel_captured = captured_df[['DATE', 'TIER', 'LINK']]
 
                                 st.subheader(f':green[Captured - {sel_captured.shape[0]}]')
-                                st.dataframe(sel_captured)
+                                st.dataframe(sel_captured, use_container_width=True, hide_index=True)
                             
                             with col_ad2:
 
@@ -151,6 +151,6 @@ def archive(client):
                                 sel_missed = missed_df[['DATE', 'TIER', 'LINK']]
 
                                 st.subheader(f':red[Missed - {sel_missed.shape[0]}]')
-                                st.dataframe(sel_missed)
+                                st.dataframe(sel_missed, use_container_width=True, hide_index=True)
             
     return
