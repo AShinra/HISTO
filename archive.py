@@ -113,6 +113,9 @@ def archive(client):
                             captured_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
                             cl_captured = captured_df[captured_df['CLIENT NAME']==cl]
                             sel_cl_captured = cl_captured[['DATE', 'TIER', 'LINK']]
+
+                            st.subheader(f'Captured - {sel_cl_captured.shape[0]}')
+
                             st.dataframe(sel_cl_captured, use_container_width=True, hide_index=True)
                         
                         with col_mis:
