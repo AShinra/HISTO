@@ -25,10 +25,10 @@ def get_data(client):
     return df
 
 
-def archive():
+def archive(client):
     st.title("Archive Data")
 
-    df = get_data()
+    df = get_data(client)
 
     client_list = df['CLIENT NAME'].unique()
     client_list = sorted(client_list)    
