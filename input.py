@@ -84,6 +84,8 @@ def input(client, client_list):
                         input_fqdn = k
                         input_tier = v
                         break
+                    else:
+                        input_fqdn = ''
                     
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
