@@ -92,11 +92,12 @@ def archive(client):
                 formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                 formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
 
-                if captured_options == 'Captured':
-                    filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
-                elif captured_options == 'Missed':
-                    filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'N')]
+                # if captured_options == 'Captured':
+                #     filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
+                # elif captured_options == 'Missed':
+                #     filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'N')]
                 
+                filtered_df = df[(df['DATE'] == formatted_date_1)]
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
                 for cl in new_cl:
