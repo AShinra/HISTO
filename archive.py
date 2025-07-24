@@ -73,19 +73,39 @@ def archive(client):
 
                         formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                         formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
+                        
+                        st.header(f':violet[{cl}]')
 
-                        if captured_options == 'Captured':
-                            filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
-                        elif captured_options == 'Missed':
-                            filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
+                        col_off1, col_off2 = st.columns(2, border=True)
+
+                        with col_off1:
+                            off_captured = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
+                            sel_off_captured = off_captured[['DATE', 'TIER', 'LINK']]
+
+                            st.subheader(f':green[Captured - {sel_off_captured.shape[0]}]')
+                            st.dataframe(sel_off_captured, hide_index=True, use_container_width=True)
+                        
+                        with col_off2:
+                            off_missed = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
+                            sel_off_missed = off_missed[['DATE', 'TIER', 'LINK']]
+
+                            st.subheader(f':red[Missed - {sel_off_missed.shape[0]}]')
+                            st.dataframe(sel_off_missed, hide_index=True, use_container_width=True)
+
+
+
+                        # if captured_options == 'Captured':
+                        #     filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
+                        # elif captured_options == 'Missed':
+                        #     filtered_df = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
 
                         # st.write(formatted_date_1)
-                        if filtered_df.shape[0] > 0:
-                            selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                            st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
-                            st.dataframe(selected_columns, use_container_width=True, hide_index=True)
-                        elif filtered_df.shape[0] == 0:
-                            st.error('No Data Found')
+                        # if filtered_df.shape[0] > 0:
+                        #     selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
+                        #     st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
+                        #     st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+                        # elif filtered_df.shape[0] == 0:
+                        #     st.error('No Data Found')
 
             elif radio_options == 'All Clients':
 
@@ -125,11 +145,6 @@ def archive(client):
                     st.error('No Client/s Selected')
                 else:
                     for cl in _client:
-
-                        # if captured_options == 'Captured':
-                        #     filtered_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
-                        # if captured_options == 'Missed':
-                        #     filtered_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
 
                         with st.container(border=True):
 
