@@ -84,15 +84,16 @@ def input(client, client_list):
                         input_fqdn = k
                         input_tier = v
                         break
+                
+                if input_tier == 'Unlisted':
+                    _hyperlink = _hyperlink.split('/')
+                    st.write(_hyperlink)
+                    _hyperlink = _hyperlink[2]
+                    st.write(_hyperlink)
+                    if _hyperlink[:4] == 'www.':
+                        input_fqdn = _hyperlink[4:]
                     else:
-                        _hyperlink = _hyperlink.split('/')
-                        st.write(_hyperlink)
-                        _hyperlink = _hyperlink[2]
-                        st.write(_hyperlink)
-                        if _hyperlink[:4] == 'www.':
-                            input_fqdn = _hyperlink[4:]
-                        else:
-                            input_fqdn = _hyperlink
+                        input_fqdn = _hyperlink
                     
 
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
