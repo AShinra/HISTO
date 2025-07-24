@@ -114,9 +114,6 @@ def input(client, client_list):
                 df1.columns = df1.iloc[0]
                 df1 = df1[1:]
                 st.dataframe(df1)
-            
-        st.session_state['in_client'] = ''
-        st.session_state['in_hyperlink'] = ''
 
     if b_submit:
 
