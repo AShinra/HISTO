@@ -25,7 +25,6 @@ def get_data(client):
     return df
 
 
-
 def archive():
     st.title("Archive Data")
 
