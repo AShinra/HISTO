@@ -102,9 +102,8 @@ def input(client, client_list):
                 df_fqdn_unli = df_fqdn_unli[1:]
                 unlisted_list = df_fqdn_unli['FQDN'].to_list()
 
-                st.write(unlisted_list)
-
-                sheet.worksheet('UNLISTED').append_row([input_fqdn])
+                if input_fqdn not in unlisted_list:
+                    sheet.worksheet('UNLISTED').append_row([input_fqdn])
 
         with st.container(border=True):
             data = sheet.worksheet('TEMP').get_all_values()
