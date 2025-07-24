@@ -10,7 +10,7 @@ from archive import archive
 from input import input
 from summary import summary
 
-@st.cache_data
+
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
     credentials_dict = {
