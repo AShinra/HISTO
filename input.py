@@ -58,9 +58,9 @@ def input(client, client_list):
                 accept_new_options=False
             )
         with col2:
-            input_client = st.text_input('Client')
+            input_client = st.text_input('Client', key='in_client')
             # input_hyperlink = st.text_input('Hyperlink')
-            input_hyperlink = st.text_area('Hyperlink')
+            input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
             b_clear = st.button('Clear', use_container_width=True)
@@ -114,6 +114,9 @@ def input(client, client_list):
                 df1.columns = df1.iloc[0]
                 df1 = df1[1:]
                 st.dataframe(df1)
+            
+        st.session_state['in_client'] = ''
+        st.session_state['in_hyperlink'] = ''
 
     if b_submit:
 
@@ -142,7 +145,7 @@ def input(client, client_list):
 
         with st.spinner('Processing Data', show_time=True):
             time.sleep(10)
-            
+
             sheet.worksheet('TEMP').batch_clear(["A2:F100"])
             st.warning('Deleted all Entry!!!')
 
