@@ -105,7 +105,7 @@ def archive(client):
                         
                         st.header(f':violet[{cl}]')
 
-                        col_cap, col_mis = st.columns(2)
+                        col_cap, col_mis = st.columns(2, border=True)
 
                         with col_cap:
                             captured_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
