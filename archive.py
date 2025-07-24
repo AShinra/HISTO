@@ -150,13 +150,7 @@ def archive(client):
                                 missed_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
                                 sel_missed = missed_df[['DATE', 'TIER', 'LINK']]
 
-                                st.subheader(f':red[Captured - {sel_missed.shape[0]}]')
+                                st.subheader(f':red[Missed - {sel_missed.shape[0]}]')
                                 st.dataframe(sel_missed)
-
-
-
-                                # selected_columns = filtered_df[['DATE', 'TIER', 'LINK']]
-                                # st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
-                                # st.dataframe(selected_columns, use_container_width=True, hide_index=True)
             
     return
