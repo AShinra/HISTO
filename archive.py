@@ -49,10 +49,10 @@ def archive(client):
         #         horizontal=False
         #     )
             
-        with col3:
+        with col2:
             _date = st.date_input('DATE', key='a_date').isoformat()
     
-        with col4:
+        with col3:
             _client = st.multiselect('CLIENT', key='a_client', options=client_list)
         
     
