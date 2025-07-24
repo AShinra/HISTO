@@ -100,11 +100,10 @@ def archive(client):
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
                 for cl in new_cl:
-                    with st.container(border=True):
-                        new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
-                        selected_columns = new_df[['DATE', 'TIER', 'LINK']]
-                        st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
-                        st.dataframe(selected_columns, use_container_width=True, hide_index=True)
+                    new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
+                    selected_columns = new_df[['DATE', 'TIER', 'LINK']]
+                    st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
+                    st.dataframe(selected_columns, use_container_width=True, hide_index=True)
                     
             
             elif radio_options == 'All Dates':
