@@ -114,7 +114,12 @@ def archive(client):
                             cl_captured = captured_df[captured_df['CLIENT NAME']==cl]
                             sel_cl_captured = cl_captured[['DATE', 'TIER', 'LINK']]
                             st.dataframe(sel_cl_captured, use_container_width=True, hide_index=True)
-
+                        
+                        with col_mis:
+                            missed_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'N')]
+                            cl_missed = missed_df[missed_df['CLIENT NAME']==cl]
+                            sel_cl_missed = cl_missed[['DATE', 'TIER', 'LINK']]
+                            st.dataframe(sel_cl_missed, use_container_width=True, hide_index=True)
                         # st.dataframe(selected_columns, use_container_width=True, hide_index=True)   
                     
             
