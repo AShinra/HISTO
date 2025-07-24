@@ -34,7 +34,7 @@ def archive(client):
     client_list = sorted(client_list)    
 
     with st.container(border=True):
-        col1, col2, col3, col4 = st.columns([0.15, 0.15, 0.15, 0.55], border=True)
+        col1, col2, col3 = st.columns([0.15, 0.15, 0.70], border=True)
         
         with col1:
             radio_options = st.radio(
@@ -42,12 +42,12 @@ def archive(client):
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
             
-        with col2:
-            captured_options = st.radio(
-                label='CAPTURED',
-                options=['Captured', 'Missed'],
-                horizontal=False
-            )
+        # with col2:
+        #     captured_options = st.radio(
+        #         label='CAPTURED',
+        #         options=['Captured', 'Missed'],
+        #         horizontal=False
+        #     )
             
         with col3:
             _date = st.date_input('DATE', key='a_date').isoformat()
