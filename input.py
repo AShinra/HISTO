@@ -88,6 +88,7 @@ def input(client, client_list):
                         _hyperlink = _hyperlink.split('/')
                         st.write(_hyperlink)
                         _hyperlink = _hyperlink[2]
+                        st.write(_hyperlink)
                         if _hyperlink[:4] == 'www.':
                             input_fqdn = _hyperlink[4:]
                         else:
