@@ -113,6 +113,7 @@ def archive(client):
                             sel_cl_captured = cl_captured[['DATE', 'TIER', 'LINK']]
 
                             st.subheader(f':green[Captured - {sel_cl_captured.shape[0]}]')
+                            st.divider()
 
                             st.dataframe(sel_cl_captured, use_container_width=True, hide_index=True)
                         
@@ -122,7 +123,8 @@ def archive(client):
                             sel_cl_missed = cl_missed[['DATE', 'TIER', 'LINK']]
 
                             st.subheader(f':red[Missed - {sel_cl_missed.shape[0]}]')
-
+                            st.divider()
+                            
                             st.dataframe(sel_cl_missed, use_container_width=True, hide_index=True)                       
             
             elif radio_options == 'All Dates':
