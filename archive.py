@@ -4,10 +4,8 @@ import pandas as pd
 from datetime import datetime
 import time
 
-
-def archive(client):
-    st.title("Archive Data")
-
+@st.cache_data
+def get_data(client):
     
     try:
         # client = get_gsheet_client()
@@ -20,11 +18,21 @@ def archive(client):
         df.columns = df.iloc[0]
         df = df[1:]
 
-        client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list)
 
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
+
+    return df
+
+
+
+def archive():
+    st.title("Archive Data")
+
+    df = get_data()
+
+    client_list = df['CLIENT NAME'].unique()
+    client_list = sorted(client_list)    
 
     with st.container(border=True):
         col1, col2, col3, col4 = st.columns([0.15, 0.15, 0.15, 0.55], border=True)
