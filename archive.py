@@ -103,7 +103,7 @@ def archive(client):
                 for cl in new_cl:
                     with st.container(border=True):
                         
-                        st.header(f'{cl}')
+                        st.header(f':violet[{cl}]')
 
                         col_cap, col_mis = st.columns(2)
 
