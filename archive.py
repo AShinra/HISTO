@@ -147,7 +147,7 @@ def archive(client):
                             
                             with col_ad2:
 
-                                missed_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
+                                missed_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'N')]
                                 sel_missed = missed_df[['DATE', 'TIER', 'LINK']]
 
                                 st.subheader(f':green[Captured - {sel_missed.shape[0]}]')
