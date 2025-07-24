@@ -5,12 +5,12 @@ from datetime import datetime
 import time
 
 @st.cache_data
-def get_data(client):
+def get_data(_client):
     
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
-        sheet = client.open_by_key(sheet_id)
+        sheet = _client.open_by_key(sheet_id)
 
         data = sheet.sheet1.get_all_values()
 
