@@ -68,73 +68,83 @@ def input(client, client_list):
             b_submit = st.button('Submit', use_container_width=True)
 
     if b_add:
+
+        with st.spinner('Processing Data', show_time=True):
+            time.sleep(10)
         
-        if input_captured == 'Yes':
-            captured = 'Y'
-        elif input_captured == 'No':
-            captured = 'N'
+            if input_captured == 'Yes':
+                captured = 'Y'
+            elif input_captured == 'No':
+                captured = 'N'
 
-        _hyperlinks = input_hyperlink.splitlines()
-        for _hyperlink in _hyperlinks:
-            if _hyperlink not in ['', None]:
-                # get the tiering of the website
-                input_tier = 'Unlisted'
-                for k, v in fqdn_dict.items():
-                    if k in _hyperlink:
-                        input_fqdn = k
-                        input_tier = v
-                        break
-                
-                if input_tier == 'Unlisted':
-                    _fqdn = _hyperlink.split('/')
-                    _fqdn = _fqdn[2]
-                    if _fqdn[:4] == 'www.':
-                        input_fqdn = _fqdn[4:]
-                    else:
-                        input_fqdn = _fqdn
+            _hyperlinks = input_hyperlink.splitlines()
+            for _hyperlink in _hyperlinks:
+                if _hyperlink not in ['', None]:
+                    # get the tiering of the website
+                    input_tier = 'Unlisted'
+                    for k, v in fqdn_dict.items():
+                        if k in _hyperlink:
+                            input_fqdn = k
+                            input_tier = v
+                            break
                     
-                sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
+                    if input_tier == 'Unlisted':
+                        _fqdn = _hyperlink.split('/')
+                        _fqdn = _fqdn[2]
+                        if _fqdn[:4] == 'www.':
+                            input_fqdn = _fqdn[4:]
+                        else:
+                            input_fqdn = _fqdn
+                        
+                    sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
 
-                # get fqdn unlisted data
-                fqdn_unlisted = sheet.worksheet('UNLISTED').get_all_values()
-                df_fqdn_unli = pd.DataFrame(fqdn_unlisted)
-                df_fqdn_unli.columns = df_fqdn_unli.iloc[0]
-                df_fqdn_unli = df_fqdn_unli[1:]
-                unlisted_list = df_fqdn_unli['FQDN'].to_list()
+                    # get fqdn unlisted data
+                    fqdn_unlisted = sheet.worksheet('UNLISTED').get_all_values()
+                    df_fqdn_unli = pd.DataFrame(fqdn_unlisted)
+                    df_fqdn_unli.columns = df_fqdn_unli.iloc[0]
+                    df_fqdn_unli = df_fqdn_unli[1:]
+                    unlisted_list = df_fqdn_unli['FQDN'].to_list()
 
-                if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
-                    sheet.worksheet('UNLISTED').append_row([input_fqdn])
+                    if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
+                        sheet.worksheet('UNLISTED').append_row([input_fqdn])
 
-        with st.container(border=True):
+            with st.container(border=True):
+                data = sheet.worksheet('TEMP').get_all_values()
+                df1 = pd.DataFrame(data)
+                df1.columns = df1.iloc[0]
+                df1 = df1[1:]
+                st.dataframe(df1)
+
+    if b_submit:
+
+        with st.spinner('Processing Data', show_time=True):
+            time.sleep(10)
+
+            data = sheet.worksheet('TEMP').get_all_values()
+            for idx, i in enumerate(data):
+                if idx == 0:
+                    continue
+                else:
+                    sheet.worksheet('ARCHIVE').append_row(i)
+                
+
+            sheet.worksheet('TEMP').batch_clear(["A2:F100"])
+            
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
             df1.columns = df1.iloc[0]
             df1 = df1[1:]
             st.dataframe(df1)
-
-    if b_submit:
-
-        data = sheet.worksheet('TEMP').get_all_values()
-        for idx, i in enumerate(data):
-            if idx == 0:
-                continue
-            else:
-                sheet.worksheet('ARCHIVE').append_row(i)
             
-
-        sheet.worksheet('TEMP').batch_clear(["A2:F100"])
-        
-        data = sheet.worksheet('TEMP').get_all_values()
-        df1 = pd.DataFrame(data)
-        df1.columns = df1.iloc[0]
-        df1 = df1[1:]
-        st.dataframe(df1)
-        
-        st.success('Added to Archives!!!')
+            st.success('Added to Archives!!!')
     
     if b_clear:
-        sheet.worksheet('TEMP').batch_clear(["A2:F100"])
-        st.warning('Deleted all Entry!!!')
+
+        with st.spinner('Processing Data', show_time=True):
+            time.sleep(10)
+            
+            sheet.worksheet('TEMP').batch_clear(["A2:F100"])
+            st.warning('Deleted all Entry!!!')
 
 	
 
