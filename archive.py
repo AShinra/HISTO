@@ -142,7 +142,7 @@ def archive(client):
                                 captured_df = df[(df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
                                 sel_captured = captured_df[['DATE', 'TIER', 'LINK']]
 
-                                st.subheader(f':green[Captured - {sel_cl_captured.shape[0]}]')
+                                st.subheader(f':green[Captured - {sel_captured.shape[0]}]')
                                 st.dataframe(sel_captured)
                             
                             with col_ad2:
