@@ -102,7 +102,7 @@ def input(client, client_list):
                 df_fqdn_unli = df_fqdn_unli[1:]
                 unlisted_list = df_fqdn_unli['FQDN'].to_list()
 
-                if input_fqdn not in unlisted_list:
+                if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
                     sheet.worksheet('UNLISTED').append_row([input_fqdn])
 
         with st.container(border=True):
