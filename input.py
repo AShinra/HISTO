@@ -94,6 +94,16 @@ def input(client, client_list):
                         input_fqdn = _hyperlink
                     
                 sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
+
+                # get fqdn unlisted data
+                fqdn_unlisted = sheet.worksheet('UNLISTED').get_all_values()
+                df_fqdn_unli = pd.DataFrame(fqdn_unlisted)
+                df_fqdn_unli.columns = df_fqdn_unli.iloc[0]
+                df_fqdn_unli = df_fqdn_unli[1:]
+                unlisted_list = df_fqdn_unli['FQDN'].to_list()
+
+                st.write(unlisted_list)
+
                 sheet.worksheet('UNLISTED').append_row([input_fqdn])
 
         with st.container(border=True):
