@@ -102,9 +102,7 @@ def archive(client):
 
                 for cl in new_cl:
                     with st.container(border=True):
-                        # new_df = filtered_df[filtered_df['CLIENT NAME'] == cl]
-                        # selected_columns = new_df[['DATE', 'TIER', 'LINK']]
-                        # st.header(f'{cl} {captured_options} - {selected_columns.shape[0]}')
+                        
                         st.header(f'{cl}')
 
                         col_cap, col_mis = st.columns(2)
@@ -123,11 +121,9 @@ def archive(client):
                             cl_missed = missed_df[missed_df['CLIENT NAME']==cl]
                             sel_cl_missed = cl_missed[['DATE', 'TIER', 'LINK']]
 
-                            st.subheader(f'Missed - {sel_cl_missed.shape[0]}')
+                            st.subheader(f':red[Missed - {sel_cl_missed.shape[0]}]')
 
-                            st.dataframe(sel_cl_missed, use_container_width=True, hide_index=True)
-                        # st.dataframe(selected_columns, use_container_width=True, hide_index=True)   
-                    
+                            st.dataframe(sel_cl_missed, use_container_width=True, hide_index=True)                       
             
             elif radio_options == 'All Dates':
                 if _client == []:
