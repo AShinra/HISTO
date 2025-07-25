@@ -53,7 +53,7 @@ def archive(client):
                 key='a_date',
                 value=(start_date, end_date),
                 min_value=date(2000, 1, 1),
-                max_value=date(2030, 12, 31)).isoformat()
+                max_value=date(2030, 12, 31))
             
             st_date, en_date = _date
     
