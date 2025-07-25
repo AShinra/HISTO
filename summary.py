@@ -125,7 +125,7 @@ def summary(client):
             </div>
             """, unsafe_allow_html=True)
             
-            coltier1, coltier2 = st.columns([0.4, 0.6])
+            coltier1, coltier2 = st.columns([0.5, 0.5])
 
             with coltier1:
                 if _misses_tier1_pub != 0:
