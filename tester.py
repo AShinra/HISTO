@@ -16,6 +16,7 @@ date_range = st.date_input(
 )
 
 if date_range is not None and len(date_range) == 2:
+    st.write(date_range)
     selected_start_date, selected_end_date = date_range
     st.write(f"Selected date range: From {selected_start_date} to {selected_end_date}")
 else:
