@@ -123,12 +123,12 @@ def summary(client):
             st.markdown(f"#### Misses")
             st.markdown(f"""
             <div style="line-height: 0.3; font-size:20px;">
-            <p style="color:red;"><b>Total Misses: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
-            <p style="color:red;"><b>Avg Misses/Month: </b>{int(misses_per_month):,}</p>
-            <p style="color:red;"><b>Avg Misses/Day: </b>{int(misses_per_day):,}</p>
+            <p style="color:red;"><b>Total: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
+            <p style="color:red;"><b>Monthly Ave: </b>{int(misses_per_month):,}</p>
+            <p style="color:red;"><b>Daily Ave: </b>{int(misses_per_day):,}</p>
             </div>
             """, unsafe_allow_html=True)
-
+            st.markdown(f"#### Tier")
             
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
