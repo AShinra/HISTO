@@ -138,8 +138,7 @@ def summary(client):
 
                 if _misses_tier2_pub != 0:
                     with st.expander(
-                        label=f'Tier 2 Missed: {count_misses_tier2}',
-                        help='sdsadas\nfdsdfsdf'
+                        label=f':blue[**Tier 2 Missed: {count_misses_tier2}**]'
                     ):
                         _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
                         for _pub in sorted(_misses_tier2_pub):
@@ -147,7 +146,7 @@ def summary(client):
 
                 if _misses_tier3_pub != 0:
                     with st.expander(
-                        label=f'Tier 3 Missed: {count_misses_tier3}'
+                        label=f':blue[**Tier 3 Missed: {count_misses_tier3}**]'
                     ):
                         _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
                         for _pub in sorted(_misses_tier3_pub):
@@ -155,7 +154,7 @@ def summary(client):
                 
                 if _misses_tieru_pub != 0:
                     with st.expander(
-                        label=f'Tier Unlisted Missed: {count_misses_tieru}'
+                        label=f':blue[**Tier Unlisted Missed: {count_misses_tieru}**]'
                     ):
                         _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
                         for _pub in sorted(_misses_tieru_pub):
