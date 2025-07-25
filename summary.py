@@ -115,8 +115,8 @@ def summary(client):
 
             st.markdown(f"""
             <div style="line-height: 1.1;">
-            <span style="color:blue;">Total Requests {int(total_request):,}</span>
-            **Avg Requests/Month**: <span style="color:blue;">{int(request_per_month):,}</span>  \\
+            <p><span style="color:blue;">Total Requests: {int(total_request):,}</span>
+            <p><span style="color:blue;">Avg Requests/Month: {int(request_per_month):,}</span>  \\
             **Avg Requests/Day**: <span style="color:blue;">{int(request_per_day):,}</span>  \\
             **Total Misses**: <span style="color:red;">{int(total_misses):,} ({misses_percent:.2%})</span>  \\
             **Avg Misses/Month**: <span style="color:red;">{int(misses_per_month):,}</span>  \\
