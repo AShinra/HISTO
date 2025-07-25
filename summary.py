@@ -110,15 +110,29 @@ def summary(client):
         st.divider()
         # compute statistics
         with st.spinner('Processing Data', show_time=True):
-            st.header(f'Statistics ({client_selection})')
-            st.write(f'**Total Requests**: :blue[{int(total_request):,}]')
-            st.write(f'**Average Requests per Month**: :blue[{int(request_per_month):,}]')
-            st.write(f'**Average Requests per Day**: :blue[{int(request_per_day):,}]')
-            st.write('')
-            st.write(f'**Total Misses**: :red[{int(total_misses):,} ({misses_percent:.2%})]')
-            st.write(f'**Average Misses per Month**: :red[{int(misses_per_month):,}]')
-            st.write(f'**Average Misses per Day**: :red[{int(misses_per_day):,}]')
-            st.write('')
+
+            st.markdown(f"### Statistics ({client_selection})")
+
+            st.markdown(f"""
+            <div style="line-height: 1.1;">
+            **Total Requests**: <span style="color:blue;">{int(total_request):,}</span>  \\
+            **Avg Requests/Month**: <span style="color:blue;">{int(request_per_month):,}</span>  \\
+            **Avg Requests/Day**: <span style="color:blue;">{int(request_per_day):,}</span>  \\
+            **Total Misses**: <span style="color:red;">{int(total_misses):,} ({misses_percent:.2%})</span>  \\
+            **Avg Misses/Month**: <span style="color:red;">{int(misses_per_month):,}</span>  \\
+            **Avg Misses/Day**: <span style="color:red;">{int(misses_per_day):,}</span>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # st.header(f'Statistics ({client_selection})')
+            # st.write(f'**Total Requests**: :blue[{int(total_request):,}]')
+            # st.write(f'**Average Requests per Month**: :blue[{int(request_per_month):,}]')
+            # st.write(f'**Average Requests per Day**: :blue[{int(request_per_day):,}]')
+            # st.write('')
+            # st.write(f'**Total Misses**: :red[{int(total_misses):,} ({misses_percent:.2%})]')
+            # st.write(f'**Average Misses per Month**: :red[{int(misses_per_month):,}]')
+            # st.write(f'**Average Misses per Day**: :red[{int(misses_per_day):,}]')
+            # st.write('')
 
             coltiera1, coltiera2 = st.columns([0.3, 0.7])
             with coltiera1:
