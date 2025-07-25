@@ -1,8 +1,9 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, date
 import time
+
 
 @st.cache_data
 def get_data(_client):
@@ -42,15 +43,17 @@ def archive(client):
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
             
-        # with col2:
-        #     captured_options = st.radio(
-        #         label='CAPTURED',
-        #         options=['Captured', 'Missed'],
-        #         horizontal=False
-        #     )
-            
         with col2:
-            _date = st.date_input('DATE', key='a_date').isoformat()
+            today = date.today()
+            start_date = today
+            end_date = today
+
+            _date = st.date_input(
+                label='DATE',
+                key='a_date',
+                value=(start_date, end_date),
+                min_value=date(2000, 1, 1),
+                max_value=date(2030, 12, 31)).isoformat()
     
         with col3:
             _client = st.multiselect('CLIENT', key='a_client', options=client_list)
