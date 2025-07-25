@@ -151,7 +151,7 @@ def summary(client):
             with coltierc2:
                 st.write(f'Tier 3 Missed: {count_misses_tier3}')
             
-            coltierd1, coltierd2 = st.columns([0.30, 0.70], border=True)
+            coltierd1, coltierd2 = st.columns([0.45, 0.55], border=True)
             with coltierd1:
                 with st.popover(
                     label='Details'
