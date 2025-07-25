@@ -81,6 +81,7 @@ def archive(client):
                         with st.container(border=True):
 
                             st_date = st_date.isoformat()
+                            en_date = en_date.isoformat()
                             # formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                             # formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
                             
