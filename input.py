@@ -21,8 +21,6 @@ def input(client, client_list):
 
     st.title(":violet[Data Entry]")
 
-
-
     try:
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
@@ -48,7 +46,7 @@ def input(client, client_list):
     with st.container(border=True):
         col1, col2, col3 = st.columns([0.15, 0.7, 0.15], border=True)
         with col1:
-            input_date = st.date_input('Date', key='i_date', format='YYYY-MM-DD').isoformat()
+            input_date = st.date_input(':calendar: Date', key='i_date', format='YYYY-MM-DD').isoformat()
             input_date = datetime.strptime(input_date, '%Y-%m-%d')
             input_date = input_date.strftime('%-m/%-d/%Y')            
             # input_tier = st.text_input('Tier')
