@@ -48,7 +48,7 @@ def summary(client):
         
         # client selection
         client_selection = st.selectbox(
-            label='Client',
+            label='CLIENT',
             options=client_list
         )
 
@@ -97,7 +97,7 @@ def summary(client):
 
         with cola1:
             cap_option = st.radio(
-                label='Options',
+                label='OPTIONS',
                 options=['Missed', 'Captured', 'Request'],
                 horizontal=False                
             )
