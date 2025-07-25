@@ -138,7 +138,7 @@ def summary(client):
                     label='Details'
                 ):  
                     _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
-                    for _pub in _misses_tier2_pub:
+                    for _pub in sorted(_misses_tier2_pub):
                         st.write(_pub)
             with coltierb2:
                 st.write(f'Tier 2 Missed: {count_misses_tier2}')
@@ -149,7 +149,7 @@ def summary(client):
                     label='Details'
                 ):
                     _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
-                    for _pub in _misses_tier3_pub:
+                    for _pub in sorted(_misses_tier3_pub):
                         st.write(_pub)
             with coltierc2:
                 st.write(f'Tier 3 Missed: {count_misses_tier3}')
@@ -160,7 +160,7 @@ def summary(client):
                     label='Details'
                 ):
                     _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
-                    for _pub in _misses_tieru_pub:
+                    for _pub in sorted(_misses_tieru_pub):
                         st.write(_pub)
             with coltierd2:
                 st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
