@@ -67,6 +67,8 @@ def archive(client):
      
     if b_search:
 
+        df['DATE'] = pd.to_datetime(df['DATE'])
+
         with st.spinner(text="Reading Archives", show_time=False, width="content"):
             time.sleep(5)
 
