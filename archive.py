@@ -83,7 +83,7 @@ def archive(client):
 
         df['DATE'] = pd.to_datetime(df['DATE'])
 
-        with st.spinner(text="Reading Archives", show_time=False, width="content"):
+        with st.spinner(text="Reading Archives", show_time=True, width="content"):
             time.sleep(5)
 
             if radio_options == 'Off':
