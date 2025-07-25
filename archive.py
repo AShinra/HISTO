@@ -58,6 +58,9 @@ def archive(client):
                     max_value=date(2030, 12, 31))
                 
                 st_date, en_date = _date
+                st_date = st_date.isoformat()
+                en_date = en_date.isoformat()
+                
             except:
                 st.write("Please select a valid date range.")
     
@@ -83,9 +86,6 @@ def archive(client):
                     for cl in _client:
 
                         with st.container(border=True):
-
-                            st_date = st_date.isoformat()
-                            en_date = en_date.isoformat()
                                                         
                             st.header(f':violet[{cl}]')
 
