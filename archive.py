@@ -55,7 +55,7 @@ def archive(client):
                 end_date = today
 
                 _date = st.date_input(
-                    label=':blue[**DATE RANGE**]',
+                    label=':calendar: :blue[**DATE RANGE**]',
                     key='a_date',
                     value=(start_date, end_date),
                     min_value=date(2025, 1, 1),
