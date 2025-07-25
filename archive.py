@@ -39,7 +39,7 @@ def archive(client):
         
         with col1:
             radio_options = st.radio(
-                label=':gray[**OPTIONS**]',
+                label=':blue[**OPTIONS**]',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
             with st.popover(label='Help'):
