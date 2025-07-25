@@ -51,7 +51,7 @@ def input(client, client_list):
             input_date = input_date.strftime('%-m/%-d/%Y')            
             # input_tier = st.text_input('Tier')
             input_captured = st.selectbox(
-                label=':film_frames: Captured',
+                label='Captured',
                 options=['Yes', 'No'],
                 accept_new_options=False
             )
