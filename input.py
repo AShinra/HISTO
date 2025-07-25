@@ -19,7 +19,7 @@ def input(client, client_list):
 
     data = {}
 
-    st.title("Data Entry")
+    st.title(":violet[Data Entry]")
 
 
 

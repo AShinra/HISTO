@@ -28,7 +28,7 @@ def get_data(_client):
 
 def summary(client):
 
-    st.title('Summary')
+    st.title(':violet[Summary]')
 
     df = get_data(client)
 
