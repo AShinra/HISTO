@@ -98,8 +98,9 @@ def summary(client):
         with cola1:
             cap_option = st.radio(
                 label='Options',
-                options=['Captured', 'Missed', 'Request'],
-                horizontal=False
+                options=['Missed', 'Captured', 'Request'],
+                horizontal=False,
+                
             )
         
         with cola2:
