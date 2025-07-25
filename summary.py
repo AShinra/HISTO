@@ -125,6 +125,13 @@ def summary(client):
             </div>
             """, unsafe_allow_html=True)
             
+            with st.expander(
+                label=f'Tier 1 Missed: {count_misses_tier1}'
+            ):
+                _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
+                for _pub in sorted(_misses_tier1_pub):
+                    st.write(_pub)
+
             coltiera1, coltiera2 = st.columns([0.3, 0.7])
             with coltiera1:
                 with st.popover(
