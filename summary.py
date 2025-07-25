@@ -131,35 +131,34 @@ def summary(client):
         
         chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
         with chart_colb1:
-            countdate = df_captured['DATE'].value_counts(sort=False)
-            df_countdate = countdate.to_frame()
-            df_countdate = df_countdate.reset_index()
-
-            # # Filter out null or zero values
-            # df_countdate = df_countdate[df_countdate['count'].notnull() & (df_countdate['count'] != 0)]
-
-            st.dataframe(df_countdate, hide_index=True)
+            with st.spinner('Generating Table', show_time=True):
+                countdate = df_captured['DATE'].value_counts(sort=False)
+                df_countdate = countdate.to_frame()
+                df_countdate = df_countdate.reset_index()            
+                st.dataframe(df_countdate, hide_index=True)
         with chart_colb2:
-            _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('yearmonthdate(DATE):O', sort=None, title='Date', axis=alt.Axis(format='%b %d')),
-                    y=alt.Y('count', title='Count'))
-            st.write(_chart2)
+            with st.spinner('Generating Chart', show_time=True):
+                _chart2 = alt.Chart(df_countdate, title=alt.TitleParams(f'Daily {cap_option}', anchor='middle')).mark_bar().encode(
+                        x=alt.X('yearmonthdate(DATE):O', sort=None, title='Date', axis=alt.Axis(format='%b %d')),
+                        y=alt.Y('count', title='Count'))
+                st.write(_chart2)
         
         st.divider()
 
         chart_colc1, chart_colc2 = st.columns([0.3, 0.7])
         with chart_colc1:
-            countfqdn = df_captured['FQDN'].value_counts(sort=True)
-            df_fqdn = countfqdn.to_frame()
-            df_fqdn = df_fqdn.reset_index()
-            # st.dataframe(df_fqdn, hide_index=True)
-            top10_fqdn = df_fqdn[:10]
-            st.dataframe(top10_fqdn, hide_index=True)
+            with st.spinner('Generating Table', show_time=True):
+                countfqdn = df_captured['FQDN'].value_counts(sort=True)
+                df_fqdn = countfqdn.to_frame()
+                df_fqdn = df_fqdn.reset_index()
+                top10_fqdn = df_fqdn[:10]
+                st.dataframe(top10_fqdn, hide_index=True)
         with chart_colc2:
-            _chart3 = alt.Chart(top10_fqdn, title=alt.TitleParams(f'Top 10 {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('FQDN', sort=None, title='FQDN'),
-                    y=alt.Y('count', title='Count'))
-            st.write(_chart3)
+            with st.spinner('Generating Chart', show_time=True):
+                _chart3 = alt.Chart(top10_fqdn, title=alt.TitleParams(f'Top 10 {cap_option}', anchor='middle')).mark_bar().encode(
+                        x=alt.X('FQDN', sort=None, title='FQDN'),
+                        y=alt.Y('count', title='Count'))
+                st.write(_chart3)
     
 
         
