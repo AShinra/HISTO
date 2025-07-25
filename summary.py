@@ -125,33 +125,40 @@ def summary(client):
             </div>
             """, unsafe_allow_html=True)
             
-            with st.expander(
-                label=f'Tier 1 Missed: {count_misses_tier1}'
-            ):
-                _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
-                for _pub in sorted(_misses_tier1_pub):
-                    st.write(_pub)
+            coltier1, coltier2 = st.columns([0.4, 0.6])
 
-            with st.expander(
-                label=f'Tier 2 Missed: {count_misses_tier2}'
-            ):
-                _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
-                for _pub in sorted(_misses_tier2_pub):
-                    st.write(_pub)
-            
-            with st.expander(
-                label=f'Tier 3 Missed: {count_misses_tier3}'
-            ):
-                _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
-                for _pub in sorted(_misses_tier3_pub):
-                    st.write(_pub)
-            
-            with st.expander(
-                label=f'Tier Unlisted Missed: {count_misses_tieru}'
-            ):
-                _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
-                for _pub in sorted(_misses_tieru_pub):
-                    st.write(_pub)
+            with coltier1:
+                if _misses_tier1_pub != 0:
+                    with st.expander(
+                        label=f'Tier 1 Missed: {count_misses_tier1}'
+                    ):
+                        _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
+                        for _pub in sorted(_misses_tier1_pub):
+                            st.write(_pub)
+
+                if _misses_tier2_pub != 0:
+                    with st.expander(
+                        label=f'Tier 2 Missed: {count_misses_tier2}'
+                    ):
+                        _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
+                        for _pub in sorted(_misses_tier2_pub):
+                            st.write(_pub)
+
+                if _misses_tier3_pub != 0:
+                    with st.expander(
+                        label=f'Tier 3 Missed: {count_misses_tier3}'
+                    ):
+                        _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
+                        for _pub in sorted(_misses_tier3_pub):
+                            st.write(_pub)
+                
+                if _misses_tieru_pub != 0:
+                    with st.expander(
+                        label=f'Tier Unlisted Missed: {count_misses_tieru}'
+                    ):
+                        _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
+                        for _pub in sorted(_misses_tieru_pub):
+                            st.write(_pub)
 
         if cap_option=='Captured':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'Y']
