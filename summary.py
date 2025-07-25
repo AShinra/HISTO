@@ -5,59 +5,43 @@ from datetime import datetime
 import time
 import altair as alt
 
-def summary(client):
 
-    st.title('Summary')
+@st.cache_data
+def get_data(_client):
 
     try:
         # client = get_gsheet_client()
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
-        sheet = client.open_by_key(sheet_id)
+        sheet = _client.open_by_key(sheet_id)
 
         data = sheet.sheet1.get_all_values()
 
         df = pd.DataFrame(data)
         df.columns = df.iloc[0]
         df = df[1:]
-
-        df['DATE'] = pd.to_datetime(df['DATE'])
-        df['MONTH_NAME'] = df['DATE'].dt.month_name()
-        df['YEAR'] = df['DATE'].dt.year
-
-        # data for statistics
-        # total_request = df.shape[0]
-
-        # months = df['MONTH_NAME'].unique()
-        # number_of_months = months.shape[0]
-
-        # _days = df['DATE'].unique()
-        # number_of_days = _days.shape[0]
-
-        # _misses = df[df['CAPTURED']=='N']
-        # total_misses = _misses.shape[0]
-
-
-        # request_per_month = total_request/number_of_months
-        # request_per_day = total_request/number_of_days
-        # misses_per_month = total_misses/number_of_months
-        # misses_per_day = total_misses/number_of_days
-        # misses_percent = total_misses/total_request
-
-        monthly_data = df['MONTH_NAME'].value_counts(sort=False)
-        
-
-        # --------------------
-
-        year_list = df['YEAR'].unique()
-
-        client_list = df['CLIENT NAME'].unique()
-        client_list = sorted(client_list)
-        client_list.insert(0, 'ALL')
-
-        # st.dataframe(df_captured)
-
+    
     except Exception as e:
         st.error(f"Error accessing Google Sheet: {e}")
+
+    return df
+
+
+def summary(client):
+
+    st.title('Summary')
+
+    df = get_data(client)
+
+    df['DATE'] = pd.to_datetime(df['DATE'])
+    df['MONTH_NAME'] = df['DATE'].dt.month_name()
+    df['YEAR'] = df['DATE'].dt.year
+    monthly_data = df['MONTH_NAME'].value_counts(sort=False)
+
+    year_list = df['YEAR'].unique()
+
+    client_list = df['CLIENT NAME'].unique()
+    client_list = sorted(client_list)
+    client_list.insert(0, 'ALL')
     
     selection_col, chart_col = st.columns([0.3, 0.7], border=True)
     with selection_col:
