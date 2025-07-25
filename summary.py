@@ -71,13 +71,13 @@ def summary(client):
         _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] != '')]
         st.write(_misses_tier.shape[0])
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
-        st.write(_misses_tier1.shape[0])
+        count_misses_tier1 = _misses_tier1.shape[0])
         _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
-        st.write(_misses_tier2.shape[0])
+        count_misses_tier2 = _misses_tier2.shape[0]
         _misses_tier3 = _misses_tier[_misses_tier['TIER']=="3"]
-        st.write(_misses_tier3.shape[0])
+        count_misses_tier3 = _misses_tier3.shape[0]
         _misses_tieru = _misses_tier[_misses_tier['TIER']=="Unlisted"]
-        st.write(_misses_tieru.shape[0])
+        count_misses_tieru = _misses_tieru.shape[0]
 
         request_per_month = total_request/number_of_months
         request_per_day = total_request/number_of_days
@@ -111,6 +111,11 @@ def summary(client):
             st.write(f'Total Misses: {int(total_misses):,} ({misses_percent:.2%})')
             st.write(f'Average Misses per Month: {int(misses_per_month):,}')
             st.write(f'Average Misses per Day: {int(misses_per_day):,}')
+            st.write('')
+            st.write(f'Tier 1 Missed: {count_misses_tier1}')
+            st.write(f'Tier 2 Missed: {count_misses_tier2}')
+            st.write(f'Tier 3 Missed: {count_misses_tier3}')
+            st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
 
         
 
