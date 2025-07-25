@@ -70,7 +70,7 @@ def input(client, client_list):
     if b_add:
 
         with st.spinner('Processing Data', show_time=True):
-            time.sleep(10)
+            time.sleep(15)
         
             if input_captured == 'Yes':
                 captured = 'Y'
@@ -118,7 +118,7 @@ def input(client, client_list):
     if b_submit:
 
         with st.spinner('Processing Data', show_time=True):
-            time.sleep(10)
+            time.sleep(15)
 
             data = sheet.worksheet('TEMP').get_all_values()
             for idx, i in enumerate(data):
@@ -141,7 +141,7 @@ def input(client, client_list):
     if b_clear:
 
         with st.spinner('Processing Data', show_time=True):
-            time.sleep(10)
+            time.sleep(15)
 
             sheet.worksheet('TEMP').batch_clear(["A2:F100"])
             st.warning('Deleted all Entry!!!')
