@@ -127,17 +127,16 @@ def summary(client):
             
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
+            st.markdown("""
+                        <style>div.streamlit-expanderHeader {font-size: 16px;padding: 5px 10px;min-height: 20px;}</style>
+                        """, unsafe_allow_html=True)
+
             with coltier1:
                 if _misses_tier1_pub != 0:
                     with st.expander(
                         label=f':blue[**Tier 1 Missed: {count_misses_tier1}**]',
                     ):
                         _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
-
-                        st.markdown("""
-                                    <div style='max-height: 50px; overflow-y: auto; padding-right: 10px;'>
-                                    """,unsafe_allow_html=True)
-                        
                         for _pub in sorted(_misses_tier1_pub):
                             st.write(_pub)
 
