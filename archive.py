@@ -78,16 +78,15 @@ def archive(client):
 
                         with st.container(border=True):
 
-                            formatted_st_date = datetime.strptime(st_date, '%Y-%m-%d')
-                            formatted_st_date = formatted_st_date.strftime('%-m/%-d/%Y')
-                            st.write(formatted_st_date)
+                            # formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
+                            # formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
                             
                             st.header(f':violet[{cl}]')
 
                             col_off1, col_off2 = st.columns(2, border=True)
 
                             with col_off1:
-                                off_captured = df[(df['DATE'] == formatted_date_1) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
+                                off_captured = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
                                 sel_off_captured = off_captured[['DATE', 'TIER', 'LINK']]
 
                                 st.subheader(f':green[Captured - {sel_off_captured.shape[0]}]')
