@@ -111,7 +111,7 @@ def summary(client):
         # compute statistics
         with st.spinner('Processing Data', show_time=True):
 
-            st.markdown(f"Statistics ({client_selection})")
+            st.markdown(f"### Statistics ({client_selection})")
 
             st.markdown(f"""
             <div style="line-height: 0.0;">
