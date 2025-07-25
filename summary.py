@@ -135,7 +135,7 @@ def summary(client):
                         _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
 
                         st.markdown("""
-                                    <div style='max-height: 100px; overflow-y: auto; padding-right: 10px;'>
+                                    <div style='max-height: 50px; overflow-y: auto; padding-right: 10px;'>
                                     """,unsafe_allow_html=True)
                         
                         for _pub in sorted(_misses_tier1_pub):
