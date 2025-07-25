@@ -39,7 +39,7 @@ if __name__ == "__main__":
         page_title='HISTO')
     
     try:
-        image = Image.open("https://ibb.co/xSKkN60n")
+        image = Image.open("https://i.ibb.co/JRW19H4Y/AShinra-Logo.png")
         st.sidebar.image(image)
     except FileNotFoundError:
         st.sidebar.write("Image file not found. Please check the path.")
