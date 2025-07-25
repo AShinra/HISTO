@@ -44,6 +44,7 @@ def archive(client):
                 horizontal=False)
             with st.expander(
                 label='Help'):
+                st.write('Off - Generates data for chosen client/s and choses dates')
                 st.write('All Dates - Generates data for chosen client/s for all dates')
                 st.write('All Clients - Generates data for chosen date/s for all clients')
             
