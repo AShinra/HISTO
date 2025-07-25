@@ -68,6 +68,9 @@ def summary(client):
         _misses = df_clientfiltered[df['CAPTURED']=='N']
         total_misses = _misses.shape[0]
 
+        _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] not in [None, ''])]
+        st.write(_misses_tier.shape[0])
+
         request_per_month = total_request/number_of_months
         request_per_day = total_request/number_of_days
         misses_per_month = total_misses/number_of_months
