@@ -120,7 +120,7 @@ def summary(client):
             st.write(f'Average Misses per Day: {int(misses_per_day):,}')
             st.write('')
 
-            coltiera1, coltiera2 = st.columns([0.30, 0.70], border=True)
+            coltiera1, coltiera2 = st.columns([0.35, 0.65], border=True)
             with coltiera1:
                 with st.popover(
                     label='Details'
@@ -131,7 +131,7 @@ def summary(client):
                 st.write(f'Tier 1 Missed: {count_misses_tier1}')
             
 
-            coltierb1, coltierb2 = st.columns([0.30, 0.70], border=True)
+            coltierb1, coltierb2 = st.columns([0.35, 0.65], border=True)
             with coltierb1:                            
                 with st.popover(
                     label='Details'
@@ -141,7 +141,7 @@ def summary(client):
             with coltierb2:
                 st.write(f'Tier 2 Missed: {count_misses_tier2}')
             
-            coltierc1, coltierc2 = st.columns([0.30, 0.70], border=True)
+            coltierc1, coltierc2 = st.columns([0.35, 0.65], border=True)
             with coltierc1:
                 with st.popover(
                     label='Details'
