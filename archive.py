@@ -42,6 +42,10 @@ def archive(client):
                 label='OPTIONS',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
+            with st.expander(
+                label='Help'):
+                st.write('All Dates - Generates data for chosen client/s for all dates')
+                st.write('All Clients - Generates data for chosen date/s for all clients')
             
         with col2:
 
