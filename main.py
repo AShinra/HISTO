@@ -5,6 +5,7 @@ from google.oauth2.service_account import Credentials
 import pandas as pd
 from datetime import datetime
 import time
+from PIL import Image
 
 from archive import archive
 from input import input
@@ -36,6 +37,12 @@ if __name__ == "__main__":
     st.set_page_config(
         layout="wide",
         page_title='HISTO')
+    
+    try:
+        image = Image.open("https://ibb.co/xSKkN60n")
+        st.sidebar.image(image)
+    except FileNotFoundError:
+        st.sidebar.write("Image file not found. Please check the path.")
 
     with st.sidebar:
         selected = option_menu(
