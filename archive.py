@@ -80,6 +80,7 @@ def archive(client):
 
                         with st.container(border=True):
 
+                            st_date = st_date.isoformat()
                             # formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
                             # formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
                             
@@ -88,7 +89,6 @@ def archive(client):
                             col_off1, col_off2 = st.columns(2, border=True)
 
                             with col_off1:
-                                st.write(st_date.isoformat())
 
                                 off_captured = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
                                 sel_off_captured = off_captured[['DATE', 'TIER', 'LINK']]
