@@ -70,6 +70,7 @@ def summary(client):
 
         _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] != '')]
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
+        _misses_tier1_pub = _misses_tier1['FQ'].to_list()
         count_misses_tier1 = _misses_tier1.shape[0]
         _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
         count_misses_tier2 = _misses_tier2.shape[0]
@@ -112,6 +113,7 @@ def summary(client):
             st.write(f'Average Misses per Day: {int(misses_per_day):,}')
             st.write('')
             st.write(f'Tier 1 Missed: {count_misses_tier1}')
+            st.write(_misses_tier1_pub)
             st.write(f'Tier 2 Missed: {count_misses_tier2}')
             st.write(f'Tier 3 Missed: {count_misses_tier3}')
             st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
