@@ -113,7 +113,7 @@ def summary(client):
 
 
     with chart_col:
-        chart_cola1, chart_cola2 = st.columns([0.3, 0.7])
+        chart_cola1, chart_cola2 = st.columns([0.3, 0.7], border=True)
         with chart_cola1:
             with st.spinner('Generating Table', show_time=True):
                 monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
@@ -125,10 +125,8 @@ def summary(client):
                 _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
                     x=alt.X('MONTH_NAME', sort=None, title='Month'),
                     y=alt.Y('count', title='Count'))
-                st.write(_chart1)
-        
-        st.divider()
-        
+                st.write(_chart1)       
+                
         chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
         with chart_colb1:
             with st.spinner('Generating Table', show_time=True):
