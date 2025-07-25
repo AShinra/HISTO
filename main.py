@@ -23,6 +23,21 @@ def get_logo():
 
     return image
 
+@st.cache_resource
+def get_bgimage():
+
+    background_image = """
+    <style>
+    [data-testid="stAppViewContainer"] > .main {
+    background-image: url("https://i.ibb.co/8D4hLbSX/natural-light-white-background.jpg");
+    background-size: 100vw 100vh;  # This sets the size to cover 100% of the viewport width and height
+    background-position: center;
+    background-repeat: no-repeat;}</style>"""
+
+    st.markdown(background_image, unsafe_allow_html=True)
+
+    return
+
 
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
@@ -45,6 +60,8 @@ def get_gsheet_client():
 
 
 if __name__ == "__main__":
+
+    get_bgimage()
 
     st.set_page_config(
         layout="wide",
