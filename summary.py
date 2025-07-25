@@ -111,7 +111,7 @@ def summary(client):
         # compute statistics
         with st.spinner('Processing Data', show_time=True):
             st.header(f'Statistics ({client_selection})')
-            st.write(f'Total Requests: {int(total_request):,}')
+            st.write(f'Total Requests: :blue[{int(total_request):,}]')
             st.write(f'Average Requests per Month: {int(request_per_month):,}')
             st.write(f'Average Requests per Day: {int(request_per_day):,}')
             st.write('')
@@ -129,7 +129,7 @@ def summary(client):
                     for _pub in sorted(_misses_tier1_pub):
                         st.write(_pub)
             with coltiera2:
-                st.write(f'Tier 1 Missed: :blue[{count_misses_tier1}]')
+                st.write(f'Tier 1 Missed: {count_misses_tier1}')
             
 
             coltierb1, coltierb2 = st.columns([0.3, 0.7])
