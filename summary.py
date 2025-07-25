@@ -127,10 +127,6 @@ def summary(client):
             
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
-            st.markdown("""
-                        <style>div data-testid="stExpander" {font-size: 10px;padding: 5px 10px;min-height: 20px;}</style>
-                        """, unsafe_allow_html=True)
-
             with coltier1:
                 if _misses_tier1_pub != 0:
                     with st.expander(
