@@ -128,7 +128,7 @@ def summary(client):
             <p style="color:red;"><b>Daily Ave: </b>{int(misses_per_day):,}</p>
             </div>
             """, unsafe_allow_html=True)
-            st.markdown(f"#### Tier")
+            st.markdown(f"#### Tier")           
             
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
