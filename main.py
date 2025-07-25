@@ -33,7 +33,9 @@ def get_gsheet_client():
 
 if __name__ == "__main__":
 
-    st.set_page_config(layout="wide")
+    st.set_page_config(
+        layout="wide",
+        page_title='HISTO')
 
     with st.sidebar:
         selected = option_menu(
