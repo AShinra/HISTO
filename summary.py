@@ -139,30 +139,19 @@ def summary(client):
                 for _pub in sorted(_misses_tier2_pub):
                     st.write(_pub)
             
-            coltierc1, coltierc2 = st.columns([0.3, 0.7])
-            with coltierc1:
-                with st.popover(
-                    label='Details'
-                ):
-                    _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
-                    for _pub in sorted(_misses_tier3_pub):
-                        st.write(_pub)
-            with coltierc2:
-                st.write(f'Tier 3 Missed: {count_misses_tier3}')
+            with st.expander(
+                label=f'Tier 3 Missed: {count_misses_tier3}'
+            ):
+                _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
+                for _pub in sorted(_misses_tier3_pub):
+                    st.write(_pub)
             
-            coltierd1, coltierd2 = st.columns([0.3, 0.7])
-            with coltierd1:
-                with st.popover(
-                    label='Details'
-                ):
-                    _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
-                    for _pub in sorted(_misses_tieru_pub):
-                        st.write(_pub)
-            with coltierd2:
-                st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
-
-        
-
+            with st.expander(
+                label=f'Tier Unlisted Missed: {count_misses_tieru}'
+            ):
+                _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
+                for _pub in sorted(_misses_tieru_pub):
+                    st.write(_pub)
 
         if cap_option=='Captured':
             df_captured = df_clientfiltered[df_clientfiltered['CAPTURED'] == 'Y']
