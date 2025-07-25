@@ -27,7 +27,7 @@ def get_data(_client):
 
 
 def archive(client):
-    st.title("Archive Data")
+    st.title(":violet[Archive Data]")
 
     df = get_data(client)
 
