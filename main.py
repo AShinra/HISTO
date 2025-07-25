@@ -13,6 +13,16 @@ from archive import archive
 from input import input
 from summary import summary
 
+@st.cache_resource
+def get_logo():
+
+    url = "https://i.ibb.co/JRW19H4Y/AShinra-Logo.png"
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an error for bad responses
+    image = Image.open(BytesIO(response.content))
+
+    return image
+
 
 def get_gsheet_client():
     # Load credentials from Streamlit secrets
@@ -41,11 +51,7 @@ if __name__ == "__main__":
         page_title='HISTO')
     
     try:
-        url = "https://i.ibb.co/JRW19H4Y/AShinra-Logo.png"
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an error for bad responses
-        image = Image.open(BytesIO(response.content))
-        st.sidebar.image(image)
+        st.sidebar.image(get_logo())
     except FileNotFoundError:
         st.sidebar.write("Image file not found. Please check the path.")
 
