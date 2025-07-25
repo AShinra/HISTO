@@ -117,14 +117,18 @@ def summary(client):
             <div style="line-height: 0.3; font-size:20px;">
             <p style="color:#008B8B;"><b>Total: </b>{int(total_request):,}</p>
             <p style="color:#008B8B;"><b>Monthly Ave: </b>{int(request_per_month):,}</p>
-            <p style="color:#008B8B;"><b>Daily Ave: </b>{int(request_per_day):,}</p>
-            <p>
+            <p style="color:#008B8B;"><b>Daily Ave: </b>{int(request_per_day):,}</p>            
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown(f"#### Misses")
+            st.markdown(f"""
+            <div style="line-height: 0.3; font-size:20px;">
             <p style="color:red;"><b>Total Misses: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
             <p style="color:red;"><b>Avg Misses/Month: </b>{int(misses_per_month):,}</p>
             <p style="color:red;"><b>Avg Misses/Day: </b>{int(misses_per_day):,}</p>
-            <span></span>
             </div>
             """, unsafe_allow_html=True)
+
             
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
