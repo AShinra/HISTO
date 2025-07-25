@@ -70,7 +70,7 @@ def summary(client):
 
         _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] != '')]
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
-        _misses_tier1_pub = _misses_tier1['FQ'].to_list()
+        _misses_tier1_pub = _misses_tier1['FQDN'].to_list()
         count_misses_tier1 = _misses_tier1.shape[0]
         _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
         count_misses_tier2 = _misses_tier2.shape[0]
