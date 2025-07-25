@@ -6,6 +6,8 @@ import pandas as pd
 from datetime import datetime
 import time
 from PIL import Image
+import requests
+from io import BytesIO
 
 from archive import archive
 from input import input
@@ -39,7 +41,10 @@ if __name__ == "__main__":
         page_title='HISTO')
     
     try:
-        image = Image.open("https://i.ibb.co/JRW19H4Y/AShinra-Logo.png")
+        url = "https://i.ibb.co/JRW19H4Y/AShinra-Logo.png"
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an error for bad responses
+        image = Image.open(BytesIO(response.content))
         st.sidebar.image(image)
     except FileNotFoundError:
         st.sidebar.write("Image file not found. Please check the path.")
