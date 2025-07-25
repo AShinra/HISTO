@@ -120,6 +120,7 @@ def summary(client):
             <p span style="color:red;"><b>Total Misses: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
             <p style="color:red;"><b>Avg Misses/Month: </b>{int(misses_per_month):,}</p>
             <p style="color:red;"><b>Avg Misses/Day: </b>{int(misses_per_day):,}</p>
+            <span></span>
             </div>
             """, unsafe_allow_html=True)
             
