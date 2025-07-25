@@ -138,7 +138,8 @@ def summary(client):
 
                 if _misses_tier2_pub != 0:
                     with st.expander(
-                        label=f'Tier 2 Missed: {count_misses_tier2}'
+                        label=f'Tier 2 Missed: {count_misses_tier2}',
+                        help='sdsadas\nfdsdfsdf'
                     ):
                         _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
                         for _pub in sorted(_misses_tier2_pub):
