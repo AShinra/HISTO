@@ -91,14 +91,15 @@ def summary(client):
         
         st.divider()
         # compute statistics
-        st.header(f'Statistics ({client_selection})')
-        st.write(f'Total Requests: {int(total_request):,}')
-        st.write(f'Average Requests per Month: {int(request_per_month):,}')
-        st.write(f'Average Requests per Day: {int(request_per_day):,}')
-        st.write('')
-        st.write(f'Total Misses: {int(total_misses):,} ({misses_percent:.2%})')
-        st.write(f'Average Misses per Month: {int(misses_per_month):,}')
-        st.write(f'Average Misses per Day: {int(misses_per_day):,}')
+        with st.spinner('Processing Data', show_time=True):
+            st.header(f'Statistics ({client_selection})')
+            st.write(f'Total Requests: {int(total_request):,}')
+            st.write(f'Average Requests per Month: {int(request_per_month):,}')
+            st.write(f'Average Requests per Day: {int(request_per_day):,}')
+            st.write('')
+            st.write(f'Total Misses: {int(total_misses):,} ({misses_percent:.2%})')
+            st.write(f'Average Misses per Month: {int(misses_per_month):,}')
+            st.write(f'Average Misses per Day: {int(misses_per_day):,}')
 
         
 
@@ -114,15 +115,17 @@ def summary(client):
     with chart_col:
         chart_cola1, chart_cola2 = st.columns([0.3, 0.7])
         with chart_cola1:
-            monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
-            df_monthcount = monthcount.to_frame()
-            df_monthcount = df_monthcount.reset_index()
-            st.dataframe(df_monthcount, hide_index=True)
+            with st.spinner('Generating Table', show_time=True):
+                monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
+                df_monthcount = monthcount.to_frame()
+                df_monthcount = df_monthcount.reset_index()
+                st.dataframe(df_monthcount, hide_index=True)
         with chart_cola2:
-            _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
-                x=alt.X('MONTH_NAME', sort=None, title='Month'),
-                y=alt.Y('count', title='Count'))
-            st.write(_chart1)
+            with st.spinner('Generating Chart', show_time=True):
+                _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
+                    x=alt.X('MONTH_NAME', sort=None, title='Month'),
+                    y=alt.Y('count', title='Count'))
+                st.write(_chart1)
         
         st.divider()
         
