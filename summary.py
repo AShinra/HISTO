@@ -125,7 +125,7 @@ def summary(client):
                 with st.popover(
                     label='Details'
                 ):  
-                    _misses_tier1_pub = list(dict.fromkeys(_misses_tier1))
+                    _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
                     for _pub in sorted(_misses_tier1_pub):
                         st.write(_pub)
             with coltiera2:
@@ -137,7 +137,7 @@ def summary(client):
                 with st.popover(
                     label='Details'
                 ):  
-                    _misses_tier2_pub = list(dict.fromkeys(_misses_tier2))
+                    _misses_tier2_pub = list(dict.fromkeys(_misses_tier2_pub))
                     for _pub in _misses_tier2_pub:
                         st.write(_pub)
             with coltierb2:
@@ -148,7 +148,7 @@ def summary(client):
                 with st.popover(
                     label='Details'
                 ):
-                    _misses_tier3_pub = list(dict.fromkeys(_misses_tier3))
+                    _misses_tier3_pub = list(dict.fromkeys(_misses_tier3_pub))
                     for _pub in _misses_tier3_pub:
                         st.write(_pub)
             with coltierc2:
@@ -159,7 +159,7 @@ def summary(client):
                 with st.popover(
                     label='Details'
                 ):
-                    _misses_tieru_pub = list(dict.fromkeys(_misses_tieru))
+                    _misses_tieru_pub = list(dict.fromkeys(_misses_tieru_pub))
                     for _pub in _misses_tieru_pub:
                         st.write(_pub)
             with coltierd2:
