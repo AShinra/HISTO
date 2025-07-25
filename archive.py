@@ -42,7 +42,7 @@ def archive(client):
                 label=':blue[**OPTIONS**]',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
-            with st.popover(label='Help'):
+            with st.popover(label=':orange[**Help**]'):
                 st.write('Off - Generates data for chosen client/s and choses dates')
                 st.write('All Dates - Generates data for chosen client/s for all dates')
                 st.write('All Clients - Generates data for chosen date/s for all clients')
