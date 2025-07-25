@@ -126,7 +126,7 @@ def summary(client):
                     label='Details'
                 ):  
                     _misses_tier1_pub = list(dict.fromkeys(_misses_tier1))
-                    for _pub in _misses_tier1_pub:
+                    for _pub in sorted(_misses_tier1_pub):
                         st.write(_pub)
             with coltiera2:
                 st.write(f'Tier 1 Missed: {count_misses_tier1}')
