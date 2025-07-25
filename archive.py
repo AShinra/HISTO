@@ -42,13 +42,10 @@ def archive(client):
                 label='OPTIONS',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
-            help_btn = st.button(
-                label='Help')
-            if help_btn:
-                with st.popover(label='Help'):
-                    st.write('Off - Generates data for chosen client/s and choses dates')
-                    st.write('All Dates - Generates data for chosen client/s for all dates')
-                    st.write('All Clients - Generates data for chosen date/s for all clients')
+            with st.popover(label='Help'):
+                st.write('Off - Generates data for chosen client/s and choses dates')
+                st.write('All Dates - Generates data for chosen client/s for all dates')
+                st.write('All Clients - Generates data for chosen date/s for all clients')
             
         with col2:
 
