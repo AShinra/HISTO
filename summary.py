@@ -115,12 +115,12 @@ def summary(client):
 
             st.markdown(f"""
             <div style="line-height: 0.0;">
-            <p style="color:blue;"><b>Total Requests: </b>{int(total_request):,}</p>
-            <p style="color:#008B8B;">Avg Requests per Month: {int(request_per_month):,}</span>
-            <p><span style="color:blue;">Avg Requests per Day: {int(request_per_day):,}</span>
-            <p><span style="color:red;">Total Misses: {int(total_misses):,} ({misses_percent:.2%})</span>
-            <p>**Avg Misses/Month**: <span style="color:red;">{int(misses_per_month):,}</span>
-            <p>**Avg Misses/Day**: <span style="color:red;">{int(misses_per_day):,}</span>
+            <p style="color:#008B8B;"><b>Total Requests: </b>{int(total_request):,}</p>
+            <p style="color:#008B8B;"><b>Avg Requests per Month: </b>{int(request_per_month):,}</p>
+            <p span style="color:#008B8B;"><b>Avg Requests per Day: </b>{int(request_per_day):,}</p>
+            <p span style="color:red;"><b>Total Misses: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
+            <p style="color:red;"><b>Avg Misses/Month: </b>{int(misses_per_month):,}</p>
+            <p style="color:red;"><b>Avg Misses/Day: </b>{int(misses_per_day):,}</p>
             </div>
             """, unsafe_allow_html=True)
 
