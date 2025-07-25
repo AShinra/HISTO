@@ -52,6 +52,8 @@ if __name__ == "__main__":
     
     # hide streamlit toolbar
     st.markdown("""<style>[data-testid="stToolbar"] {display: none;}</style>""", unsafe_allow_html=True)
+    st.markdown("""<button class="_terminalButton_rix23_138 __web-inspector-hide-shortcut__" data-testid="manage-app-button">""", unsafe_allow_html=True)
+    
     
     try:
         st.sidebar.image(get_logo())
