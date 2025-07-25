@@ -107,7 +107,6 @@ def summary(client):
                 label='YEAR',
                 options=year_list)
         
-        st.divider()
         # compute statistics
         with st.spinner('Processing Data', show_time=True):
 
@@ -121,20 +120,9 @@ def summary(client):
             <p span style="color:red;"><b>Total Misses: </b>{int(total_misses):,} ({misses_percent:.2%})</p>
             <p style="color:red;"><b>Avg Misses/Month: </b>{int(misses_per_month):,}</p>
             <p style="color:red;"><b>Avg Misses/Day: </b>{int(misses_per_day):,}</p>
-            <p> </p>
             </div>
             """, unsafe_allow_html=True)
-
-            # st.header(f'Statistics ({client_selection})')
-            # st.write(f'**Total Requests**: :blue[{int(total_request):,}]')
-            # st.write(f'**Average Requests per Month**: :blue[{int(request_per_month):,}]')
-            # st.write(f'**Average Requests per Day**: :blue[{int(request_per_day):,}]')
-            # st.write('')
-            # st.write(f'**Total Misses**: :red[{int(total_misses):,} ({misses_percent:.2%})]')
-            # st.write(f'**Average Misses per Month**: :red[{int(misses_per_month):,}]')
-            # st.write(f'**Average Misses per Day**: :red[{int(misses_per_day):,}]')
-            # st.write('')
-
+            
             coltiera1, coltiera2 = st.columns([0.3, 0.7])
             with coltiera1:
                 with st.popover(
