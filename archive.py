@@ -52,7 +52,7 @@ def archive(client):
                 label='DATE',
                 key='a_date',
                 value=(start_date, end_date),
-                min_value=date(2000, 1, 1),
+                min_value=date(2025, 1, 1),
                 max_value=date(2030, 12, 31))
             
             st_date, en_date = _date
@@ -88,6 +88,8 @@ def archive(client):
                             col_off1, col_off2 = st.columns(2, border=True)
 
                             with col_off1:
+                                st.write(st_date)
+
                                 off_captured = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date) & (df['CLIENT NAME'] == cl) & (df['CAPTURED'] == 'Y')]
                                 sel_off_captured = off_captured[['DATE', 'TIER', 'LINK']]
 
