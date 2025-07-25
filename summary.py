@@ -72,6 +72,12 @@ def summary(client):
         st.write(_misses_tier.shape[0])
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
         st.write(_misses_tier1.shape[0])
+        _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
+        st.write(_misses_tier2.shape[0])
+        _misses_tier3 = _misses_tier[_misses_tier['TIER']=="3"]
+        st.write(_misses_tier3.shape[0])
+        _misses_tieru = _misses_tier[_misses_tier['TIER']=="Unlisted"]
+        st.write(_misses_tieru.shape[0])
 
         request_per_month = total_request/number_of_months
         request_per_day = total_request/number_of_days
