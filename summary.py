@@ -113,7 +113,7 @@ def summary(client):
             st.write(f'Average Misses per Day: {int(misses_per_day):,}')
             st.write('')
 
-            coltier1, coltier2 = st.columns([0.25, 0.75])
+            coltier1, coltier2 = st.columns([0.30, 0.70])
             with coltier1:
                 with st.popover(
                     label='Details'
