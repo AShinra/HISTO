@@ -127,7 +127,7 @@ def summary(client):
                     y=alt.Y('count', title='Count'))
                 st.write(_chart1)       
                 
-        chart_colb1, chart_colb2 = st.columns([0.3, 0.7])
+        chart_colb1, chart_colb2 = st.columns([0.3, 0.7], border=True)
         with chart_colb1:
             with st.spinner('Generating Table', show_time=True):
                 countdate = df_captured['DATE'].value_counts(sort=False)
@@ -141,9 +141,7 @@ def summary(client):
                         y=alt.Y('count', title='Count'))
                 st.write(_chart2)
         
-        st.divider()
-
-        chart_colc1, chart_colc2 = st.columns([0.3, 0.7])
+        chart_colc1, chart_colc2 = st.columns([0.3, 0.7], border=True)
         with chart_colc1:
             with st.spinner('Generating Table', show_time=True):
                 countfqdn = df_captured['FQDN'].value_counts(sort=True)
