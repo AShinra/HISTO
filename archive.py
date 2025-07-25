@@ -76,7 +76,7 @@ def archive(client):
         
     
     
-    b_search = st.button('Search' , key='search_archive', use_container_width=True)
+    b_search = st.button(':orange[**Search Archive**]' , key='search_archive', use_container_width=True)
         
      
     if b_search:
