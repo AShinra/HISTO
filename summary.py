@@ -111,7 +111,7 @@ def summary(client):
         # compute statistics
         with st.spinner('Processing Data', show_time=True):
             st.header(f'Statistics ({client_selection})')
-            st.write(f'Total Requests: :blue[{int(total_request):,}]')
+            st.write(f'**Total Requests**: :blue[{int(total_request):,}]')
             st.write(f'Average Requests per Month: {int(request_per_month):,}')
             st.write(f'Average Requests per Day: {int(request_per_day):,}')
             st.write('')
