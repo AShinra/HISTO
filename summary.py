@@ -130,7 +130,7 @@ def summary(client):
             with coltier1:
                 if _misses_tier1_pub != 0:
                     with st.expander(
-                        label=f':orange[**Tier 1 Missed: {count_misses_tier1}**]'
+                        label=f':blue[**Tier 1 Missed: {count_misses_tier1}**]'
                     ):
                         _misses_tier1_pub = list(dict.fromkeys(_misses_tier1_pub))
                         for _pub in sorted(_misses_tier1_pub):
