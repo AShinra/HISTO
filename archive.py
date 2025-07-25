@@ -35,7 +35,7 @@ def archive(client):
     client_list = sorted(client_list)    
 
     with st.container(border=True):
-        col1, col2, col3 = st.columns([0.15, 0.15, 0.70], border=True)
+        col1, col2, col3 = st.columns([0.15, 0.25, 0.60], border=True)
         
         with col1:
             radio_options = st.radio(
