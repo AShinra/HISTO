@@ -112,16 +112,20 @@ def summary(client):
             st.write(f'Average Misses per Month: {int(misses_per_month):,}')
             st.write(f'Average Misses per Day: {int(misses_per_day):,}')
             st.write('')
-            st.write(f'Tier 1 Missed: {count_misses_tier1}')
-            with st.popover(
-                label='Details'
-            ):
-                for _pub in _misses_tier1_pub:
-                    st.write(_pub)
-                    
-            st.write(f'Tier 2 Missed: {count_misses_tier2}')
-            st.write(f'Tier 3 Missed: {count_misses_tier3}')
-            st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
+
+            coltier1, coltier2 = st.columns(2)
+            with coltier1:
+                with st.popover(
+                    label='Details'
+                ):
+                    for _pub in _misses_tier1_pub:
+                        st.write(_pub)
+            
+            with coltier2:
+                st.write(f'Tier 1 Missed: {count_misses_tier1}')
+                st.write(f'Tier 2 Missed: {count_misses_tier2}')
+                st.write(f'Tier 3 Missed: {count_misses_tier3}')
+                st.write(f'Tier Unlisted Missed: {count_misses_tieru}')
 
         
 
