@@ -69,14 +69,21 @@ def summary(client):
         total_misses = _misses.shape[0]
 
         _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] != '')]
+
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
         _misses_tier1_pub = _misses_tier1['FQDN'].to_list()
         count_misses_tier1 = _misses_tier1.shape[0]
+
         _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
+        _misses_tier2_pub = _misses_tier2['FQDN'].to_list()
         count_misses_tier2 = _misses_tier2.shape[0]
+
         _misses_tier3 = _misses_tier[_misses_tier['TIER']=="3"]
+        _misses_tier3_pub = _misses_tier3['FQDN'].to_list()
         count_misses_tier3 = _misses_tier3.shape[0]
+
         _misses_tieru = _misses_tier[_misses_tier['TIER']=="Unlisted"]
+        _misses_tieru_pub = _misses_tieru['FQDN'].to_list()
         count_misses_tieru = _misses_tieru.shape[0]
 
         request_per_month = total_request/number_of_months
@@ -119,6 +126,12 @@ def summary(client):
                     label='Details'
                 ):
                     for _pub in _misses_tier1_pub:
+                        st.write(_pub)
+                
+                with st.popover(
+                    label='Details'
+                ):
+                    for _pub in _misses_tier2_pub:
                         st.write(_pub)
             
             with coltier2:
