@@ -37,9 +37,9 @@ if __name__ == "__main__":
 
     with st.sidebar:
         selected = option_menu(
-            menu_title=':violet[Histo Data]',
+            menu_title='Histo Data',
             menu_icon='clock-history',
-            options=[':orange[**Entry**]', 'Archive', 'Summary'],
+            options=['Entry', 'Archive', 'Summary'],
             icons=['pencil-square', 'archive', 'journals']
         )
 
