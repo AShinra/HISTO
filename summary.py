@@ -69,7 +69,6 @@ def summary(client):
         total_misses = _misses.shape[0]
 
         _misses_tier = df_clientfiltered[(df['CAPTURED']=='N') & (df['TIER'] != '')]
-        st.write(_misses_tier.shape[0])
         _misses_tier1 = _misses_tier[_misses_tier['TIER']=="1"]
         count_misses_tier1 = _misses_tier1.shape[0]
         _misses_tier2 = _misses_tier[_misses_tier['TIER']=="2"]
