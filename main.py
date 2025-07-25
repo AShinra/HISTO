@@ -50,6 +50,9 @@ if __name__ == "__main__":
         layout="wide",
         page_title='HISTO')
     
+    # hide streamlit toolbar
+    st.markdown("""<style>[data-testid="stToolbar"] {display: none;}</style>""", unsafe_allow_html=True)
+    
     try:
         st.sidebar.image(get_logo())
     except FileNotFoundError:
