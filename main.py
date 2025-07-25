@@ -53,6 +53,10 @@ if __name__ == "__main__":
     # hide streamlit toolbar
     st.markdown("""<style>[data-testid="stToolbar"] {display: none;}</style>""", unsafe_allow_html=True)
     st.markdown("""<style>[data-testid="manage-app-button"] {display: none !important;}</style>""", unsafe_allow_html=True)
+    st.markdown("""<style>.stApp {background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;}</style>""", unsafe_allow_html=True)
     
     try:
         st.sidebar.image(get_logo())
