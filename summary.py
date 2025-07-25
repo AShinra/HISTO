@@ -129,7 +129,7 @@ def summary(client):
                     for _pub in sorted(_misses_tier1_pub):
                         st.write(_pub)
             with coltiera2:
-                st.write(f'Tier 1 Missed: {count_misses_tier1}')
+                st.write(f'Tier 1 Missed: :blue[{count_misses_tier1}]')
             
 
             coltierb1, coltierb2 = st.columns([0.3, 0.7])
