@@ -78,8 +78,9 @@ def archive(client):
 
                         with st.container(border=True):
 
-                            formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-                            formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
+                            formatted_st_date = datetime.strptime(st_date, '%Y-%m-%d')
+                            formatted_st_date = formatted_st_date.strftime('%-m/%-d/%Y')
+                            st.write(formatted_st_date)
                             
                             st.header(f':violet[{cl}]')
 
