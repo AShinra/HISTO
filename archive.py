@@ -51,7 +51,7 @@ def archive(client):
                 end_date = today
 
                 _date = st.date_input(
-                    label='DATE',
+                    label='DATE RANGE',
                     key='a_date',
                     value=(start_date, end_date),
                     min_value=date(2025, 1, 1),
@@ -109,10 +109,7 @@ def archive(client):
 
             elif radio_options == 'All Clients':
 
-                formatted_date_1 = datetime.strptime(_date, '%Y-%m-%d')
-                formatted_date_1 = formatted_date_1.strftime('%-m/%-d/%Y')
-
-                filtered_df = df[(df['DATE'] == formatted_date_1)]
+                filtered_df = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date)]
                 new_cl = filtered_df['CLIENT NAME'].unique()
 
                 for cl in new_cl:
@@ -123,7 +120,7 @@ def archive(client):
                         col_cap, col_mis = st.columns(2, border=True)
 
                         with col_cap:
-                            captured_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'Y')]
+                            captured_df = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date) & (df['CAPTURED'] == 'Y')]
                             cl_captured = captured_df[captured_df['CLIENT NAME']==cl]
                             sel_cl_captured = cl_captured[['DATE', 'TIER', 'LINK']]
 
@@ -132,7 +129,7 @@ def archive(client):
                             st.dataframe(sel_cl_captured, use_container_width=True, hide_index=True)
                         
                         with col_mis:
-                            missed_df = df[(df['DATE'] == formatted_date_1) & (df['CAPTURED'] == 'N')]
+                            missed_df = df[(df['DATE'] >= st_date) & (df['DATE'] <= en_date) & (df['CAPTURED'] == 'N')]
                             cl_missed = missed_df[missed_df['CLIENT NAME']==cl]
                             sel_cl_missed = cl_missed[['DATE', 'TIER', 'LINK']]
 
