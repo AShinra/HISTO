@@ -128,7 +128,7 @@ def summary(client):
             coltier1, coltier2 = st.columns([0.6, 0.4])
 
             st.markdown("""
-                        <style>div.streamlit-expanderHeader {font-size: 16px;padding: 5px 10px;min-height: 20px;}</style>
+                        <style>div.streamlit-expanderHeader {font-size: 20px;padding: 5px 10px;min-height: 20px;}</style>
                         """, unsafe_allow_html=True)
 
             with coltier1:
