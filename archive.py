@@ -55,7 +55,7 @@ def archive(client):
                 end_date = today
 
                 _date = st.date_input(
-                    label='DATE RANGE',
+                    label=':blue[**DATE RANGE**]',
                     key='a_date',
                     value=(start_date, end_date),
                     min_value=date(2025, 1, 1),
@@ -69,7 +69,10 @@ def archive(client):
                 st.write("Please select a valid date range.")
     
         with col3:
-            _client = st.multiselect('CLIENT', key='a_client', options=client_list)
+            _client = st.multiselect(
+                label=':blue[**CLIENT**]',
+                key='a_client',
+                options=client_list)
         
     
     
