@@ -115,9 +115,9 @@ def summary(client):
             st.write(f'**Average Requests per Month**: :blue[{int(request_per_month):,}]')
             st.write(f'**Average Requests per Day**: :blue[{int(request_per_day):,}]')
             st.write('')
-            st.write(f'**Total Misses**: :blue[{int(total_misses):,} ({misses_percent:.2%})]')
-            st.write(f'Average Misses per Month: {int(misses_per_month):,}')
-            st.write(f'Average Misses per Day: {int(misses_per_day):,}')
+            st.write(f'**Total Misses**: :red[{int(total_misses):,} ({misses_percent:.2%})]')
+            st.write(f'**Average Misses per Month**: :red[{int(misses_per_month):,}]')
+            st.write(f'**Average Misses per Day**: :red[{int(misses_per_day):,}]')
             st.write('')
 
             coltiera1, coltiera2 = st.columns([0.3, 0.7])
