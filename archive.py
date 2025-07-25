@@ -41,9 +41,7 @@ def archive(client):
             radio_options = st.radio(
                 label='OPTIONS',
                 options=['Off', 'All Dates', 'All Clients'],
-                horizontal=False,
-                help='All Dates - Generates data for chosen client/s for all dates\n' \
-                'All Clients - Generates data for chosen date for all clients')
+                horizontal=False)
             
         with col2:
 
