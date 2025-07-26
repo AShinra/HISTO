@@ -64,9 +64,7 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    ._link_gzau3_10.__web-inspector-hide-shortcut__ {
-        display: none !important;
-    }    
+    ._profileContainer_gzau3_53.__web-inspector-hide-shortcut__
     </style>"""
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
 
