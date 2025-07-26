@@ -64,8 +64,13 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    button[class="_terminalButton_rix23_138 __web-inspector-hide-shortcut__"]
-    }</style>"""
+    button[data-testid="manage-app-button"] {
+        display: none;        
+    }
+    button[kind="secondary"] {
+        display: none !important;
+    }
+    </style>"""
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
 
 
