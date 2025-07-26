@@ -64,7 +64,7 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    button[data-testid="stBaseButton-headerNoPadding"] {
+    button[data-testid="manage-app-button"] {
         display: none;
     }</style>"""
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
