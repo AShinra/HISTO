@@ -64,8 +64,8 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    button[data-testid="manage-app-button"] {
-        display: none;        
+    ._link_gzau3_10 {
+        display: none !important;
     }    
     </style>"""
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
