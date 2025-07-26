@@ -64,7 +64,7 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    ._link_gzau3_10 {
+    ._link_gzau3_10.__web-inspector-hide-shortcut__ {
         display: none !important;
     }    
     </style>"""
