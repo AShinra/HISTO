@@ -63,18 +63,10 @@ if __name__ == "__main__":
 
     get_bgimage()
 
-    custom_footer = """<style>.footer {position: fixed;left: 0;bottom: 0;width: 100%;background-color: #f0f2f6; /* Light gray background */
-        color: #333; /* Dark text color */
-        text-align: center;
-        padding: 10px;
-        font-size: 14px;
-    }
-    </style>
-    <div class="footer">
-        <p>My Custom Footer | &copy; 2025 My Company</p>
-    </div>
-    """
-    st.markdown(custom_footer, unsafe_allow_html=True)    
+    hide_streamlit_style = """<style>
+    #MainMenu {visibility: hidden;}
+    # footer {visibility: hidden;}</style>"""
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
 
 
     st.set_page_config(
