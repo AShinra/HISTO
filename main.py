@@ -64,7 +64,7 @@ if __name__ == "__main__":
     get_bgimage()
 
     hide_streamlit_style = """<style>
-    ._profileContainer_gzau3_53{display: none;}
+    ._profileContainer_gzau3_63{display: none;}
     </style>"""
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)    
 
