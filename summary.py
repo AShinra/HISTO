@@ -27,6 +27,7 @@ def get_data(_client):
 
 
 def summary(client):
+    st.write('Sample text')
 
     st.title(':violet[Summary]')
 
