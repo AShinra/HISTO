@@ -93,25 +93,33 @@ def input(client, client_list):
                             input_fqdn = _fqdn[4:]
                         else:
                             input_fqdn = _fqdn
-                        
-                    sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
+                    try:    
+                        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
+                    # except Exception as e:
+                    #     st.error(f"Error accessing Google Sheet: {e}")
+                    except:
+                        pass
+                    else:
+                        # get fqdn unlisted data
+                        fqdn_unlisted = sheet.worksheet('UNLISTED').get_all_values()
+                        df_fqdn_unli = pd.DataFrame(fqdn_unlisted)
+                        df_fqdn_unli.columns = df_fqdn_unli.iloc[0]
+                        df_fqdn_unli = df_fqdn_unli[1:]
+                        unlisted_list = df_fqdn_unli['FQDN'].to_list()
 
-                    # get fqdn unlisted data
-                    fqdn_unlisted = sheet.worksheet('UNLISTED').get_all_values()
-                    df_fqdn_unli = pd.DataFrame(fqdn_unlisted)
-                    df_fqdn_unli.columns = df_fqdn_unli.iloc[0]
-                    df_fqdn_unli = df_fqdn_unli[1:]
-                    unlisted_list = df_fqdn_unli['FQDN'].to_list()
-
-                    if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
-                        sheet.worksheet('UNLISTED').append_row([input_fqdn])
+                        if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
+                            sheet.worksheet('UNLISTED').append_row([input_fqdn])
 
             with st.container(border=True):
-                data = sheet.worksheet('TEMP').get_all_values()
-                df1 = pd.DataFrame(data)
-                df1.columns = df1.iloc[0]
-                df1 = df1[1:]
-                st.dataframe(df1)
+                try:
+                    data = sheet.worksheet('TEMP').get_all_values()
+                except:
+                    st.error('API Connection Error')
+                else:
+                    df1 = pd.DataFrame(data)
+                    df1.columns = df1.iloc[0]
+                    df1 = df1[1:]
+                    st.dataframe(df1)
 
     if b_submit:
 
