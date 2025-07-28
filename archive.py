@@ -42,11 +42,15 @@ def archive(client):
                 label=':blue[**OPTIONS**]',
                 options=['Off', 'All Dates', 'All Clients'],
                 horizontal=False)
-            with st.popover(label=':orange[**Help**]'):
-                st.write('Off - Generates data for chosen client/s and choses dates')
-                st.write('All Dates - Generates data for chosen client/s for all dates')
-                st.write('All Clients - Generates data for chosen date/s for all clients')
-            button_clear = st.button('Clear Cache')
+            
+            col1a, col1b = st.columns(2)
+            with col1a:
+                with st.popover(label=':orange[**Help**]'):
+                    st.write('Off - Generates data for chosen client/s and choses dates')
+                    st.write('All Dates - Generates data for chosen client/s for all dates')
+                    st.write('All Clients - Generates data for chosen date/s for all clients')
+            with col1b:
+                button_clear = st.button('Clear Cache')
             
         with col2:
 
