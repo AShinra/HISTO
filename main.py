@@ -93,6 +93,7 @@ if __name__ == "__main__":
             options=['Entry', 'Archive', 'Summary'],
             icons=['pencil-square', 'archive', 'journals']
         )
+        btn_clearcache = st.button('Clear Cache')
 
     client = get_gsheet_client()
     client_list = []
@@ -104,3 +105,6 @@ if __name__ == "__main__":
     
     if selected == 'Summary':
         summary(client)
+    
+    if btn_clearcache:
+        st.cache_data.clear()
