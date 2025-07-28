@@ -46,6 +46,7 @@ def archive(client):
                 st.write('Off - Generates data for chosen client/s and choses dates')
                 st.write('All Dates - Generates data for chosen client/s for all dates')
                 st.write('All Clients - Generates data for chosen date/s for all clients')
+            button_clear = st.button('Clear Cache')
             
         with col2:
 
@@ -74,7 +75,9 @@ def archive(client):
                 key='a_client',
                 options=client_list)
         
-    
+    if button_clear:
+        st.cache_data.clear()
+
     
     b_search = st.button(':orange[**Search Archive**]' , key='search_archive', use_container_width=True)
         
