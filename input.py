@@ -108,7 +108,7 @@ def input(client, client_list):
                         else:
                             input_fqdn = _fqdn
                     try:    
-                        sheet.worksheet('TEMP').append_row([input_date, input_client, input_tier, _hyperlink, captured, input_fqdn])
+                        sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn])
                     # except Exception as e:
                     #     st.error(f"Error accessing Google Sheet: {e}")
                     except:
