@@ -70,8 +70,13 @@ def input(client, client_list):
                 accept_new_options=False
             )
         with col2:
-            input_client = st.text_input('Client', key='in_client')
-            # input_hyperlink = st.text_input('Hyperlink')
+            col2a, col2b = st.columns(2)
+            with col2a:
+                input_agency = st.text_input('Agency', key='in_agency')
+            with col2b:
+                input_client = st.text_input('Client', key='in_client')
+                # input_hyperlink = st.text_input('Hyperlink')
+                
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
