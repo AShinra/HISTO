@@ -61,12 +61,13 @@ def summary(client):
     selection_col, chart_col = st.columns([0.3, 0.7], border=True)
     with selection_col:
         
+        cb_adhoc = st.checkbox('AD HOC')
+        
         # client selection
         client_selection = st.selectbox(
             label='CLIENT',
             options=client_list
         )
-        cb_adhoc = st.checkbox('AD HOC')
 
         if client_selection != 'ALL':
             df_clientfiltered = df[(df['CLIENT NAME'] == client_selection) & (df['TYPE'] != 'AD HOC')]
