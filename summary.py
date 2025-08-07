@@ -84,7 +84,7 @@ def summary(client):
             df = df[df['TYPE']!='AD HOC']
 
 
-        # client selection
+        # agency selection
         agency_list = df['AGENCY'].unique()
         agency_list = sorted(agency_list)
         agency_list.insert(0, 'ALL')
@@ -99,6 +99,7 @@ def summary(client):
         else:
             df_agency_filtered = df
 
+        # client selection
         client_list_options=df_agency_filtered['CLIENT NAME'].unique()
         client_list_options = sorted(client_list_options)
         client_list_options.insert(0, 'ALL')
@@ -109,7 +110,7 @@ def summary(client):
         )
 
         if client_selection != 'ALL':
-            df_clientfiltered = df[df_agency_filtered['CLIENT NAME']==client_selection]
+            df_clientfiltered = df_agency_filtered[df_agency_filtered['CLIENT NAME']==client_selection]
         else:
             df_clientfiltered = df_agency_filtered
         
