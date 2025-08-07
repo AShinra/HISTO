@@ -91,15 +91,20 @@ def summary(client):
             options=agency_list
         )
 
+        if agency_selection != 'ALL':
+            df_agency_filtered = df[df['AGENCY']==agency_selection]
+        else:
+            df_agency_filtered = df
+
         client_selection = st.selectbox(
             label='CLIENT',
             options=client_list_options
         )
 
         if client_selection != 'ALL':
-            df_clientfiltered = df[df['CLIENT NAME'] == client_selection]
+            df_clientfiltered = df[df_agency_filtered['CLIENT NAME']==client_selection]
         else:
-            df_clientfiltered = df
+            df_clientfiltered = df_agency_filtered
         
         total_request = df_clientfiltered.shape[0]
 
