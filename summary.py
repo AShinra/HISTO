@@ -66,6 +66,7 @@ def summary(client):
             label='CLIENT',
             options=client_list
         )
+        cb_adhoc = st.checkbox('AD HOC')
 
         if client_selection != 'ALL':
             df_clientfiltered = df[(df['CLIENT NAME'] == client_selection) & (df['TYPE'] != 'AD HOC')]
