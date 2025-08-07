@@ -74,8 +74,10 @@ def summary(client):
         cb_adhoc = st.checkbox('AD HOC')
         if cb_adhoc:
             client_list_options = adhoc_client_list
+            df = df[df['TYPE']=='AD HOC']
         else:
             client_list_options = client_list
+            df = df[df['TYPE']!='AD HOC']
 
         # client selection
         client_selection = st.selectbox(
