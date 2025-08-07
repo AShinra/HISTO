@@ -52,21 +52,35 @@ def summary(client):
 
     year_list = df['YEAR'].unique()
 
-    _df = df[df['TYPE'] != 'AD HOC']
+    # ad hoc client list
+    adhoc_client = df[df['TYPE'] == 'AD HOC']
+    adhoc_client_list = adhoc_client['CLIENT NAME'].unique()
+    adhoc_client_list = sorted(adhoc_client_list)
+    adhoc_client_list.insert(0, 'ALL')
 
-    client_list = _df['CLIENT NAME'].unique()
+    # client list ad hoc excluded
+    client_df = df[df['TYPE'] != 'AD HOC']
+    client_list = client_df['CLIENT NAME'].unique()
     client_list = sorted(client_list)
     client_list.insert(0, 'ALL')
+
+    # client_list = _df['CLIENT NAME'].unique()
+    # client_list = sorted(client_list)
+    # client_list.insert(0, 'ALL')
     
     selection_col, chart_col = st.columns([0.3, 0.7], border=True)
     with selection_col:
         
         cb_adhoc = st.checkbox('AD HOC')
-        
+        if cb_adhoc:
+            client_list_options = adhoc_client_list
+        else:
+            client_list_options = client_list
+
         # client selection
         client_selection = st.selectbox(
             label='CLIENT',
-            options=client_list
+            options=client_list_options
         )
 
         if client_selection != 'ALL':
