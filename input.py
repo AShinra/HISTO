@@ -70,13 +70,14 @@ def input(client, client_list):
                 accept_new_options=False
             )
         with col2:
-            col2a, col2b = st.columns(2)
+            col2a, col2b, col2c = st.columns(3)
             with col2a:
                 input_agency = st.text_input('Agency', key='in_agency')
             with col2b:
                 input_client = st.text_input('Client', key='in_client')
                 # input_hyperlink = st.text_input('Hyperlink')
-            checkbox_adhoc = st.checkbox('Ad Hoc')
+            with col2c:
+                checkbox_adhoc = st.checkbox('Ad Hoc')
 
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
