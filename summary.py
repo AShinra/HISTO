@@ -66,7 +66,7 @@ def summary(client):
         )
 
         if client_selection != 'ALL':
-            df_clientfiltered = df[df['CLIENT NAME'] == client_selection]
+            df_clientfiltered = df[(df['CLIENT NAME'] == client_selection) & (df['TYPE'] != 'AD HOC')]
         else:
             df_clientfiltered = df
         
