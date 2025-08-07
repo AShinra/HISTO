@@ -76,7 +76,8 @@ def input(client, client_list):
             with col2b:
                 input_client = st.text_input('Client', key='in_client')
                 # input_hyperlink = st.text_input('Hyperlink')
-                
+            checkbox_adhoc = st.checkbox('Ad Hoc')
+
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
             b_add = st.button('Add' , key='input_archive', use_container_width=True)
@@ -93,6 +94,11 @@ def input(client, client_list):
                 captured = 'Y'
             elif input_captured == 'No':
                 captured = 'N'
+            
+            if checkbox_adhoc:
+                ad_hoc = 'AD HOC'
+            else:
+                ad_hoc = ''
 
             _hyperlinks = input_hyperlink.splitlines()
             for _hyperlink in _hyperlinks:
@@ -113,7 +119,7 @@ def input(client, client_list):
                         else:
                             input_fqdn = _fqdn
                     try:    
-                        sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn])
+                        sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn, input_agency, ad_hoc])
                     # except Exception as e:
                     #     st.error(f"Error accessing Google Sheet: {e}")
                     except:
