@@ -52,7 +52,9 @@ def summary(client):
 
     year_list = df['YEAR'].unique()
 
-    client_list = df['CLIENT NAME'].unique()
+    _df = df[df['TYPE'] != 'AD HOC']
+
+    client_list = _df['CLIENT NAME'].unique()
     client_list = sorted(client_list)
     client_list.insert(0, 'ALL')
     
