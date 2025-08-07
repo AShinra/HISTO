@@ -69,6 +69,8 @@ def input(client, client_list):
                 options=['Yes', 'No'],
                 accept_new_options=False
             )
+            checkbox_adhoc = st.checkbox('Ad Hoc')
+
         with col2:
             col2a, col2b, col2c = st.columns(3)
             with col2a:
@@ -76,8 +78,8 @@ def input(client, client_list):
             with col2b:
                 input_client = st.text_input('Client', key='in_client')
                 # input_hyperlink = st.text_input('Hyperlink')
-            with col2c:
-                checkbox_adhoc = st.checkbox('Ad Hoc')
+            # with col2c:
+            #     checkbox_adhoc = st.checkbox('Ad Hoc')
 
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
