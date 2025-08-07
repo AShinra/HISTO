@@ -60,9 +60,15 @@ def summary(client):
 
     # client list ad hoc excluded
     client_df = df[df['TYPE'] != 'AD HOC']
+
+    agency_list = client_df['AGENCY'].unique()
+    agency_list = sorted(agency_list)
+    agency_list.insert(0, 'ALL')
+
     client_list = client_df['CLIENT NAME'].unique()
     client_list = sorted(client_list)
     client_list.insert(0, 'ALL')
+
 
     # client_list = _df['CLIENT NAME'].unique()
     # client_list = sorted(client_list)
@@ -80,6 +86,11 @@ def summary(client):
             df = df[df['TYPE']!='AD HOC']
 
         # client selection
+        agency_selection = st.selectbox(
+            label='AGENCY',
+            options=agency_list_options
+        )
+
         client_selection = st.selectbox(
             label='CLIENT',
             options=client_list_options
