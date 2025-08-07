@@ -88,7 +88,7 @@ def summary(client):
         # client selection
         agency_selection = st.selectbox(
             label='AGENCY',
-            options=agency_list_options
+            options=agency_list
         )
 
         client_selection = st.selectbox(
