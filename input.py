@@ -69,7 +69,6 @@ def input(client, client_list):
                 options=['Yes', 'No'],
                 accept_new_options=False
             )
-            checkbox_adhoc = st.checkbox('Ad Hoc')
 
         with col2:
             col2a, col2b = st.columns(2)
