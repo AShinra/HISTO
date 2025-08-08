@@ -7,10 +7,15 @@ import time
 
 @st.dialog('Delete Entry')
 def delete_entry(data):
-   
-    record_number = int(st.number_input(
-    label='Record Number to Delete',
-    min_value=0,))
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        record_number = int(st.number_input(
+        label='Record Number to Delete',
+        min_value=0,))
+    with col2:
+        st.button(
+            label='Delete Record')
     
     df = pd.DataFrame(data)
     df.columns = df.iloc[0]
