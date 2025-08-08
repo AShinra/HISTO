@@ -42,9 +42,7 @@ def input(client, client_list):
         # get agency list
         agency_temp = sheet.worksheet('AGENCIES').get_all_values()
         df_agencies = pd.DataFrame(agency_temp)
-        st.write(df_agencies)
-        agencies_list = df_agencies[0].to_list()
-        st.write(agencies_list)
+        agencies_list = df_agencies[0].to_list()        
 
         # get fqdn tiering data
         fqdn_temp = sheet.worksheet('TIER').get_all_values()
@@ -80,7 +78,11 @@ def input(client, client_list):
         with col2:
             col2a, col2b = st.columns(2)
             with col2a:
-                input_agency = st.text_input('Agency', key='in_agency')
+                input_agency = st.selectbox(
+                    label='Agency',
+                    options=agencies_list,
+                    key='in_agency'
+                    )                
             with col2b:
                 input_client = st.text_input('Client', key='in_client')
 
