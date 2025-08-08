@@ -203,6 +203,6 @@ def input(client, client_list):
             st.warning('Deleted all Entry!!!')
     
     if b_delete:
-        delete_entry(data)
+        delete_entry(sheet.worksheet('TEMP').get_all_values())
 
     return
