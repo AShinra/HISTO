@@ -39,6 +39,11 @@ def input(client, client_list):
         sheet_id = "1VVLZ0O3NncvMjex8gonkgPTfIKzkJh22UON55991_QE"
         sheet = client.open_by_key(sheet_id)
 
+        # get agency list
+        agency_temp = sheet.worksheet('AGENCIES').get_all_values()
+        df_agencies = pd.DataFrame(agency_temp)
+        st.write(df_agencies)
+
         # get fqdn tiering data
         fqdn_temp = sheet.worksheet('TIER').get_all_values()
         df_fqdn = pd.DataFrame(fqdn_temp)
@@ -174,7 +179,7 @@ def input(client, client_list):
         with st.spinner('Processing Data', show_time=True):
             time.sleep(15)
 
-            sheet.worksheet('TEMP').batch_clear(["A2:F100"])
+            sheet.worksheet('TEMP').batch_clear(["A2:H100"])
             st.warning('Deleted all Entry!!!')
 
 	
