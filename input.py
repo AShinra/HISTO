@@ -150,18 +150,18 @@ def input(client, client_list):
                         if input_tier == 'Unlisted' and input_fqdn not in unlisted_list:
                             sheet.worksheet('UNLISTED').append_row([input_fqdn])
             
-            clear_input()
+        clear_input()
 
-            with st.container(border=True):
-                try:
-                    data = sheet.worksheet('TEMP').get_all_values()
-                except:
-                    st.error('API Connection Error')
-                else:
-                    df1 = pd.DataFrame(data)
-                    df1.columns = df1.iloc[0]
-                    df1 = df1[1:]
-                    st.dataframe(df1)        
+        with st.container(border=True):
+            try:
+                data = sheet.worksheet('TEMP').get_all_values()
+            except:
+                st.error('API Connection Error')
+            else:
+                df1 = pd.DataFrame(data)
+                df1.columns = df1.iloc[0]
+                df1 = df1[1:]
+                st.dataframe(df1)        
 
     if b_submit:
 
