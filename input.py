@@ -8,8 +8,9 @@ import time
 @st.dialog('Delete Entry')
 def delete_entry(data):
    
-    record_number = st.number_input(
-    label='Record Number to Delete')
+    record_number = int(st.number_input(
+    label='Record Number to Delete',
+    min_value=0,))
     
     data.drop(record_number)
     st.dataframe(data)
