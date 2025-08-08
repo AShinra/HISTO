@@ -4,6 +4,11 @@ import pandas as pd
 from datetime import datetime
 import time
 
+def clear_input():
+    st.session_state['in_client'] = ''
+    st.session_state['in_hyperlink'] = ''
+    return
+
 
 @st.cache_data
 def load_data(_date, client, link):
@@ -155,6 +160,8 @@ def input(client, client_list):
                     df1.columns = df1.iloc[0]
                     df1 = df1[1:]
                     st.dataframe(df1)
+            
+            clear_input()
 
     if b_submit:
 
