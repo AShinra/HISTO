@@ -161,7 +161,7 @@ def input(client, client_list):
                     df1 = df1[1:]
                     st.dataframe(df1)
             
-                    clear_input()
+                clear_input()
 
     if b_submit:
 
