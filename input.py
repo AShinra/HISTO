@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 
 
-@st.dialog('Delete Entry')
+@st.dialog('Delete Entry', width='large')
 def delete_entry(data):
     
     col1, col2 = st.columns(2)
