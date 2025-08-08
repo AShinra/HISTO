@@ -81,7 +81,8 @@ def input(client, client_list):
                 input_agency = st.selectbox(
                     label='Agency',
                     options=agencies_list,
-                    key='in_agency'
+                    key='in_agency',
+                    accept_new_options=True
                     )                
             with col2b:
                 input_client = st.text_input('Client', key='in_client')
