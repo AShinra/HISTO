@@ -43,6 +43,8 @@ def input(client, client_list):
         agency_temp = sheet.worksheet('AGENCIES').get_all_values()
         df_agencies = pd.DataFrame(agency_temp)
         st.write(df_agencies)
+        agencies_list = df_agencies[0].to_list()
+        st.write(agencies_list)
 
         # get fqdn tiering data
         fqdn_temp = sheet.worksheet('TIER').get_all_values()
