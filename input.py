@@ -119,7 +119,7 @@ def input(client, client_list):
                         else:
                             input_fqdn = _fqdn
                     try:    
-                        sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn, input_agency, ad_hoc])
+                        sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn, input_agency.upper(), ad_hoc])
                     # except Exception as e:
                     #     st.error(f"Error accessing Google Sheet: {e}")
                     except:
@@ -159,7 +159,7 @@ def input(client, client_list):
                     sheet.worksheet('ARCHIVE').append_row(i)
                 
 
-            sheet.worksheet('TEMP').batch_clear(["A2:F100"])
+            sheet.worksheet('TEMP').batch_clear(["A2:H100"])
             
             data = sheet.worksheet('TEMP').get_all_values()
             df1 = pd.DataFrame(data)
