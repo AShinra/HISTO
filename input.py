@@ -7,13 +7,12 @@ import time
 
 @st.dialog('Delete Entry')
 def delete_entry(data):
-
-    with st.experimental_dialog('Delete Record'):
-        record_number = st.number_input(
-        label='Record Number to Delete')
+   
+    record_number = st.number_input(
+    label='Record Number to Delete')
     
-        data.drop(record_number)
-        st.dataframe(data)
+    data.drop(record_number)
+    st.dataframe(data)
 
     return 
 
