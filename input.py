@@ -13,7 +13,7 @@ def delete_entry(data):
         record_number = int(st.number_input(
         label='Record Number to Delete',
         min_value=0,))
-    with col2:
+        
         st.button(
             label='Delete Record')
     
