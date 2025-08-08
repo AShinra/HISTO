@@ -102,7 +102,7 @@ def input(client, client_list):
 
     if b_add:
 
-        with st.spinner('Processing Data', show_time=True):
+        with st.spinner('Processing Data', show_time=True, on_click=clear_input):
             time.sleep(15)
         
             if input_captured == 'Yes':
@@ -160,8 +160,6 @@ def input(client, client_list):
                     df1.columns = df1.iloc[0]
                     df1 = df1[1:]
                     st.dataframe(df1)
-            
-                clear_input()
 
     if b_submit:
 
