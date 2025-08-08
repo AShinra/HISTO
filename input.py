@@ -4,11 +4,6 @@ import pandas as pd
 from datetime import datetime
 import time
 
-def clear_input():
-    st.session_state['in_client'] = ''
-    st.session_state['in_hyperlink'] = ''
-    return
-
 
 @st.cache_data
 def load_data(_date, client, link):
