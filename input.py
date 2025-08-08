@@ -11,9 +11,11 @@ def delete_entry(data):
     record_number = int(st.number_input(
     label='Record Number to Delete',
     min_value=0,))
+    st.write(data)
     
-    data.drop(record_number)
-    st.dataframe(data)
+    
+    # data.drop(record_number)
+    # st.dataframe(data)
 
     return 
 
