@@ -4,6 +4,17 @@ import pandas as pd
 from datetime import datetime
 import time
 
+def delete_entry(data):
+
+    record_number = st.number_input(
+        label='Record Number to Delete')
+    
+    data.drop(record_number)
+
+    st.dataframe(data)
+
+    return 
+
 
 @st.cache_data
 def load_data(_date, client, link):
@@ -186,5 +197,8 @@ def input(client, client_list):
 
             sheet.worksheet('TEMP').batch_clear(["A2:H100"])
             st.warning('Deleted all Entry!!!')
+    
+    if b_delete:
+        delete_entry(data)
 
     return
