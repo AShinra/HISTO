@@ -135,6 +135,7 @@ def input(client, client_list):
                             input_fqdn = _fqdn
                     try:    
                         sheet.worksheet('TEMP').append_row([input_date, input_client.upper(), input_tier, _hyperlink, captured, input_fqdn, input_agency.upper(), ad_hoc])
+                        clear_input()
                     # except Exception as e:
                     #     st.error(f"Error accessing Google Sheet: {e}")
                     except:
@@ -191,8 +192,5 @@ def input(client, client_list):
 
             sheet.worksheet('TEMP').batch_clear(["A2:H100"])
             st.warning('Deleted all Entry!!!')
-
-
-    clear_input()	
 
     return
