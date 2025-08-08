@@ -4,6 +4,8 @@ import pandas as pd
 from datetime import datetime
 import time
 
+
+@st.dialog('Delete Entry')
 def delete_entry(data):
 
     with st.experimental_dialog('Delete Record'):
