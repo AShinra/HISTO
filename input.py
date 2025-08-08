@@ -11,7 +11,10 @@ def delete_entry(data):
     record_number = int(st.number_input(
     label='Record Number to Delete',
     min_value=0,))
-    st.write(data)
+    
+    df = pd.DataFrame(data)
+    df.columns = df.iloc[0]
+    st.dataframe(df)
     
     
     # data.drop(record_number)
