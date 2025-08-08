@@ -6,11 +6,11 @@ import time
 
 def delete_entry(data):
 
-    record_number = st.number_input(
-        label='Record Number to Delete')
+    with st.popover('Delete Record'):
+        record_number = st.number_input(
+            label='Record Number to Delete')
     
     data.drop(record_number)
-
     st.dataframe(data)
 
     return 
