@@ -14,18 +14,17 @@ def delete_entry(data):
         label='Record Number to Delete',
         min_value=0,))
         
-        st.button(
+        btn_deleterecord = st.button(
             label='Delete Record')
     
     df = pd.DataFrame(data)
     df.columns = df.iloc[0]
     st.dataframe(df)
-    
-    
-    # data.drop(record_number)
-    # st.dataframe(data)
 
-    return 
+    if btn_deleterecord:
+        df.drop(record_number, inplace=True)
+    
+    return df
 
 
 @st.cache_data
@@ -211,6 +210,7 @@ def input(client, client_list):
             st.warning('Deleted all Entry!!!')
     
     if b_delete:
-        delete_entry(sheet.worksheet('TEMP').get_all_values())
+        deleted_entry_df = delete_entry(sheet.worksheet('TEMP').get_all_values())
+        st.dataframe(deleted_entry_df)
 
     return
