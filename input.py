@@ -95,7 +95,7 @@ def input(client, client_list):
             checkbox_adhoc = st.checkbox('Ad Hoc')
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
         with col3:
-            b_add = st.button('Add' , key='input_archive', use_container_width=True)
+            b_add = st.button('Add' , key='input_archive', use_container_width=True, on_click=clear_input)
             b_clear = st.button('Clear', use_container_width=True)
             b_delete = st.button('Delete', use_container_width=True)
             b_submit = st.button('Submit', use_container_width=True)
@@ -159,9 +159,7 @@ def input(client, client_list):
                     df1 = pd.DataFrame(data)
                     df1.columns = df1.iloc[0]
                     df1 = df1[1:]
-                    st.dataframe(df1)
-                    
-        clear_input()
+                    st.dataframe(df1)        
 
     if b_submit:
 
