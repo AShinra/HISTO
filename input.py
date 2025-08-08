@@ -6,12 +6,12 @@ import time
 
 def delete_entry(data):
 
-    with st.popover('Delete Record'):
+    with st.experimental_dialog('Delete Record'):
         record_number = st.number_input(
-            label='Record Number to Delete')
+        label='Record Number to Delete')
     
-    data.drop(record_number)
-    st.dataframe(data)
+        data.drop(record_number)
+        st.dataframe(data)
 
     return 
 
