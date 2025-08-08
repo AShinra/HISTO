@@ -158,7 +158,7 @@ def input(client, client_list):
                 else:
                     df1 = pd.DataFrame(data)
                     df1.columns = df1.iloc[0]
-                    df1 = df1[1:]
+                    df1 = df1[1:].drop_duplicates()
                     st.dataframe(df1)        
 
     if b_submit:
