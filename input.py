@@ -64,7 +64,12 @@ def input(client, client_list):
         # get agency list
         agency_temp = sheet.worksheet('AGENCIES').get_all_values()
         df_agencies = pd.DataFrame(agency_temp)
-        agencies_list = df_agencies[0].to_list()        
+        agencies_list = df_agencies[0].to_list()
+
+        # get company list
+        company_temp = sheet.worksheet('COMPANIES').get_all_values()
+        df_companies = pd.DataFrame(company_temp)
+        company_list = df_companies[0].to_list()
 
         # get fqdn tiering data
         fqdn_temp = sheet.worksheet('TIER').get_all_values()
@@ -107,7 +112,12 @@ def input(client, client_list):
                     accept_new_options=True
                     )                
             with col2b:
-                input_client = st.text_input('Client', key='in_client')
+                # input_client = st.text_input('Client', key='in_client')
+                input_client = st.selectbox(
+                    label='Client',
+                    options=company_list,
+                    key='in_client',
+                    accept_new_options=True)
 
             checkbox_adhoc = st.checkbox('Ad Hoc')
             input_hyperlink = st.text_area('Hyperlink', key='in_hyperlink')
@@ -181,7 +191,7 @@ def input(client, client_list):
     if b_submit:
 
         with st.spinner('Processing Data', show_time=True):
-            time.sleep(15)
+            # time.sleep(15)
 
             data = sheet.worksheet('TEMP').get_all_values()
             for idx, i in enumerate(data):
@@ -189,6 +199,7 @@ def input(client, client_list):
                     continue
                 else:
                     sheet.worksheet('ARCHIVE').append_row(i)
+                    time.sleep(5)
                 
 
             sheet.worksheet('TEMP').batch_clear(["A2:H100"])
