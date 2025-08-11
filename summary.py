@@ -241,7 +241,7 @@ def summary(client):
         with chart_cola2:
             with st.spinner('Generating Chart', show_time=True):
                 _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('yearmonthdate(MONTH_NAME):O', sort=None, title='Month'),
+                    x=alt.X('yearmonthdate(MONTH_NAME):Q', sort=None, title='Month'),
                     y=alt.Y('count', title='Count'))
                 st.write(_chart1)       
                 
