@@ -234,7 +234,7 @@ def summary(client):
         chart_cola1, chart_cola2 = st.columns([0.3, 0.7], border=True)
         with chart_cola1:
             with st.spinner('Generating Table', show_time=True):
-                monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
+                monthcount = df_captured['MONTH_NAME'].value_counts(sort=True)
                 df_monthcount = monthcount.to_frame()
                 df_monthcount = df_monthcount.reset_index()
                 st.dataframe(df_monthcount, hide_index=True)
