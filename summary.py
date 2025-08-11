@@ -240,6 +240,11 @@ def summary(client):
                 monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
                 df_monthcount = monthcount.to_frame()
                 df_monthcount = df_monthcount.reset_index()
+
+                # Sort using categorical order
+                df_monthcount['MONTH_NAME'] = pd.Categorical(df_monthcount['MONTH_NAME'], categories=month_order, ordered=True)
+                df_monthcount = df_monthcount.sort_values('MONTH_NAME')
+
                 st.dataframe(df_monthcount, hide_index=True)
         with chart_cola2:
             with st.spinner('Generating Chart', show_time=True):
