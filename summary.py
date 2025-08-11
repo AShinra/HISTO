@@ -231,17 +231,20 @@ def summary(client):
 
 
     with chart_col:
+
+        month_order = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
         chart_cola1, chart_cola2 = st.columns([0.3, 0.7], border=True)
         with chart_cola1:
             with st.spinner('Generating Table', show_time=True):
-                monthcount = df_captured['MONTH_NAME'].value_counts(sort=True)
+                monthcount = df_captured['MONTH_NAME'].value_counts(sort=False)
                 df_monthcount = monthcount.to_frame()
                 df_monthcount = df_monthcount.reset_index()
                 st.dataframe(df_monthcount, hide_index=True)
         with chart_cola2:
             with st.spinner('Generating Chart', show_time=True):
                 _chart1 = alt.Chart(df_monthcount, title=alt.TitleParams(f'Monthly {cap_option}', anchor='middle')).mark_bar().encode(
-                    x=alt.X('MONTH_NAME', sort=None, title='Month'),
+                    x=alt.X('MONTH_NAME', sort=month_order, title='Month'),
                     y=alt.Y('count', title='Count'))
                 st.write(_chart1)       
                 
